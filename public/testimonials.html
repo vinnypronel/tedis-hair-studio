@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimonials – Tedi's Hair Studio</title>
+  <meta name="description"
+    content="See what our clients say about Tedi's Hair Studio. Rated 5.0 stars by 100+ clients.">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/greylogo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/greylogo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/greylogo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ===== TESTIMONIALS HERO ===== */
+    .testimonials-hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 229, 0, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .testimonials-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 229, 0, 0.1);
+      border: 1px solid rgba(255, 229, 0, 0.3);
+      padding: 10px 20px;
+      border-radius: 50px;
+      margin-bottom: 30px;
+    }
+
+    .hero-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .hero-badge span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .testimonials-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      color: #fff;
+    }
+
+    .testimonials-hero h1 .highlight {
+      color: var(--brand);
+    }
+
+    .hero-stars {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .hero-stars svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--brand);
+    }
+
+    .testimonials-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .booksy-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 12px 24px;
+      border: 1px solid rgba(255, 229, 0, 0.3);
+      border-radius: 8px;
+    }
+
+    .booksy-link:hover {
+      background: rgba(255, 229, 0, 0.1);
+      border-color: var(--brand);
+    }
+
+    .booksy-link svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .booksy-link:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section {
+      padding: 80px 0 120px;
+      background: transparent;
+    }
+
+    .reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .reviews-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .reviews-source {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .reviews-source .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    /* ===== REVIEW CARDS GRID ===== */
+    .reviews-grid {
+      display: grid;
+      /* Adjusted for 4 columns on large screens (1200px / 4 ~ 280px minus gaps) */
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      background: linear-gradient(145deg, #151515 0%, #0d0d0d 100%);
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 24px;
+      /* Slightly reduced padding to fit content better */
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      /* Scroll Animation Start State */
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .review-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .review-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .review-card:hover {
+      border-color: #333;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .review-card:hover::before {
+      opacity: 1;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--brand) 0%, #b8860b 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #000;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .reviewer-avatar svg {
+      width: 22px;
+      height: 22px;
+      fill: #000;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .review-date-stars {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .review-date {
+      font-size: 12px;
+      color: var(--brand);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      justify-content: flex-end;
+    }
+
+    .review-stars svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--brand);
+    }
+
+    .review-service {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .review-text {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0 0 16px 0;
+    }
+
+    .review-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid #222;
+      margin-top: auto;
+    }
+
+    .booksy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #22c55e;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ... existing styles ... */
+
+
+    .page-indicator {
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .review-card .external-icon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: var(--muted);
+    }
+
+    .review-card:hover .external-icon {
+      opacity: 1;
+    }
+
+    .external-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ===== LOADING STATE ===== */
+    .reviews-loading {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #222;
+      border-top-color: var(--brand);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .reviews-loading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== EMPTY STATE ===== */
+    .reviews-empty {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .reviews-empty svg {
+      width: 64px;
+      height: 64px;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .reviews-empty h3 {
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+
+    .reviews-empty p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .testimonials-cta {
+      text-align: center;
+      padding: 80px 0;
+      background: transparent;
+      border-top: 1px solid #191919;
+    }
+
+    .testimonials-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+
+    .testimonials-cta p {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0 0 30px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .testimonials-hero {
+        padding: 120px 0 60px;
+      }
+
+      .hero-stars svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .review-card {
+        padding: 22px;
+      }
+
+      .reviews-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <script src="header.js" defer></script>
+
+  <!-- Logo Pattern Background -->
+  <div class="logo-pattern-bg"></div>
+
+  <!-- TESTIMONIALS HERO -->
+  <section class="testimonials-hero">
+    <div class="container">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            fill="var(--brand)" stroke="var(--brand)" />
+        </svg>
+        <span>Verified Reviews</span>
+      </div>
+      <h1>Rated <span class="highlight">5.0 Stars</span><br>by 109 Clients</h1>
+      <div class="hero-stars">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+      <p class="subtitle">Don't just take our word for it — see what our clients have to say about their experience at
+        Tedi's Hair Studio.</p>
+      <a href="https://booksy.com/en-us/1231797_tedis-hair-studio_barber-shop_28674_matawan" target="_blank"
+        rel="noopener" class="booksy-link">
+        View on Booksy
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="reviews-header">
+        <h2>What Our Clients Say</h2>
+        <div class="reviews-source" id="reviewsSource">
+          <span class="live-dot"></span>
+          <span>Live from Booksy</span>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div class="reviews-loading" id="reviewsLoading">
+        <div class="loading-spinner"></div>
+        <p>Loading reviews...</p>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid" id="reviewsGrid" style="display: none;"></div>
+
+      <!-- Empty State -->
+      <div class="reviews-empty" id="reviewsEmpty" style="display: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path
+            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        <h3>No reviews yet</h3>
+        <p>Check back soon for client testimonials!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="testimonials-cta">
+    <div class="container">
+      <h2>Ready to Experience the Difference?</h2>
+      <p>Join 100+ satisfied clients and book your appointment today.</p>
+      <a href="book.html" class="btn btn-xl">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <p>Professional barbering and grooming services in Matawan, NJ.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Browse</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="artists.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="book.html">Book Now</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="services.html">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-social">
+        <h4>Follow</h4>
+        <ul>
+          <li>
+            <a href="https://www.instagram.com/tedishairstudio/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" style="fill:url(#instagram-gradient)">
+                <defs>
+                  <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#FFDC80" />
+                    <stop offset="10%" style="stop-color:#FCAF45" />
+                    <stop offset="30%" style="stop-color:#F77737" />
+                    <stop offset="50%" style="stop-color:#F56040" />
+                    <stop offset="70%" style="stop-color:#FD1D1D" />
+                    <stop offset="80%" style="stop-color:#E1306C" />
+                    <stop offset="90%" style="stop-color:#C13584" />
+                    <stop offset="100%" style="stop-color:#833AB4" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@tedishairstudio" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" class="tiktok-icon">
+                <defs>
+                  <linearGradient id="tiktok-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#25F4EE" />
+                    <stop offset="50%" style="stop-color:#FE2C55" />
+                    <stop offset="100%" style="stop-color:#FE2C55" />
+                  </linearGradient>
+                </defs>
+                <path fill="#25F4EE"
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                <path fill="#FE2C55"
+                  d="M16.82 2h-1v.44a4.83 4.83 0 0 0 3.77 4.25 4.85 4.85 0 0 0 1 .1v1a8.16 8.16 0 0 1-4.77-1.52v7a6.34 6.34 0 0 1-10.86 4.43 6.33 6.33 0 0 1 4.36-10.7 6.84 6.84 0 0 1 1 .05v1a2.93 2.93 0 0 0-.88-.13 2.89 2.89 0 0 0-2.31 4.64 2.89 2.89 0 0 0 5.2-1.74V2h3.45z"
+                  opacity="0.5" />
+              </svg>
+              TikTok
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bg-logo">
+        <img src="images/greylogo.png" alt="" />
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="y"></span> Tedi's Hair Studio. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="include.js"></script>
+
+  <script>
+    // ============================================
+    // REVIEWS DATA CONFIGURATION
+    // ============================================
+    const BOOKSY_BASE_URL = 'https://booksy.com/en-us/1231797_tedis-hair-studio_barber-shop_28674_matawan';
+    const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : '/api';
+
+    // Fallback reviews (used if API fails) - with real names from Booksy
+    const FALLBACK_REVIEWS = [
+      { id: 1, name: "Noah R", date: "Jan 3, 2026", service: "Haircut", rating: 5, text: "Satisfied with my haircut.", page: 1 },
+      { id: 2, name: "michael M", date: "Jan 3, 2026", service: "Haircut", rating: 5, text: "the haircut i got was awesome", page: 1 },
+      { id: 3, name: "Naum B", date: "Dec 29, 2025", service: "Haircut", rating: 5, text: "Great service. Highly recommend!", page: 1 },
+      { id: 4, name: "Booksy Client", date: "Dec 2025", service: "Haircut", rating: 5, text: "great cut", page: 1 },
+      { id: 5, name: "Booksy Client", date: "Dec 2025", service: "Haircut", rating: 5, text: "Best barber in the business", page: 1 },
+      { id: 6, name: "Booksy Client", date: "Dec 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi gives some of the cleanest haircuts I've seen and he's very personable to talk to throughout your appointment.", page: 1 },
+      { id: 7, name: "Booksy Client", date: "Dec 2025", service: "Haircut", rating: 5, text: "Nothing but excellence. He does exactly what you want, sharing photos of the style you're going for goes a long way.", page: 1 },
+      { id: 8, name: "Booksy Client", date: "Nov 2025", service: "Haircut W/ Beard", rating: 5, text: "👍🏻", page: 1 },
+      { id: 9, name: "Booksy Client", date: "Nov 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi's super chill and always gets my cut looking clean. Definitely my go-to barber.", page: 1 },
+      { id: 10, name: "Booksy Client", date: "Nov 2025", service: "Haircut", rating: 5, text: "fire 🔥", page: 1 }
+    ];
+
+    // ============================================
+    // RENDER FUNCTIONS
+    // ============================================
+    function getAvatarContent(name) {
+      // Use person icon for anonymous Booksy clients
+      if (name === "Booksy Client" || name === "Verified Client") {
+        return '<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+      }
+      // Use initials for named clients
+      return name.split(' ').map(n => n[0]).join('').substring(0, 2);
+    }
+
+    function renderStars(rating) {
+      let stars = '';
+      for (let i = 0; i < 5; i++) {
+        if (i < rating) {
+          stars += '<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+        } else {
+          stars += '<svg viewBox="0 0 24 24" style="fill: #333;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+        }
+      }
+      return stars;
+    }
+
+    function getBooksyPageUrl(page) {
+      // Booksy uses pagination - link to the profile page (reviews section)
+      return `${BOOKSY_BASE_URL}#ba_s=sr_${page}`;
+    }
+
+    function renderReviewCard(review) {
+      const pageUrl = getBooksyPageUrl(review.page || 1);
+      const displayName = review.name === "Verified Client" ? "Booksy Client" : review.name;
+      const displayDate = review.date || 'Recently';
+
+      return `
+        <article class="review-card" onclick="window.open('${pageUrl}', '_blank')" title="View on Booksy (Page ${review.page || 1})">
+          <div class="review-header">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">${getAvatarContent(displayName)}</div>
+              <div>
+                <div class="reviewer-name">${displayName}</div>
+                <div class="review-service">${review.service || 'Haircut'}</div>
+              </div>
+            </div>
+            <div class="review-date-stars">
+              <div class="review-date">${displayDate}</div>
+              <div class="review-stars">
+                ${renderStars(review.rating)}
+              </div>
+            </div>
+          </div>
+          <p class="review-text">"${review.text}"</p>
+          <div class="review-footer">
+            <span class="booksy-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12">
+                <path d="M9 12l2 2 4-4"/>
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+              Verified on Booksy
+            </span>
+          </div>
+          <div class="external-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderReviews(reviews) {
+      const grid = document.getElementById('reviewsGrid');
+      const loading = document.getElementById('reviewsLoading');
+      const empty = document.getElementById('reviewsEmpty');
+
+      loading.style.display = 'none';
+
+      if (!reviews || reviews.length === 0) {
+        empty.style.display = 'block';
+        return;
+      }
+
+      grid.innerHTML = reviews.map(renderReviewCard).join('');
+      grid.style.display = 'grid';
+
+      // Initialize Scroll Observer for Animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add delay based on index (staggered effect)
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 50); // 50ms staggering
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Observe all cards
+      document.querySelectorAll('.review-card').forEach(card => {
+        observer.observe(card);
+      });
+    }
+
+    function updateSourceIndicator(isLive, lastUpdate) {
+      const source = document.getElementById('reviewsSource');
+      if (isLive) {
+        let timeAgo = '';
+        if (lastUpdate) {
+          const mins = Math.floor((Date.now() - lastUpdate.getTime()) / 60000);
+          if (mins < 60) timeAgo = ` • Updated ${mins}m ago`;
+          else if (mins < 1440) timeAgo = ` • Updated ${Math.floor(mins / 60)}h ago`;
+          else timeAgo = ` • Updated ${Math.floor(mins / 1440)}d ago`;
+        }
+        source.innerHTML = `<span class="live-dot"></span><span>Synced from Booksy${timeAgo}</span>`;
+      } else {
+        source.innerHTML = '<span style="color: var(--muted);">📋</span><span>Verified Reviews</span>';
+      }
+    }
+
+    // ============================================
+    // DATA FETCHING (Auto-syncs from Booksy API)
+    // ============================================
+    async function fetchReviews() {
+      try {
+        const response = await fetch(`${API_URL}/reviews`);
+        if (!response.ok) throw new Error('Failed to fetch reviews');
+        const data = await response.json();
+
+        // Update review count in hero
+        if (data.total) {
+          const heroTitle = document.querySelector('.testimonials-hero h1');
+          if (heroTitle) {
+            heroTitle.innerHTML = `Rated <span class="highlight">5.0 Stars</span><br>by ${data.total} Clients`;
+          }
+        }
+
+        // Update source indicator with last updated time
+        if (data.lastUpdated) {
+          const lastUpdate = new Date(data.lastUpdated);
+          updateSourceIndicator(true, lastUpdate);
+        } else {
+          updateSourceIndicator(true);
+        }
+
+        return data.reviews || FALLBACK_REVIEWS;
+      } catch (error) {
+        console.warn('Failed to fetch reviews from API, using fallback:', error);
+        updateSourceIndicator(false);
+        return FALLBACK_REVIEWS;
+      }
+    }
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+    async function init() {
+      const reviews = await fetchReviews();
+      renderReviews(reviews);
+    }
+
+    // Start loading
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+
+</html>

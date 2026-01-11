@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Now – Tedi's Hair Studio</title>
+  <link rel="icon" type="image/png" sizes="96x96" href="images/greylogo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/greylogo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/greylogo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Prevent horizontal scroll */
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    /* ===== BOOKING PAGE HERO ===== */
+    .booking-hero {
+      text-align: center;
+      padding: 50px 20px 40px;
+      background: linear-gradient(135deg, rgba(255, 229, 0, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .booking-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      color: var(--brand);
+      margin: 0 0 12px;
+    }
+
+    .booking-hero p {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ===== MAIN BOOKING CONTAINER ===== */
+    .booking-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 30px 80px;
+    }
+
+    /* ===== FORM SECTIONS AS CARDS ===== */
+    .form-section {
+      background: var(--card);
+      border: 1px solid #242428;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+
+    .form-section h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .form-section h3 .step-num {
+      background: var(--brand);
+      color: #111;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* ===== FORM INPUTS ===== */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 2px solid #333;
+      background: #0d0d0e;
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      accent-color: var(--brand);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(255, 229, 0, 0.15);
+    }
+
+    .form-group input::placeholder {
+      color: #555;
+    }
+
+    /* Custom Dropdown Styling */
+    .custom-select {
+      position: relative;
+      width: 100%;
+    }
+
+    .custom-select-trigger {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 2px solid #333;
+      background: #0d0d0e;
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .custom-select-trigger:hover {
+      border-color: #444;
+    }
+
+    .custom-select.open .custom-select-trigger {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(255, 229, 0, 0.15);
+    }
+
+    .custom-select-trigger::after {
+      content: '';
+      border: solid #888;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 4px;
+      transform: rotate(45deg);
+      transition: transform 0.2s;
+      margin-top: -4px;
+    }
+
+    .custom-select.open .custom-select-trigger::after {
+      transform: rotate(-135deg);
+      margin-top: 4px;
+    }
+
+    .custom-select-options {
+      background: #1a1a1a;
+      border: 2px solid #333;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .custom-select.open .custom-select-options {
+      max-height: 500px;
+      opacity: 1;
+      border-color: var(--brand);
+    }
+
+    .custom-select-option {
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      color: #fff;
+    }
+
+    .custom-select-option:hover {
+      background: var(--brand);
+      color: #111;
+    }
+
+    .custom-select-option.selected {
+      background: rgba(255, 229, 0, 0.1);
+      color: var(--brand);
+    }
+
+    .custom-select-option:hover.selected {
+      background: var(--brand);
+      color: #111;
+    }
+
+    /* Hide native select but keep for form submission */
+    .form-group select.hidden-select {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+    }
+
+    /* ===== SERVICE DETAILS CARD ===== */
+    #serviceDetails {
+      background: linear-gradient(135deg, rgba(255, 229, 0, 0.1) 0%, rgba(255, 229, 0, 0.02) 100%);
+      border: 1px solid rgba(255, 229, 0, 0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+
+    #serviceDetails p {
+      margin: 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== TWO COLUMN LAYOUT FOR DATE/TIME ===== */
+    .datetime-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* ===== CALENDAR ===== */
+    .calendar-container {
+      background: #0d0d0e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-header button {
+      background: transparent;
+      border: 2px solid #333;
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .calendar-header button:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    .calendar-header h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .calendar-weekday {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand);
+      padding: 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+
+    .calendar-day {
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #2a2a2e;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+      background: #111;
+    }
+
+    .calendar-day:hover:not(.other-month):not(.disabled) {
+      border-color: var(--brand);
+      color: var(--brand);
+      transform: scale(1.05);
+    }
+
+    .calendar-day.other-month {
+      color: var(--muted);
+      opacity: 0.2;
+      cursor: not-allowed;
+      background: transparent;
+      border-color: transparent;
+    }
+
+    .calendar-day.disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .calendar-day.selected {
+      background: var(--brand);
+      color: #111;
+      border-color: var(--brand);
+    }
+
+    .calendar-day.closed {
+      opacity: 0.2;
+      cursor: not-allowed;
+      background: #0a0a0b;
+      border-color: #1a1a1a;
+    }
+
+    /* ===== TIME SLOTS ===== */
+    .time-section h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      transform-origin: top left;
+      transform: scale(0.96);
+      opacity: 0;
+      transition: transform .22s ease, opacity .22s ease;
+    }
+
+    .time-slots.zoom-in {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .time-slot {
+      padding: 14px 10px;
+      text-align: center;
+      border: 2px solid #333;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+      position: relative;
+      background: #111;
+    }
+
+    .time-slot:hover:not(.disabled) {
+      border-color: var(--brand);
+      color: var(--brand);
+      transform: scale(1.03);
+    }
+
+    .time-slot.selected {
+      background: var(--brand);
+      color: #111;
+      border-color: var(--brand);
+    }
+
+    .time-slot.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .time-slot.booked {
+      color: transparent;
+    }
+
+    .time-slot.booked::after {
+      content: "Booked";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #999;
+      background: #1a1a1c;
+      border-radius: 8px;
+    }
+
+    /* ===== INFO FORM GRID ===== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .info-grid .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    /* ===== INFO STACKED LAYOUT ===== */
+    .info-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-stack .form-group {
+      width: 100%;
+    }
+
+    /* ===== PAYMENT METHODS ===== */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .payment-option {
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 600;
+      font-size: 16px;
+      background: #111;
+    }
+
+    .payment-option:hover {
+      border-color: var(--brand);
+      transform: scale(1.02);
+    }
+
+    .payment-option.selected {
+      background: var(--brand);
+      color: #111;
+      border-color: var(--brand);
+    }
+
+    .payment-option span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* ===== SUBMIT SECTION ===== */
+    .submit-section {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .submit-section .btn {
+      padding: 20px 80px;
+      font-size: 18px;
+    }
+
+    /* ===== MESSAGES ===== */
+    .loading {
+      color: var(--muted);
+      font-size: 15px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .error {
+      color: #ff6b6b;
+      padding: 14px 18px;
+      background: rgba(255, 107, 107, 0.1);
+      border-radius: 10px;
+      margin: 16px 0;
+      border: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    .success {
+      color: #51cf66;
+      padding: 14px 18px;
+      background: rgba(81, 207, 102, 0.1);
+      border-radius: 10px;
+      margin: 16px 0;
+    }
+
+    /* ===== CONFIRMATION SCREEN ===== */
+    #confirmationScreen {
+      background: var(--card);
+      border: 1px solid #242428;
+      border-radius: 20px;
+      padding: 50px 40px;
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    #confirmationScreen h3 {
+      color: #51cf66;
+      font-size: 28px;
+      margin: 0 0 20px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ===== PHONE VERIFICATION ===== */
+    .phone-verify-section {
+      margin-top: 16px;
+      padding: 20px;
+      background: rgba(255, 229, 0, 0.05);
+      border: 1px solid rgba(255, 229, 0, 0.2);
+      border-radius: 12px;
+      display: none;
+    }
+
+    .phone-verify-section.show {
+      display: block;
+    }
+
+    .phone-verify-section h4 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      color: var(--brand);
+    }
+
+    .phone-verify-section p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .verify-code-input {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .verify-code-input input {
+      flex: 1;
+      padding: 14px 16px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: #0d0d0e;
+      color: #fff;
+      font-size: 18px;
+      letter-spacing: 8px;
+      text-align: center;
+      font-family: monospace;
+    }
+
+    .verify-code-input input:focus {
+      border-color: var(--brand);
+      outline: none;
+    }
+
+    .verify-btn {
+      padding: 14px 24px;
+      background: var(--brand);
+      color: #111;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .verify-btn:hover {
+      transform: scale(1.02);
+    }
+
+    .verify-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .send-code-btn {
+      background: transparent;
+      border: 2px solid var(--brand);
+      color: var(--brand);
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+
+    .send-code-btn:hover {
+      background: var(--brand);
+      color: #111;
+    }
+
+    .send-code-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #51cf66;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .resend-link {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .resend-link a {
+      color: var(--brand);
+      cursor: pointer;
+    }
+
+    /* ===== NO-SHOW AGREEMENT ===== */
+    .agreement-section {
+      background: rgba(255, 229, 0, 0.05);
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .agreement-label {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .agreement-label input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--brand);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .agreement-label a {
+      color: var(--brand);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    /* ===== POLICY MODAL ===== */
+    .policy-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .policy-modal.show {
+      display: flex;
+    }
+
+    .policy-content {
+      background: var(--card);
+      border: 1px solid #333;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 36px;
+    }
+
+    .policy-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin: 0 0 8px;
+      color: var(--brand);
+    }
+
+    .policy-content .policy-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 24px;
+    }
+
+    .policy-content h3 {
+      font-size: 16px;
+      margin: 24px 0 12px;
+      color: var(--text);
+    }
+
+    .policy-content p,
+    .policy-content li {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 12px;
+    }
+
+    .policy-content ul {
+      padding-left: 20px;
+      margin: 0 0 16px;
+    }
+
+    .policy-close-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--brand);
+      color: #111;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: all 0.2s;
+    }
+
+    .policy-close-btn:hover {
+      transform: scale(1.02);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 800px) {
+      .datetime-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-container {
+        padding: 30px 16px 60px;
+      }
+
+      .form-section {
+        padding: 22px 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .time-slots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body class="fade-in">
+
+  <script src="header.js" defer></script>
+
+  <!-- Logo Pattern Background -->
+  <div class="logo-pattern-bg"></div>
+
+  <!-- BOOKING HERO -->
+  <div class="booking-hero">
+    <h1>Book Your Appointment</h1>
+    <p>Select a service, pick your date & time, and you're all set!</p>
+  </div>
+
+  <!-- BOOKING FORM -->
+  <div class="booking-container">
+    <div id="errorMsg"></div>
+    <div id="successMsg"></div>
+
+    <form id="bookingForm" novalidate>
+      <!-- STEP 1: SERVICE -->
+      <div class="form-section">
+        <h3><span class="step-num">1</span> Select Your Service</h3>
+        <div class="form-group">
+          <label for="service">Which service would you like?</label>
+          <div class="custom-select" id="customServiceSelect">
+            <div class="custom-select-trigger">
+              <span>-- Choose a service --</span>
+            </div>
+            <div class="custom-select-options" id="serviceOptions">
+              <div class="custom-select-option" data-value="">-- Choose a service --</div>
+            </div>
+          </div>
+          <select id="service" class="hidden-select" required>
+            <option value="">-- Choose a service --</option>
+          </select>
+        </div>
+        <div id="serviceDetails" style="display: none;">
+          <p>
+            <strong id="serviceName"></strong>
+            <span style="color: var(--muted);">•</span>
+            <span id="serviceDuration"></span> min
+            <span style="color: var(--muted);">•</span>
+            <span id="servicePrice" style="color: var(--brand); font-weight: 700;"></span>
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 2: DATE & TIME -->
+      <div class="form-section">
+        <h3><span class="step-num">2</span> Choose Date & Time</h3>
+        <div class="datetime-grid">
+          <div>
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <button type="button" id="prevMonth">←</button>
+                <h4 id="monthYear"></h4>
+                <button type="button" id="nextMonth">→</button>
+              </div>
+              <div class="calendar-weekdays">
+                <div class="calendar-weekday">Sun</div>
+                <div class="calendar-weekday">Mon</div>
+                <div class="calendar-weekday">Tue</div>
+                <div class="calendar-weekday">Wed</div>
+                <div class="calendar-weekday">Thu</div>
+                <div class="calendar-weekday">Fri</div>
+                <div class="calendar-weekday">Sat</div>
+              </div>
+              <div class="calendar-days" id="calendarDays"></div>
+            </div>
+            <input type="hidden" id="selectedDate" />
+            <div id="dateError" class="error" style="display: none;"></div>
+          </div>
+          <div class="time-section">
+            <h4>Available Times</h4>
+            <div id="timeLoading" class="loading" style="display: none;">Loading times...</div>
+            <div class="time-slots" id="timeSlots"></div>
+            <input type="hidden" id="selectedTime" />
+            <div id="timeError" class="error" style="display: none;"></div>
+            <p id="selectDateHint" style="color: var(--muted); font-size: 13px; margin-top: 12px; text-align: center;">
+              Select a date to see available times</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: YOUR INFO -->
+      <div class="form-section">
+        <h3><span class="step-num">3</span> Your Information</h3>
+        <div class="info-stack">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" placeholder="john@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" placeholder="(555) 123-4567" required />
+            <!-- Phone Verification (TEMPORARILY HIDDEN - enable once Twilio is verified) -->
+            <div class="phone-verify-section" id="phoneVerifySection" style="display: none !important;">
+              <h4>📱 Verify Your Phone Number</h4>
+              <p>We'll send a 6-digit code to verify your number. This helps us confirm appointments and send reminders.
+              </p>
+              <div id="sendCodeArea">
+                <button type="button" class="send-code-btn" id="sendCodeBtn">Send Verification Code</button>
+              </div>
+              <div id="enterCodeArea" style="display: none;">
+                <div class="verify-code-input">
+                  <input type="text" id="verifyCode" placeholder="000000" maxlength="6" pattern="[0-9]{6}" />
+                  <button type="button" class="verify-btn" id="verifyCodeBtn">Verify</button>
+                </div>
+                <p class="resend-link">Didn't receive it? <a id="resendCode">Resend code</a></p>
+              </div>
+              <div id="verifiedArea" style="display: none;">
+                <span class="verified-badge">✓ Phone Verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: PAYMENT -->
+      <div class="form-section">
+        <h3><span class="step-num">4</span> Payment Method</h3>
+        <div class="payment-methods">
+          <label class="payment-option">
+            <input type="radio" name="payment" value="cash" style="display:none;" />
+            <span>💵 Pay with Cash</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="zelle" style="display:none;" />
+            <span>🏦 Pay with Zelle</span>
+          </label>
+        </div>
+        <input type="hidden" id="selectedPayment" name="payment" />
+      </div>
+
+      <!-- STEP 5: AGREEMENT -->
+      <div class="form-section">
+        <h3><span class="step-num">5</span> Booking Agreement</h3>
+        <div class="agreement-section">
+          <label class="agreement-label">
+            <input type="checkbox" id="agreePolicy" required />
+            <span>I agree to the <a href="#" id="showPolicyLink">No-Show & Cancellation Policy</a>. I understand that
+              failing to show up or canceling less than 24 hours before my appointment may result in a <strong>$25
+                fee</strong>.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-section">
+        <button class="btn btn-xl" type="submit" id="submitBtn">Confirm Booking</button>
+      </div>
+    </form>
+
+    <!-- CONFIRMATION -->
+    <div id="confirmationScreen" style="display:none;">
+      <h3>✓ Booking Confirmed!</h3>
+      <p id="confirmationText" style="color:var(--muted); margin:0 0 24px; line-height: 1.8;"></p>
+      <p style="color:var(--muted); font-size: 14px; margin-bottom: 24px;">📧 A confirmation email and text message have
+        been sent to you.</p>
+      <a href="index.html" class="btn">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- NO-SHOW POLICY MODAL -->
+  <div class="policy-modal" id="policyModal">
+    <div class="policy-content">
+      <h2>No-Show & Cancellation Policy</h2>
+      <p class="policy-subtitle">Please read carefully before booking</p>
+
+      <h3>📅 Cancellation Policy</h3>
+      <p>We understand that schedules change. If you need to cancel or reschedule your appointment, please do so at
+        least <strong>24 hours in advance</strong>.</p>
+
+      <h3>⚠️ No-Show Fee</h3>
+      <p>A <strong>$25 fee</strong> will be charged for:</p>
+      <ul>
+        <li>Appointments canceled less than 24 hours before the scheduled time</li>
+        <li>No-shows (failure to arrive for your appointment)</li>
+        <li>Arriving more than 15 minutes late (appointment may be forfeited)</li>
+      </ul>
+
+      <h3>🔄 How to Reschedule</h3>
+      <p>To reschedule your appointment, please contact us directly:</p>
+      <ul>
+        <li>Phone: <a href="tel:+17329477359" style="color: var(--brand);">(732) 947-7359</a></li>
+        <li>Text message to the same number</li>
+      </ul>
+
+      <h3>✅ Why This Policy?</h3>
+      <p>When you book an appointment, that time slot is reserved exclusively for you. No-shows and late cancellations
+        prevent other clients from booking that time. This policy helps us serve everyone better and maintain fair
+        scheduling for all clients.</p>
+
+      <h3>💳 Fee Collection</h3>
+      <p>No-show fees may be collected before your next appointment or charged to the payment method on file. Repeat
+        no-shows may result in requiring a deposit for future bookings.</p>
+
+      <button class="policy-close-btn" id="closePolicyBtn">I Understand</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <p>Professional barbering and grooming services in Matawan, NJ.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Browse</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="artists.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="book.html">Book Now</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="services.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-social">
+        <h4>Follow</h4>
+        <ul>
+          <li>
+            <a href="https://www.instagram.com/tedishairstudio/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" style="fill:url(#instagram-gradient-b)">
+                <defs>
+                  <linearGradient id="instagram-gradient-b" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#FFDC80" />
+                    <stop offset="10%" style="stop-color:#FCAF45" />
+                    <stop offset="30%" style="stop-color:#F77737" />
+                    <stop offset="50%" style="stop-color:#F56040" />
+                    <stop offset="70%" style="stop-color:#FD1D1D" />
+                    <stop offset="80%" style="stop-color:#E1306C" />
+                    <stop offset="90%" style="stop-color:#C13584" />
+                    <stop offset="100%" style="stop-color:#833AB4" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@tedishairstudio" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24">
+                <path fill="#25F4EE"
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                <path fill="#FE2C55"
+                  d="M16.82 2h-1v.44a4.83 4.83 0 0 0 3.77 4.25 4.85 4.85 0 0 0 1 .1v1a8.16 8.16 0 0 1-4.77-1.52v7a6.34 6.34 0 0 1-10.86 4.43 6.33 6.33 0 0 1 4.36-10.7 6.84 6.84 0 0 1 1 .05v1a2.93 2.93 0 0 0-.88-.13 2.89 2.89 0 0 0-2.31 4.64 2.89 2.89 0 0 0 5.2-1.74V2h3.45z"
+                  opacity="0.5" />
+              </svg>
+              TikTok
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-bg-logo"><img src="images/greylogo.png" alt="" /></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="y"></span> Tedi's Hair Studio. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = 'http://localhost:3000/api';
+
+    let currentMonth = new Date();
+    let selectedService = null;
+    let selectedDateVal = null;
+    let selectedTimeVal = null;
+    let selectedPaymentVal = null;
+    let phoneVerified = false;
+    let agreementTimestamp = null;
+
+    // -------- Phone Verification ----------
+    const phoneInput = document.getElementById('phone');
+    const phoneVerifySection = document.getElementById('phoneVerifySection');
+    const sendCodeBtn = document.getElementById('sendCodeBtn');
+    const sendCodeArea = document.getElementById('sendCodeArea');
+    const enterCodeArea = document.getElementById('enterCodeArea');
+    const verifiedArea = document.getElementById('verifiedArea');
+    const verifyCodeInput = document.getElementById('verifyCode');
+    const verifyCodeBtn = document.getElementById('verifyCodeBtn');
+    const resendCode = document.getElementById('resendCode');
+
+    // Show verification section when phone is entered
+    phoneInput.addEventListener('input', () => {
+      const phone = phoneInput.value.replace(/\D/g, '');
+      if (phone.length >= 10) {
+        phoneVerifySection.classList.add('show');
+        if (phoneVerified) {
+          // Reset if phone changed
+          phoneVerified = false;
+          sendCodeArea.style.display = 'block';
+          enterCodeArea.style.display = 'none';
+          verifiedArea.style.display = 'none';
+        }
+      } else {
+        phoneVerifySection.classList.remove('show');
+      }
+    });
+
+    // Send verification code
+    sendCodeBtn.addEventListener('click', async () => {
+      const phone = phoneInput.value.replace(/\D/g, '');
+      if (phone.length < 10) {
+        alert('Please enter a valid phone number');
+        return;
+      }
+
+      sendCodeBtn.disabled = true;
+      sendCodeBtn.textContent = 'Sending...';
+
+      try {
+        const res = await fetch(`${API_URL}/send-verification`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone })
+        });
+
+        const data = await res.json();
+
+        if (data.ok) {
+          sendCodeArea.style.display = 'none';
+          enterCodeArea.style.display = 'block';
+          verifyCodeInput.focus();
+        } else {
+          alert(data.error || 'Failed to send code');
+          sendCodeBtn.disabled = false;
+          sendCodeBtn.textContent = 'Send Verification Code';
+        }
+      } catch (e) {
+        alert('Failed to send verification code. Please try again.');
+        sendCodeBtn.disabled = false;
+        sendCodeBtn.textContent = 'Send Verification Code';
+      }
+    });
+
+    // Verify the code
+    verifyCodeBtn.addEventListener('click', async () => {
+      const phone = phoneInput.value.replace(/\D/g, '');
+      const code = verifyCodeInput.value.trim();
+
+      if (code.length !== 6) {
+        alert('Please enter the 6-digit code');
+        return;
+      }
+
+      verifyCodeBtn.disabled = true;
+      verifyCodeBtn.textContent = '...';
+
+      try {
+        const res = await fetch(`${API_URL}/verify-code`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone, code })
+        });
+
+        const data = await res.json();
+
+        if (data.ok) {
+          phoneVerified = true;
+          enterCodeArea.style.display = 'none';
+          verifiedArea.style.display = 'block';
+        } else {
+          alert(data.error || 'Invalid code. Please try again.');
+          verifyCodeBtn.disabled = false;
+          verifyCodeBtn.textContent = 'Verify';
+        }
+      } catch (e) {
+        alert('Verification failed. Please try again.');
+        verifyCodeBtn.disabled = false;
+        verifyCodeBtn.textContent = 'Verify';
+      }
+    });
+
+    // Resend code
+    resendCode.addEventListener('click', () => {
+      enterCodeArea.style.display = 'none';
+      sendCodeArea.style.display = 'block';
+      sendCodeBtn.disabled = false;
+      sendCodeBtn.textContent = 'Send Verification Code';
+      verifyCodeInput.value = '';
+    });
+
+    // -------- Policy Modal ----------
+    const policyModal = document.getElementById('policyModal');
+    const showPolicyLink = document.getElementById('showPolicyLink');
+    const closePolicyBtn = document.getElementById('closePolicyBtn');
+    const agreePolicyCheckbox = document.getElementById('agreePolicy');
+
+    showPolicyLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      policyModal.classList.add('show');
+    });
+
+    closePolicyBtn.addEventListener('click', () => {
+      policyModal.classList.remove('show');
+    });
+
+    policyModal.addEventListener('click', (e) => {
+      if (e.target === policyModal) {
+        policyModal.classList.remove('show');
+      }
+    });
+
+    // Record agreement timestamp when checkbox is checked
+    agreePolicyCheckbox.addEventListener('change', () => {
+      if (agreePolicyCheckbox.checked) {
+        agreementTimestamp = new Date().toISOString();
+      } else {
+        agreementTimestamp = null;
+      }
+    });
+
+    // -------- Custom Dropdown Logic ----------
+    function initCustomDropdown() {
+      const customSelect = document.getElementById('customServiceSelect');
+      const trigger = customSelect.querySelector('.custom-select-trigger');
+      const optionsContainer = document.getElementById('serviceOptions');
+      const nativeSelect = document.getElementById('service');
+
+      // Toggle dropdown
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        customSelect.classList.toggle('open');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', () => {
+        customSelect.classList.remove('open');
+      });
+
+      // Prevent closing when clicking inside options
+      optionsContainer.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    function selectCustomOption(value, text, duration, price) {
+      const customSelect = document.getElementById('customServiceSelect');
+      const trigger = customSelect.querySelector('.custom-select-trigger span');
+      const nativeSelect = document.getElementById('service');
+      const options = document.querySelectorAll('.custom-select-option');
+
+      // Update trigger text
+      trigger.textContent = text;
+
+      // Update native select
+      nativeSelect.value = value;
+
+      // Update selected state
+      options.forEach(opt => opt.classList.remove('selected'));
+      const selectedOpt = document.querySelector(`.custom-select-option[data-value="${value}"]`);
+      if (selectedOpt) selectedOpt.classList.add('selected');
+
+      // Close dropdown
+      customSelect.classList.remove('open');
+
+      // Trigger change event on native select
+      nativeSelect.dispatchEvent(new Event('change'));
+    }
+
+    // -------- services ----------
+    async function loadServices() {
+      try {
+        const res = await fetch(`${API_URL}/services`);
+        const services = await res.json();
+        const select = document.getElementById('service');
+        const customOptions = document.getElementById('serviceOptions');
+
+        services.forEach(s => {
+          // Add to native select
+          const opt = document.createElement('option');
+          opt.value = s.id;
+          opt.textContent = `${s.name} - $${(s.price_cents / 100).toFixed(2)}`;
+          opt.dataset.duration = s.duration_minutes;
+          opt.dataset.price = s.price_cents;
+          select.appendChild(opt);
+
+          // Add to custom dropdown
+          const customOpt = document.createElement('div');
+          customOpt.className = 'custom-select-option';
+          customOpt.dataset.value = s.id;
+          customOpt.dataset.duration = s.duration_minutes;
+          customOpt.dataset.price = s.price_cents;
+          customOpt.textContent = `${s.name} - $${(s.price_cents / 100).toFixed(2)}`;
+          customOpt.addEventListener('click', () => {
+            selectCustomOption(s.id, customOpt.textContent, s.duration_minutes, s.price_cents);
+          });
+          customOptions.appendChild(customOpt);
+        });
+
+        // Initialize custom dropdown
+        initCustomDropdown();
+
+        // Add click handler for the default "Choose a service" option
+        const defaultOpt = customOptions.querySelector('[data-value=""]');
+        if (defaultOpt) {
+          defaultOpt.addEventListener('click', () => {
+            selectCustomOption('', '-- Choose a service --', null, null);
+          });
+        }
+
+        // Auto-select service from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceParam = urlParams.get('service');
+        if (serviceParam) {
+          // Normalize for comparison: lowercase, replace "w/" with "with", remove non-alphanumeric
+          const simplify = (str) => str.toLowerCase().replace(/w\//g, 'with').replace(/[^a-z0-9]/g, '');
+          const serviceSimple = simplify(serviceParam);
+          for (let i = 0; i < select.options.length; i++) {
+            const optionName = select.options[i].textContent.split(' - ')[0];
+            const optionSimple = simplify(optionName);
+            if (optionSimple === serviceSimple) {
+              const opt = select.options[i];
+              selectCustomOption(opt.value, opt.textContent, opt.dataset.duration, opt.dataset.price);
+              break;
+            }
+          }
+        }
+      } catch (e) {
+        console.error('Failed to load services:', e);
+      }
+    }
+
+    // -------- calendar ----------
+    function renderCalendar() {
+      const year = currentMonth.getFullYear();
+      const month = currentMonth.getMonth();
+      document.getElementById('monthYear').textContent =
+        currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const daysInMonth = lastDay.getDate();
+      const startingDayOfWeek = firstDay.getDay();
+
+      const calendarDaysEl = document.getElementById('calendarDays');
+      calendarDaysEl.innerHTML = '';
+
+      // leading days
+      const prevMonthLastDay = new Date(year, month, 0).getDate();
+      for (let i = startingDayOfWeek - 1; i >= 0; i--) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day other-month';
+        day.textContent = prevMonthLastDay - i;
+        calendarDaysEl.appendChild(day);
+      }
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      // main month days
+      for (let i = 1; i <= daysInMonth; i++) {
+        const date = new Date(year, month, i);
+        const day = document.createElement('div');
+        day.className = 'calendar-day';
+        day.textContent = i;
+
+        const isSunday = date.getDay() === 0;
+
+        if (date < today || isSunday) {
+          day.classList.add('disabled');
+          if (isSunday) day.classList.add('closed'); // visually show closed Sundays
+        } else {
+          const dateStr = date.toISOString().split('T')[0];
+          day.dataset.date = dateStr;
+          day.addEventListener('click', () => selectDate(dateStr, day));
+        }
+        calendarDaysEl.appendChild(day);
+      }
+
+      // trailing days to fill 6 rows
+      const totalCells = calendarDaysEl.children.length;
+      const remainingCells = 42 - totalCells;
+      for (let i = 1; i <= remainingCells; i++) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day other-month';
+        day.textContent = i;
+        calendarDaysEl.appendChild(day);
+      }
+    }
+
+    function selectDate(dateStr, elem) {
+      document.querySelectorAll('.calendar-day.selected').forEach(el => el.classList.remove('selected'));
+      elem.classList.add('selected');
+      selectedDateVal = dateStr;
+      document.getElementById('selectedDate').value = dateStr;
+      loadTimeSlots();
+    }
+
+    document.getElementById('prevMonth').addEventListener('click', (e) => {
+      e.preventDefault();
+      currentMonth.setMonth(currentMonth.getMonth() - 1);
+      renderCalendar();
+    });
+    document.getElementById('nextMonth').addEventListener('click', (e) => {
+      e.preventDefault();
+      currentMonth.setMonth(currentMonth.getMonth() + 1);
+      renderCalendar();
+    });
+
+    // -------- time slots ----------
+    function to12h(hhmm) {
+      const [h, m] = hhmm.split(':').map(Number);
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      const h12 = ((h + 11) % 12) + 1;
+      return `${h12}:${String(m).padStart(2, '0')} ${ampm}`;
+    }
+
+    async function loadTimeSlots() {
+      if (!selectedDateVal) return;
+
+      const loading = document.getElementById('timeLoading');
+      const slotsEl = document.getElementById('timeSlots');
+      const error = document.getElementById('timeError');
+
+      loading.style.display = 'block';
+      slotsEl.classList.remove('zoom-in');
+      slotsEl.innerHTML = '';
+      error.style.display = 'none';
+
+      try {
+        const res = await fetch(`${API_URL}/available-slots?date=${selectedDateVal}`);
+        if (!res.ok) throw new Error('Failed to load times');
+        const slots = await res.json(); // [{time:"HH:mm", status:"open"|"booked"}]
+
+        if (!Array.isArray(slots) || slots.length === 0) {
+          error.textContent = 'No available times for this date.';
+          error.style.display = 'block';
+          loading.style.display = 'none';
+          document.getElementById('selectDateHint').style.display = 'none';
+          return;
+        }
+
+        slots.forEach(s => {
+          const div = document.createElement('div');
+          div.className = 'time-slot';
+          div.textContent = to12h(s.time);
+          div.dataset.time = s.time;
+
+          if (s.status === 'booked') {
+            div.classList.add('booked', 'disabled');
+          } else {
+            div.addEventListener('click', () => selectTime(s.time, div));
+          }
+          slotsEl.appendChild(div);
+        });
+
+        loading.style.display = 'none';
+        document.getElementById('selectDateHint').style.display = 'none';
+        requestAnimationFrame(() => slotsEl.classList.add('zoom-in'));
+      } catch (e) {
+        error.textContent = 'Failed to load times. Please try again.';
+        error.style.display = 'block';
+        loading.style.display = 'none';
+        document.getElementById('selectDateHint').style.display = 'none';
+      }
+    }
+
+    function selectTime(time, elem) {
+      document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+      elem.classList.add('selected');
+      selectedTimeVal = time;
+      document.getElementById('selectedTime').value = time;
+    }
+
+    // -------- service selection ----------
+    document.getElementById('service').addEventListener('change', (e) => {
+      const selected = e.target.options[e.target.selectedIndex];
+      if (!selected.value) {
+        document.getElementById('serviceDetails').style.display = 'none';
+        selectedService = null;
+        return;
+      }
+
+      selectedService = selected.value;
+      document.getElementById('serviceName').textContent = selected.textContent.split(' - ')[0];
+      document.getElementById('serviceDuration').textContent = selected.dataset.duration;
+      document.getElementById('servicePrice').textContent = `$${(selected.dataset.price / 100).toFixed(2)}`;
+      document.getElementById('serviceDetails').style.display = 'block';
+
+      loadTimeSlots();
+    });
+
+    // -------- payment selection ----------
+    document.querySelectorAll('input[name="payment"]').forEach(r => {
+      r.addEventListener('change', (e) => {
+        document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+        e.target.closest('label').classList.add('selected');
+        selectedPaymentVal = e.target.value;
+        document.getElementById('selectedPayment').value = e.target.value;
+      });
+    });
+
+    // -------- submit ----------
+    document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errorDiv = document.getElementById('errorMsg');
+      errorDiv.innerHTML = '';
+
+      if (!selectedService || !selectedDateVal || !selectedTimeVal || !selectedPaymentVal) {
+        errorDiv.innerHTML = '<div class="error">Please complete all required fields</div>';
+        return;
+      }
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!name || !phone) {
+        errorDiv.innerHTML = '<div class="error">Name and phone are required</div>';
+        return;
+      }
+
+      // Check phone verification (TEMPORARILY DISABLED FOR TESTING)
+      // TODO: Re-enable once Twilio toll-free verification is approved
+      // if (!phoneVerified) {
+      //   errorDiv.innerHTML = '<div class="error">Please verify your phone number before booking</div>';
+      //   document.getElementById('phoneVerifySection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      //   return;
+      // }
+
+      // Check policy agreement
+      if (!document.getElementById('agreePolicy').checked || !agreementTimestamp) {
+        errorDiv.innerHTML = '<div class="error">Please agree to the No-Show Policy before booking</div>';
+        return;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Booking...';
+
+      try {
+        const res = await fetch(`${API_URL}/bookings`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customer_name: name,
+            customer_phone: phone,
+            customer_email: email || null,
+            service_id: parseInt(selectedService, 10),
+            date: selectedDateVal,
+            time: selectedTimeVal, // HH:mm
+            payment_method: selectedPaymentVal,
+            policy_agreed_at: agreementTimestamp,
+            phone_verified: true,
+            notes: null
+          })
+        });
+
+        if (!res.ok) {
+          const error = await res.json();
+          throw new Error(error.error || 'Booking failed');
+        }
+        const booking = await res.json();
+
+        document.getElementById('bookingForm').style.display = 'none';
+        document.getElementById('confirmationScreen').style.display = 'block';
+        document.getElementById('confirmationText').innerHTML = `
+          <strong>${booking.service_name}</strong><br/>
+          ${booking.date} at ${to12h(booking.time)}<br/><br/>
+          <strong>Price:</strong> $${(booking.price_cents / 100).toFixed(2)}<br/>
+          <strong>Payment:</strong> ${booking.payment_method.toUpperCase()}<br/><br/>
+          A confirmation has been sent to <strong>${booking.customer_phone}</strong>
+        `;
+      } catch (e2) {
+        errorDiv.innerHTML = `<div class="error">${e2.message}</div>`;
+        btn.disabled = false; btn.textContent = 'Confirm Booking';
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('y').textContent = new Date().getFullYear();
+      loadServices();
+      renderCalendar();
+    });
+  </script>
+  <script src="include.js"></script>
+</body>
+
+</html>
