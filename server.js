@@ -767,10 +767,23 @@ app.delete('/api/gallery/:id', requireAdmin, async (req, res) => {
 // Automatically fetches reviews from Booksy profile using headless browser
 const BOOKSY_URL = 'https://booksy.com/en-us/1231797_tedis-hair-studio_barber-shop_28674_matawan';
 
-// Cache for scraped reviews
+// Cache for scraped reviews - pre-load from reviews.json
 let cachedReviews = [];
 let lastScrapedAt = null;
 let scrapeInProgress = false;
+
+// Pre-load reviews from JSON file on startup
+try {
+  const reviewsPath = path.join(__dirname, 'data', 'reviews.json');
+  if (fs.existsSync(reviewsPath)) {
+    const data = fs.readFileSync(reviewsPath, 'utf8');
+    cachedReviews = JSON.parse(data);
+    lastScrapedAt = new Date();
+    console.log(`✓ Pre-loaded ${cachedReviews.length} reviews from reviews.json`);
+  }
+} catch (e) {
+  console.warn('⚠ Could not pre-load reviews.json:', e.message);
+}
 
 // Scrape reviews using Puppeteer (headless browser)
 async function scrapeAllBooksyReviews() {
@@ -972,129 +985,24 @@ async function scrapeAllBooksyReviews() {
   return cachedReviews;
 }
 
-// All 109 Booksy reviews - Edit names and dates via admin panel
+// All 109 Booksy reviews - Load from data/reviews.json file
 function getFallbackReviews() {
+  try {
+    const reviewsPath = path.join(__dirname, 'data', 'reviews.json');
+    if (fs.existsSync(reviewsPath)) {
+      const data = fs.readFileSync(reviewsPath, 'utf8');
+      const reviews = JSON.parse(data);
+      console.log(`✓ Loaded ${reviews.length} reviews from reviews.json`);
+      return reviews;
+    }
+  } catch (e) {
+    console.warn('⚠ Could not load reviews.json:', e.message);
+  }
+
+  // Ultimate fallback - return minimal sample data
   return [
-    // PAGE 1 - Real names from screenshots
     { id: 1, name: "Noah R", date: "Jan 3, 2026", service: "Haircut", rating: 5, text: "Satisfied with my haircut.", page: 1 },
-    { id: 2, name: "michael M", date: "Jan 3, 2026", service: "Haircut", rating: 5, text: "the haircut i got was awesome", page: 1 },
-    { id: 3, name: "Naum B", date: "Dec 29, 2025", service: "Haircut", rating: 5, text: "Great service. Highly recommend!", page: 1 },
-    { id: 4, name: "Client", date: "Dec 2025", service: "Haircut", rating: 5, text: "great cut", page: 1 },
-    { id: 5, name: "Client", date: "Dec 2025", service: "Haircut", rating: 5, text: "Best barber in the business", page: 1 },
-    { id: 6, name: "Client", date: "Dec 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi gives some of the cleanest haircuts I've seen and he's very personable to talk to throughout your appointment.", page: 1 },
-    { id: 7, name: "Client", date: "Dec 2025", service: "Haircut", rating: 5, text: "Nothing but excellence. He does exactly what you want, sharing photos of the style you're going for goes a long way.", page: 1 },
-    { id: 8, name: "Client", date: "Nov 2025", service: "Haircut W/ Beard", rating: 5, text: "👍🏻", page: 1 },
-    { id: 9, name: "Client", date: "Nov 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi's super chill and always gets my cut looking clean. Definitely my go-to barber.", page: 1 },
-    { id: 10, name: "Client", date: "Nov 2025", service: "Haircut", rating: 5, text: "fire 🔥", page: 1 },
-    // PAGE 2
-    { id: 11, name: "Client", date: "Nov 2025", service: "Haircut", rating: 5, text: "Always a great experience at Tedi's. Clean cuts every time.", page: 2 },
-    { id: 12, name: "Client", date: "Nov 2025", service: "Haircut W/ Beard", rating: 5, text: "Best fade I've ever gotten. Tedi knows what he's doing.", page: 2 },
-    { id: 13, name: "Client", date: "Nov 2025", service: "Shape up", rating: 5, text: "Quick and clean shape up. Will be back!", page: 2 },
-    { id: 14, name: "Client", date: "Nov 2025", service: "Haircut", rating: 5, text: "Tedi is the man! Great conversation and even better cuts.", page: 2 },
-    { id: 15, name: "Client", date: "Nov 2025", service: "Haircut W/ Beard", rating: 5, text: "Professional service from start to finish. Highly recommend.", page: 2 },
-    { id: 16, name: "Client", date: "Oct 2025", service: "Haircut", rating: 5, text: "Found my new barber. Tedi is talented and professional.", page: 2 },
-    { id: 17, name: "Client", date: "Oct 2025", service: "Haircut", rating: 5, text: "Excellent attention to detail. Left looking fresh!", page: 2 },
-    { id: 18, name: "Client", date: "Oct 2025", service: "Beard trim", rating: 5, text: "Great beard work. Tedi took his time and got it perfect.", page: 2 },
-    { id: 19, name: "Client", date: "Oct 2025", service: "Haircut W/ Beard", rating: 5, text: "Consistently the best cuts in Matawan. Don't go anywhere else.", page: 2 },
-    { id: 20, name: "Client", date: "Oct 2025", service: "Haircut", rating: 5, text: "Another great cut. Tedi never disappoints!", page: 2 },
-    // PAGE 3
-    { id: 21, name: "Client", date: "Oct 2025", service: "Haircut", rating: 5, text: "Perfect fade every single time. This is my spot now.", page: 3 },
-    { id: 22, name: "Client", date: "Oct 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi's attention to detail is unmatched. Best barber in NJ.", page: 3 },
-    { id: 23, name: "Client", date: "Sep 2025", service: "Shape up W/ beard", rating: 5, text: "Clean lineup and beard trim. Looking sharp!", page: 3 },
-    { id: 24, name: "Client", date: "Sep 2025", service: "Haircut", rating: 5, text: "Great atmosphere and even better cuts. 10/10", page: 3 },
-    { id: 25, name: "Client", date: "Sep 2025", service: "Haircut", rating: 5, text: "Been coming here for months. Wouldn't go anywhere else.", page: 3 },
-    { id: 26, name: "Client", date: "Sep 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi is a true professional. Always leaves me looking fresh.", page: 3 },
-    { id: 27, name: "Client", date: "Sep 2025", service: "Haircut", rating: 5, text: "Best haircut experience I've had. Highly recommend Tedi!", page: 3 },
-    { id: 28, name: "Client", date: "Sep 2025", service: "Haircut", rating: 5, text: "Quality work at a fair price. Can't ask for more.", page: 3 },
-    { id: 29, name: "Client", date: "Sep 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi is the GOAT. Best barber around.", page: 3 },
-    { id: 30, name: "Client", date: "Aug 2025", service: "Haircut", rating: 5, text: "Always a pleasure getting my cut here. Great vibes.", page: 3 },
-    // PAGE 4
-    { id: 31, name: "Client", date: "Aug 2025", service: "Haircut", rating: 5, text: "Tedi hooked it up as always. Clean cut!", page: 4 },
-    { id: 32, name: "Client", date: "Aug 2025", service: "Haircut W/ Beard", rating: 5, text: "Best barber I've been to. Period.", page: 4 },
-    { id: 33, name: "Client", date: "Aug 2025", service: "Haircut", rating: 5, text: "Fresh cut every time. Tedi knows his craft.", page: 4 },
-    { id: 34, name: "Client", date: "Aug 2025", service: "Shape up", rating: 5, text: "Quick appointment, perfect results. Thanks Tedi!", page: 4 },
-    { id: 35, name: "Client", date: "Aug 2025", service: "Haircut", rating: 5, text: "Another satisfied customer. Tedi is the best!", page: 4 },
-    { id: 36, name: "Client", date: "Aug 2025", service: "Haircut W/ Beard", rating: 5, text: "Beard game on point. Tedi takes care of it all.", page: 4 },
-    { id: 37, name: "Client", date: "Jul 2025", service: "Haircut", rating: 5, text: "Consistently excellent service. Highly recommend.", page: 4 },
-    { id: 38, name: "Client", date: "Jul 2025", service: "Haircut", rating: 5, text: "Tedi is talented and takes pride in his work.", page: 4 },
-    { id: 39, name: "Client", date: "Jul 2025", service: "Haircut W/ Beard", rating: 5, text: "Great experience from booking to finished cut.", page: 4 },
-    { id: 40, name: "Client", date: "Jul 2025", service: "Haircut", rating: 5, text: "Clean, professional, and friendly. That's Tedi.", page: 4 },
-    // PAGE 5
-    { id: 41, name: "Client", date: "Jul 2025", service: "Haircut", rating: 5, text: "Five stars isn't enough. Tedi is amazing!", page: 5 },
-    { id: 42, name: "Client", date: "Jul 2025", service: "Haircut W/ Beard", rating: 5, text: "Best fade and beard trim combo around.", page: 5 },
-    { id: 43, name: "Client", date: "Jun 2025", service: "Haircut", rating: 5, text: "Tedi always delivers. Consistent excellence.", page: 5 },
-    { id: 44, name: "Client", date: "Jun 2025", service: "Haircut", rating: 5, text: "Found my forever barber. Thanks Tedi!", page: 5 },
-    { id: 45, name: "Client", date: "Jun 2025", service: "Shape up W/ beard", rating: 5, text: "Perfect shape up every time. Tedi's the man.", page: 5 },
-    { id: 46, name: "Client", date: "Jun 2025", service: "Haircut", rating: 5, text: "Great cut, great conversation. Always a good time.", page: 5 },
-    { id: 47, name: "Client", date: "Jun 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi is a perfectionist and it shows in his work.", page: 5 },
-    { id: 48, name: "Client", date: "Jun 2025", service: "Haircut", rating: 5, text: "Best barber in Matawan. No question.", page: 5 },
-    { id: 49, name: "Client", date: "May 2025", service: "Haircut", rating: 5, text: "Another great haircut. Keep up the good work!", page: 5 },
-    { id: 50, name: "Client", date: "May 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi's skills are unmatched. Highly recommend!", page: 5 },
-    // PAGE 6
-    { id: 51, name: "Client", date: "May 2025", service: "Haircut", rating: 5, text: "Perfect cut as always. Tedi is the best.", page: 6 },
-    { id: 52, name: "Client", date: "May 2025", service: "Haircut", rating: 5, text: "Great experience every single visit.", page: 6 },
-    { id: 53, name: "Client", date: "May 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi knows exactly what I want every time.", page: 6 },
-    { id: 54, name: "Client", date: "Apr 2025", service: "Haircut", rating: 5, text: "Clean fades are Tedi's specialty. Highly skilled.", page: 6 },
-    { id: 55, name: "Client", date: "Apr 2025", service: "Shape up", rating: 5, text: "Quick and clean. Tedi is efficient and talented.", page: 6 },
-    { id: 56, name: "Client", date: "Apr 2025", service: "Haircut", rating: 5, text: "Best haircut I've gotten in years. Thank you!", page: 6 },
-    { id: 57, name: "Client", date: "Apr 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi is a true artist. My cut is always fire.", page: 6 },
-    { id: 58, name: "Client", date: "Apr 2025", service: "Haircut", rating: 5, text: "Consistent quality every visit. That's rare.", page: 6 },
-    { id: 59, name: "Client", date: "Mar 2025", service: "Haircut", rating: 5, text: "Tedi's the man! Always leaves me looking fresh.", page: 6 },
-    { id: 60, name: "Client", date: "Mar 2025", service: "Beard trim", rating: 5, text: "Best beard trim I've ever had. Tedi knows beards.", page: 6 },
-    // PAGE 7
-    { id: 61, name: "Client", date: "Mar 2025", service: "Haircut", rating: 5, text: "Another perfect cut. Thanks Tedi!", page: 7 },
-    { id: 62, name: "Client", date: "Mar 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi is professional and skilled. Highly recommend.", page: 7 },
-    { id: 63, name: "Client", date: "Mar 2025", service: "Haircut", rating: 5, text: "Best barber experience in New Jersey.", page: 7 },
-    { id: 64, name: "Client", date: "Feb 2025", service: "Haircut", rating: 5, text: "Tedi takes his time and gets it right. Every time.", page: 7 },
-    { id: 65, name: "Client", date: "Feb 2025", service: "Shape up W/ beard", rating: 5, text: "Clean work on the shape up and beard. Perfect!", page: 7 },
-    { id: 66, name: "Client", date: "Feb 2025", service: "Haircut", rating: 5, text: "Five stars all the way. Tedi is the best.", page: 7 },
-    { id: 67, name: "Client", date: "Feb 2025", service: "Haircut W/ Beard", rating: 5, text: "Great cut and great guy. Tedi's my barber for life.", page: 7 },
-    { id: 68, name: "Client", date: "Feb 2025", service: "Haircut", rating: 5, text: "Always a great experience at Tedi's Hair Studio.", page: 7 },
-    { id: 69, name: "Client", date: "Jan 2025", service: "Haircut", rating: 5, text: "Tedi's attention to detail is next level.", page: 7 },
-    { id: 70, name: "Client", date: "Jan 2025", service: "Haircut W/ Beard", rating: 5, text: "Best fade and lineup combo. Tedi is skilled!", page: 7 },
-    // PAGE 8
-    { id: 71, name: "Client", date: "Jan 2025", service: "Haircut", rating: 5, text: "Tedi hooked me up! Fresh cut as always.", page: 8 },
-    { id: 72, name: "Client", date: "Jan 2025", service: "Haircut", rating: 5, text: "Professional service in a great environment.", page: 8 },
-    { id: 73, name: "Client", date: "Jan 2025", service: "Haircut W/ Beard", rating: 5, text: "Tedi is the real deal. Best barber around.", page: 8 },
-    { id: 74, name: "Client", date: "Dec 2024", service: "Haircut", rating: 5, text: "Clean cut every single time. Highly recommend!", page: 8 },
-    { id: 75, name: "Client", date: "Dec 2024", service: "Shape up", rating: 5, text: "Quick shape up, perfect results. Thanks!", page: 8 },
-    { id: 76, name: "Client", date: "Dec 2024", service: "Haircut", rating: 5, text: "Tedi is talented and professional. Great barber.", page: 8 },
-    { id: 77, name: "Client", date: "Dec 2024", service: "Haircut W/ Beard", rating: 5, text: "Best haircut and beard trim in Matawan.", page: 8 },
-    { id: 78, name: "Client", date: "Dec 2024", service: "Haircut", rating: 5, text: "Another great visit. Tedi never disappoints!", page: 8 },
-    { id: 79, name: "Client", date: "Nov 2024", service: "Haircut", rating: 5, text: "Consistently excellent. That's why I keep coming back.", page: 8 },
-    { id: 80, name: "Client", date: "Nov 2024", service: "Haircut W/ Beard", rating: 5, text: "Tedi is a master of his craft. Highly skilled.", page: 8 },
-    // PAGE 9
-    { id: 81, name: "Client", date: "Nov 2024", service: "Haircut", rating: 5, text: "Perfect fade! Tedi knows what he's doing.", page: 9 },
-    { id: 82, name: "Client", date: "Nov 2024", service: "Haircut", rating: 5, text: "Great barber, great cuts. What more do you need?", page: 9 },
-    { id: 83, name: "Client", date: "Nov 2024", service: "Haircut W/ Beard", rating: 5, text: "Tedi takes care of the hair and beard perfectly.", page: 9 },
-    { id: 84, name: "Client", date: "Oct 2024", service: "Haircut", rating: 5, text: "Best experience at a barbershop. Tedi is awesome.", page: 9 },
-    { id: 85, name: "Client", date: "Oct 2024", service: "Shape up W/ beard", rating: 5, text: "Shape up was clean! Tedi is the best.", page: 9 },
-    { id: 86, name: "Client", date: "Oct 2024", service: "Haircut", rating: 5, text: "Tedi is professional and friendly. Great combo.", page: 9 },
-    { id: 87, name: "Client", date: "Oct 2024", service: "Haircut W/ Beard", rating: 5, text: "Another excellent cut. Thanks Tedi!", page: 9 },
-    { id: 88, name: "Client", date: "Oct 2024", service: "Haircut", rating: 5, text: "Best barber I've been to. Hands down.", page: 9 },
-    { id: 89, name: "Client", date: "Sep 2024", service: "Haircut", rating: 5, text: "Tedi's the man! Always leaves me looking sharp.", page: 9 },
-    { id: 90, name: "Client", date: "Sep 2024", service: "Beard trim", rating: 5, text: "Perfect beard trim. Tedi knows his stuff.", page: 9 },
-    // PAGE 10
-    { id: 91, name: "Client", date: "Sep 2024", service: "Haircut", rating: 5, text: "Another great cut from Tedi. Highly recommend!", page: 10 },
-    { id: 92, name: "Client", date: "Sep 2024", service: "Haircut W/ Beard", rating: 5, text: "Tedi is consistent and professional. Love it.", page: 10 },
-    { id: 93, name: "Client", date: "Sep 2024", service: "Haircut", rating: 5, text: "Best haircut in town. Tedi is talented!", page: 10 },
-    { id: 94, name: "Client", date: "Aug 2024", service: "Haircut", rating: 5, text: "Clean fade every time. Tedi never misses.", page: 10 },
-    { id: 95, name: "Client", date: "Aug 2024", service: "Shape up", rating: 5, text: "Perfect lineup. Tedi is skilled!", page: 10 },
-    { id: 96, name: "Client", date: "Aug 2024", service: "Haircut", rating: 5, text: "Great experience from start to finish.", page: 10 },
-    { id: 97, name: "Client", date: "Aug 2024", service: "Haircut W/ Beard", rating: 5, text: "Tedi does great work on hair and beard.", page: 10 },
-    { id: 98, name: "Client", date: "Aug 2024", service: "Haircut", rating: 5, text: "Five star service every single time.", page: 10 },
-    { id: 99, name: "Client", date: "Jul 2024", service: "Haircut", rating: 5, text: "Tedi is the best barber in Matawan!", page: 10 },
-    { id: 100, name: "Client", date: "Jul 2024", service: "Haircut W/ Beard", rating: 5, text: "Always satisfied with Tedi's work.", page: 10 },
-    // PAGE 11
-    { id: 101, name: "Client", date: "Jul 2024", service: "Haircut", rating: 5, text: "Great cut as always. Thanks Tedi!", page: 11 },
-    { id: 102, name: "Client", date: "Jul 2024", service: "Haircut", rating: 5, text: "Tedi is professional and talented.", page: 11 },
-    { id: 103, name: "Client", date: "Jun 2024", service: "Haircut W/ Beard", rating: 5, text: "Best barber experience. Highly recommend!", page: 11 },
-    { id: 104, name: "Client", date: "Jun 2024", service: "Haircut", rating: 5, text: "Another perfect cut from Tedi!", page: 11 },
-    { id: 105, name: "Client", date: "Jun 2024", service: "Shape up W/ beard", rating: 5, text: "Clean shape up and beard work.", page: 11 },
-    { id: 106, name: "Client", date: "Jun 2024", service: "Haircut", rating: 5, text: "Tedi's the man! Great barber.", page: 11 },
-    { id: 107, name: "Client", date: "May 2024", service: "Haircut W/ Beard", rating: 5, text: "Excellent service. Will be back!", page: 11 },
-    { id: 108, name: "Client", date: "May 2024", service: "Haircut", rating: 5, text: "Best cuts in NJ. Tedi is talented!", page: 11 },
-    { id: 109, name: "Client", date: "May 2024", service: "Haircut", rating: 5, text: "Love coming to Tedi's. Always a great experience.", page: 11 }
+    { id: 2, name: "Patrick S", date: "Dec 31, 2025", service: "Haircut", rating: 5, text: "Love this guy! Not only am I the happiest with my haircut that I have ever been, I'm also the happiest when I leave Tedis. He is the best.", page: 1 }
   ];
 }
 

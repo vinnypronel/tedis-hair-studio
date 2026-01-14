@@ -61,27 +61,6 @@ img {
   padding: 0 20px;
 }
 
-/* ================= CURSOR GLOW ================= */
-.cursor-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 250px;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(255, 229, 0, 0.2) 0%, rgba(255, 229, 0, 0.05) 40%, transparent 70%);
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  mix-blend-mode: screen;
-  will-change: transform;
-}
-
-
-.cursor-glow.active {
-  opacity: 1;
-}
-
 /* ================= NAVBAR ================= */
 .nav {
   position: sticky;

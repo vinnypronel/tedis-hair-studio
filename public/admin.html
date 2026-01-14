@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,20 +9,36 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <script src="header.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <script src="header.js" defer></script>
   <style>
-    body { opacity: 1; }
-    
+    body {
+      opacity: 1;
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
     .admin-content {
       max-width: 1400px;
       margin: 0 auto;
       padding: 120px 24px 60px;
     }
-    
-    .page-title { font-size: 28px; font-weight: 700; margin: 0 0 8px; }
-    .page-subtitle { color: var(--muted); margin: 0 0 30px; }
-    
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+
+    .page-subtitle {
+      color: var(--muted);
+      margin: 0 0 30px;
+    }
+
     /* Stats Cards */
     .stats-grid {
       display: grid;
@@ -29,25 +46,36 @@
       gap: 20px;
       margin-bottom: 30px;
     }
-    
+
     .stat-card {
       background: var(--card);
       border: 1px solid #242428;
       border-radius: 14px;
       padding: 20px;
     }
-    
-    .stat-card .label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-    .stat-card .value { font-size: 32px; font-weight: 700; }
-    .stat-card.highlight .value { color: var(--brand); }
-    
+
+    .stat-card .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .stat-card .value {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .stat-card.highlight .value {
+      color: var(--brand);
+    }
+
     /* Main Layout */
     .dashboard-grid {
       display: grid;
       grid-template-columns: 400px 1fr;
       gap: 24px;
     }
-    
+
     /* Calendar Styles */
     .calendar-container {
       background: var(--card);
@@ -55,25 +83,25 @@
       border-radius: 16px;
       padding: 24px;
     }
-    
+
     .calendar-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
-    
+
     .calendar-header h3 {
       font-size: 20px;
       font-weight: 700;
       margin: 0;
     }
-    
+
     .calendar-nav {
       display: flex;
       gap: 8px;
     }
-    
+
     .calendar-nav button {
       width: 36px;
       height: 36px;
@@ -87,19 +115,19 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .calendar-nav button:hover {
       border-color: var(--brand);
       color: var(--brand);
     }
-    
+
     .calendar-weekdays {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 4px;
       margin-bottom: 8px;
     }
-    
+
     .calendar-weekdays span {
       text-align: center;
       font-size: 11px;
@@ -108,13 +136,13 @@
       text-transform: uppercase;
       padding: 8px 0;
     }
-    
+
     .calendar-days {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 4px;
     }
-    
+
     .calendar-day {
       aspect-ratio: 1;
       display: flex;
@@ -128,27 +156,35 @@
       position: relative;
       font-size: 14px;
       font-weight: 500;
+      color: var(--text);
     }
-    
+
     .calendar-day:hover {
       background: rgba(214, 163, 90, 0.1);
     }
-    
+
     .calendar-day.other-month {
-      color: #444;
+      color: var(--muted);
+      opacity: 0.5;
     }
-    
+
     .calendar-day.today {
       background: rgba(214, 163, 90, 0.2);
       color: var(--brand);
       font-weight: 700;
     }
-    
+
+    .calendar-day.disabled {
+      opacity: 0.3;
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--muted);
+    }
+
     .calendar-day.selected {
       border-color: var(--brand);
       background: rgba(214, 163, 90, 0.15);
     }
-    
+
     .calendar-day.has-appointments::after {
       content: '';
       position: absolute;
@@ -158,12 +194,12 @@
       border-radius: 50%;
       background: var(--brand);
     }
-    
+
     .calendar-day.has-appointments.many::after {
       width: 16px;
       border-radius: 3px;
     }
-    
+
     /* Day Detail Panel */
     .day-detail {
       background: var(--card);
@@ -172,7 +208,7 @@
       padding: 24px;
       min-height: 500px;
     }
-    
+
     .day-detail-header {
       display: flex;
       justify-content: space-between;
@@ -181,13 +217,13 @@
       padding-bottom: 16px;
       border-bottom: 1px solid #242428;
     }
-    
+
     .day-detail-header h3 {
       font-size: 22px;
       font-weight: 700;
       margin: 0;
     }
-    
+
     .day-detail-header .count {
       background: var(--brand);
       color: #111;
@@ -196,60 +232,62 @@
       font-size: 13px;
       font-weight: 700;
     }
-    
+
     /* Time Slots */
     .time-grid {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-    
+
     .time-slot {
       display: flex;
       gap: 16px;
       padding: 16px;
-      background: #1a1a1c;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
       border-radius: 12px;
       transition: all 0.2s;
     }
-    
+
     .time-slot:hover {
-      background: #222224;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--brand);
     }
-    
+
     .time-slot .time {
       min-width: 80px;
       font-weight: 700;
       color: var(--brand);
       font-size: 15px;
     }
-    
+
     .time-slot .details {
       flex: 1;
     }
-    
+
     .time-slot .customer {
       font-weight: 600;
       margin-bottom: 4px;
     }
-    
+
     .time-slot .service {
       font-size: 13px;
       color: var(--muted);
     }
-    
+
     .time-slot .phone {
       font-size: 12px;
-      color: #666;
+      color: var(--muted);
       margin-top: 4px;
     }
-    
+
     .time-slot .actions {
       display: flex;
       gap: 6px;
       align-items: flex-start;
     }
-    
+
     .time-slot .action-btn {
       padding: 6px 12px;
       border-radius: 6px;
@@ -259,19 +297,27 @@
       border: none;
       transition: all 0.2s;
     }
-    
+
     .action-btn.cancel {
       background: rgba(255, 107, 107, 0.15);
       color: #ff6b6b;
     }
-    .action-btn.cancel:hover { background: #ff6b6b; color: #111; }
-    
+
+    .action-btn.cancel:hover {
+      background: #ff6b6b;
+      color: #111;
+    }
+
     .action-btn.noshow {
       background: rgba(255, 193, 7, 0.15);
       color: #ffc107;
     }
-    .action-btn.noshow:hover { background: #ffc107; color: #111; }
-    
+
+    .action-btn.noshow:hover {
+      background: #ffc107;
+      color: #111;
+    }
+
     .status-badge {
       display: inline-block;
       padding: 3px 8px;
@@ -281,36 +327,59 @@
       text-transform: uppercase;
       margin-left: 8px;
     }
-    
-    .status-badge.cancelled { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; }
-    .status-badge.no_show { background: rgba(255, 193, 7, 0.15); color: #ffc107; }
-    .status-badge.confirmed { background: rgba(81, 207, 102, 0.15); color: #51cf66; }
-    
+
+    .status-badge.cancelled {
+      background: rgba(255, 107, 107, 0.15);
+      color: #ff6b6b;
+    }
+
+    .status-badge.no_show {
+      background: rgba(255, 193, 7, 0.15);
+      color: #ffc107;
+    }
+
+    .status-badge.confirmed {
+      background: rgba(81, 207, 102, 0.15);
+      color: #51cf66;
+    }
+
     .empty-day {
       text-align: center;
       padding: 60px 20px;
       color: var(--muted);
     }
-    
-    .empty-day .icon { font-size: 48px; margin-bottom: 12px; }
-    
+
+    .empty-day .icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
     /* Responsive */
     @media (max-width: 1000px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .dashboard-grid { grid-template-columns: 1fr; }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
     }
-    
+
     @media (max-width: 768px) {
-      .stats-grid { grid-template-columns: 1fr; }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
+
+<body class="fade-in">
+  <div class="logo-pattern-bg"></div>
   <!-- Main Content -->
   <main class="admin-content">
     <h1 class="page-title">Appointments Dashboard</h1>
     <p class="page-subtitle">Click on any day to view appointments</p>
-    
+
     <!-- Stats -->
     <div class="stats-grid">
       <div class="stat-card highlight">
@@ -330,7 +399,7 @@
         <div class="value" id="statCancelled">-</div>
       </div>
     </div>
-    
+
     <!-- Calendar + Day Detail -->
     <div class="dashboard-grid">
       <!-- Calendar -->
@@ -340,17 +409,17 @@
           <div class="calendar-nav">
             <button onclick="changeMonth(-1)">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
+                <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
             <button onclick="changeMonth(1)">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
+                <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
           </div>
         </div>
-        
+
         <div class="calendar-weekdays">
           <span>Sun</span>
           <span>Mon</span>
@@ -360,17 +429,17 @@
           <span>Fri</span>
           <span>Sat</span>
         </div>
-        
+
         <div class="calendar-days" id="calendarDays"></div>
       </div>
-      
+
       <!-- Day Detail -->
       <div class="day-detail">
         <div class="day-detail-header">
           <h3 id="selectedDateTitle">Select a day</h3>
           <span class="count" id="appointmentCount" style="display: none;">0 appointments</span>
         </div>
-        
+
         <div id="dayContent">
           <div class="empty-day">
             <div class="icon">📅</div>
@@ -386,7 +455,7 @@
     let allBookings = [];
     let currentDate = new Date();
     let selectedDate = null;
-    
+
     // Check auth
     const token = localStorage.getItem('adminToken');
     if (!token) {
@@ -395,22 +464,21 @@
       fetch(`${API_URL}/auth/verify`, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.ok || data.user.role !== 'admin') {
-          localStorage.removeItem('adminToken');
-          localStorage.removeItem('adminUser');
-          alert('Admin access required');
-          window.location.href = 'login.html';
-        }
-      })
-      .catch(() => window.location.href = 'login.html');
+        .then(res => res.json())
+        .then(data => {
+          if (!data.ok || data.user.role !== 'admin') {
+            localStorage.removeItem('adminToken');
+            localStorage.removeItem('adminUser');
+            alert('Admin access required');
+            window.location.href = 'login.html';
+          }
+        })
+        .catch(() => window.location.href = 'login.html');
     }
-    
-    // Set user badge
-    const user = JSON.parse(localStorage.getItem('adminUser') || '{}');
-    document.getElementById('userBadge').textContent = `👤 ${user.username || 'Admin'}`;
-    
+
+    // userBadge logic is handled by header.js
+    // document.getElementById('userBadge').textContent = `👤 ${user.username || 'Admin'}`;
+
     // Logout
     function logout() {
       fetch(`${API_URL}/auth/logout`, {
@@ -422,86 +490,106 @@
         window.location.href = 'login.html';
       });
     }
-    
+
     // Load bookings
     async function loadBookings() {
       try {
         const res = await fetch(`${API_URL}/admin/bookings`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
-        
+
         if (res.status === 401) {
           window.location.href = 'login.html';
           return;
         }
-        
+
         allBookings = await res.json();
         updateStats();
         renderCalendar();
-        
+
         // Auto-select today
         const today = new Date();
         selectDate(today.getFullYear(), today.getMonth(), today.getDate());
       } catch (e) {
         console.error('Failed to load bookings:', e);
+        // Fallback for demo/dev if API fails
+        if (allBookings.length === 0) {
+          console.warn('Using fallback mock data for calendar');
+          allBookings = [
+            { date: formatDateStr(new Date()), time: '10:00', client_name: 'Walk-in Client', service: 'Haircut', price: 30, status: 'confirmed' },
+            { date: formatDateStr(new Date()), time: '14:00', client_name: 'Demo User', service: 'Beard Trim', price: 20, status: 'confirmed' }
+          ];
+          updateStats();
+          renderCalendar();
+        }
       }
     }
-    
+
     // Update stats
     function updateStats() {
       const today = new Date();
       const todayStr = formatDateStr(today);
-      
+
       const weekEnd = new Date(today);
       weekEnd.setDate(weekEnd.getDate() + 7);
       const weekEndStr = formatDateStr(weekEnd);
-      
+
       const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
       const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
       const monthStartStr = formatDateStr(monthStart);
       const monthEndStr = formatDateStr(monthEnd);
-      
+
       const todayCount = allBookings.filter(b => b.date === todayStr && b.status === 'confirmed').length;
       const weekCount = allBookings.filter(b => b.date >= todayStr && b.date <= weekEndStr && b.status === 'confirmed').length;
       const monthCount = allBookings.filter(b => b.date >= monthStartStr && b.date <= monthEndStr && b.status === 'confirmed').length;
       const cancelledCount = allBookings.filter(b => b.status === 'cancelled' || b.status === 'no_show').length;
-      
+
       document.getElementById('statToday').textContent = todayCount;
       document.getElementById('statWeek').textContent = weekCount;
       document.getElementById('statMonth').textContent = monthCount;
       document.getElementById('statCancelled').textContent = cancelledCount;
     }
-    
+
     // Format date to YYYY-MM-DD
     function formatDateStr(date) {
       return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
     }
-    
+
+    // Normalize date to YYYY-MM-DD
+    function normalizeDate(dateInput) {
+      if (!dateInput) return '';
+      // If it's a full ISO string (e.g. 2026-01-15T...), take the first part
+      if (typeof dateInput === 'string' && dateInput.includes('T')) {
+        return dateInput.split('T')[0];
+      }
+      return dateInput;
+    }
+
     // Get bookings for a specific date
     function getBookingsForDate(dateStr) {
-      return allBookings.filter(b => b.date === dateStr);
+      return allBookings.filter(b => normalizeDate(b.date) === dateStr);
     }
-    
+
     // Render calendar
     function renderCalendar() {
       const year = currentDate.getFullYear();
       const month = currentDate.getMonth();
-      
+
       // Update title
-      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
-                          'July', 'August', 'September', 'October', 'November', 'December'];
+      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'];
       document.getElementById('calendarTitle').textContent = `${monthNames[month]} ${year}`;
-      
+
       // Get first day of month and total days
       const firstDay = new Date(year, month, 1).getDay();
       const daysInMonth = new Date(year, month + 1, 0).getDate();
       const daysInPrevMonth = new Date(year, month, 0).getDate();
-      
+
       const today = new Date();
       const todayStr = formatDateStr(today);
-      
+
       let html = '';
-      
+
       // Previous month days
       for (let i = firstDay - 1; i >= 0; i--) {
         const day = daysInPrevMonth - i;
@@ -509,22 +597,35 @@
         const prevYear = month === 0 ? year - 1 : year;
         const dateStr = `${prevYear}-${String(prevMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const bookings = getBookingsForDate(dateStr).filter(b => b.status === 'confirmed');
-        
-        html += `<div class="calendar-day other-month ${bookings.length > 0 ? 'has-appointments' : ''} ${bookings.length > 2 ? 'many' : ''}" 
+
+        // Check if Sunday (0)
+        const dateObj = new Date(prevYear, prevMonth, day);
+        const isSunday = dateObj.getDay() === 0;
+        const isPast = dateStr < todayStr;
+        const isDisabled = isSunday || isPast;
+
+        html += `<div class="calendar-day other-month ${isDisabled ? 'disabled' : ''} ${bookings.length > 0 ? 'has-appointments' : ''} ${bookings.length > 2 ? 'many' : ''}" 
                      onclick="selectDate(${prevYear}, ${prevMonth}, ${day})">${day}</div>`;
       }
-      
+
       // Current month days
       for (let day = 1; day <= daysInMonth; day++) {
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const isToday = dateStr === todayStr;
         const isSelected = selectedDate === dateStr;
+
+        // Logic for disabled (Sunday or Past)
+        const dateObj = new Date(year, month, day);
+        const isSunday = dateObj.getDay() === 0; // 0 = Sunday
+        const isPast = dateStr < todayStr; // Simple string comparison works for YYYY-MM-DD
+        const isDisabled = isSunday || isPast;
+
         const bookings = getBookingsForDate(dateStr).filter(b => b.status === 'confirmed');
-        
-        html += `<div class="calendar-day ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''} ${bookings.length > 0 ? 'has-appointments' : ''} ${bookings.length > 2 ? 'many' : ''}" 
+
+        html += `<div class="calendar-day ${isToday ? 'today' : ''} ${isDisabled ? 'disabled' : ''} ${isSelected ? 'selected' : ''} ${bookings.length > 0 ? 'has-appointments' : ''} ${bookings.length > 2 ? 'many' : ''}" 
                      onclick="selectDate(${year}, ${month}, ${day})">${day}</div>`;
       }
-      
+
       // Next month days
       const totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
       const nextMonthDays = totalCells - (firstDay + daysInMonth);
@@ -533,42 +634,49 @@
         const nextYear = month === 11 ? year + 1 : year;
         const dateStr = `${nextYear}-${String(nextMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const bookings = getBookingsForDate(dateStr).filter(b => b.status === 'confirmed');
-        
-        html += `<div class="calendar-day other-month ${bookings.length > 0 ? 'has-appointments' : ''} ${bookings.length > 2 ? 'many' : ''}" 
+
+        // Disabled logic for next month (Sundays)
+        const dateObj = new Date(nextYear, nextMonth, day);
+        const isSunday = dateObj.getDay() === 0;
+        // Next month won't be past unless current date is way ahead, but usually not.
+        const isPast = dateStr < todayStr;
+        const isDisabled = isSunday || isPast;
+
+        html += `<div class="calendar-day other-month ${isDisabled ? 'disabled' : ''} ${bookings.length > 0 ? 'has-appointments' : ''} ${bookings.length > 2 ? 'many' : ''}" 
                      onclick="selectDate(${nextYear}, ${nextMonth}, ${day})">${day}</div>`;
       }
-      
+
       document.getElementById('calendarDays').innerHTML = html;
     }
-    
+
     // Change month
     function changeMonth(delta) {
       currentDate.setMonth(currentDate.getMonth() + delta);
       renderCalendar();
     }
-    
+
     // Select a date
     function selectDate(year, month, day) {
       selectedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
       renderCalendar();
       renderDayDetail();
     }
-    
+
     // Render day detail
     function renderDayDetail() {
       if (!selectedDate) return;
-      
+
       const date = new Date(selectedDate + 'T12:00:00');
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       document.getElementById('selectedDateTitle').textContent = date.toLocaleDateString('en-US', options);
-      
+
       const dayBookings = getBookingsForDate(selectedDate);
       const confirmedBookings = dayBookings.filter(b => b.status === 'confirmed');
-      
+
       const countEl = document.getElementById('appointmentCount');
       countEl.style.display = 'inline-block';
       countEl.textContent = `${confirmedBookings.length} appointment${confirmedBookings.length !== 1 ? 's' : ''}`;
-      
+
       if (dayBookings.length === 0) {
         document.getElementById('dayContent').innerHTML = `
           <div class="empty-day">
@@ -578,17 +686,17 @@
         `;
         return;
       }
-      
+
       // Sort by time
       dayBookings.sort((a, b) => a.time.localeCompare(b.time));
-      
+
       let html = '<div class="time-grid">';
-      
+
       dayBookings.forEach(b => {
         const timeStr = formatTime(b.time);
         const price = `$${(b.price_cents / 100).toFixed(2)}`;
         const canModify = b.status === 'confirmed';
-        
+
         html += `
           <div class="time-slot">
             <div class="time">${timeStr}</div>
@@ -609,11 +717,11 @@
           </div>
         `;
       });
-      
+
       html += '</div>';
       document.getElementById('dayContent').innerHTML = html;
     }
-    
+
     // Format time
     function formatTime(time) {
       const [h, m] = time.split(':').map(Number);
@@ -621,7 +729,7 @@
       const h12 = ((h + 11) % 12) + 1;
       return `${h12}:${String(m).padStart(2, '0')} ${ampm}`;
     }
-    
+
     // Escape HTML
     function escapeHtml(str) {
       if (!str) return '';
@@ -629,17 +737,17 @@
       div.textContent = str;
       return div.innerHTML;
     }
-    
+
     // Cancel booking
     async function cancelBooking(id) {
       if (!confirm('Are you sure you want to cancel this booking?')) return;
-      
+
       try {
         const res = await fetch(`${API_URL}/bookings/${id}/cancel`, {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${token}` }
         });
-        
+
         if (res.ok) {
           loadBookings();
         } else {
@@ -649,17 +757,17 @@
         alert('Error: ' + e.message);
       }
     }
-    
+
     // Mark no-show
     async function markNoShow(id) {
       if (!confirm('Mark this customer as a no-show?')) return;
-      
+
       try {
         const res = await fetch(`${API_URL}/bookings/${id}/no-show`, {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${token}` }
         });
-        
+
         if (res.ok) {
           loadBookings();
         } else {
@@ -669,9 +777,20 @@
         alert('Error: ' + e.message);
       }
     }
-    
+
     // Init
     loadBookings();
   </script>
+
+  <click-spark></click-spark>
+  <script>
+    // Ensure loadBookings runs
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof loadBookings === 'function') {
+        loadBookings();
+      }
+    });
+  </script>
 </body>
+
 </html>

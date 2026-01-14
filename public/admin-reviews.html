@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,20 +9,32 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <script src="header.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <script src="header.js" defer></script>
   <style>
-    body { opacity: 1; }
-    
+    body {
+      opacity: 1;
+    }
+
     .admin-content {
       max-width: 1200px;
       margin: 0 auto;
       padding: 120px 24px 60px;
     }
-    
-    .page-title { font-size: 28px; font-weight: 700; margin: 0 0 8px; }
-    .page-subtitle { color: var(--muted); margin: 0 0 30px; }
-    
+
+    .page-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+
+    .page-subtitle {
+      color: var(--muted);
+      margin: 0 0 30px;
+    }
+
     /* Stats Cards */
     .stats-grid {
       display: grid;
@@ -29,18 +42,29 @@
       gap: 20px;
       margin-bottom: 30px;
     }
-    
+
     .stat-card {
       background: var(--card);
       border: 1px solid #242428;
       border-radius: 14px;
       padding: 20px;
     }
-    
-    .stat-card .label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-    .stat-card .value { font-size: 32px; font-weight: 700; }
-    .stat-card.highlight .value { color: var(--brand); }
-    
+
+    .stat-card .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .stat-card .value {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .stat-card.highlight .value {
+      color: var(--brand);
+    }
+
     /* Add Form */
     .add-form {
       background: var(--card);
@@ -49,13 +73,19 @@
       padding: 24px;
       margin-bottom: 30px;
     }
-    .add-form h3 { margin-bottom: 20px; font-size: 18px; }
+
+    .add-form h3 {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       margin-bottom: 16px;
     }
+
     .form-group label {
       display: block;
       margin-bottom: 6px;
@@ -63,7 +93,10 @@
       font-weight: 600;
       color: var(--muted);
     }
-    .form-group input, .form-group select, .form-group textarea {
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
       width: 100%;
       padding: 12px;
       background: #0a0a0a;
@@ -73,11 +106,18 @@
       font-size: 14px;
       font-family: inherit;
     }
-    .form-group textarea { min-height: 80px; resize: vertical; }
-    .form-group input:focus, .form-group textarea:focus {
+
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
       outline: none;
       border-color: var(--brand);
     }
+
     .btn {
       background: var(--brand);
       color: #000;
@@ -88,32 +128,38 @@
       cursor: pointer;
       font-size: 14px;
     }
-    .btn:hover { opacity: 0.9; }
-    
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
     /* Reviews List */
     .section-title {
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 16px;
     }
-    
+
     .reviews-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
+
     .review-item {
       background: var(--card);
       border: 1px solid #242428;
       border-radius: 14px;
       padding: 20px;
     }
+
     .review-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 12px;
     }
+
     .review-num {
       background: var(--brand);
       color: #000;
@@ -123,10 +169,29 @@
       border-radius: 12px;
       margin-right: 8px;
     }
-    .review-name { font-weight: 600; color: var(--brand); }
-    .review-meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
-    .review-text { color: #ccc; line-height: 1.6; margin-bottom: 12px; }
-    .review-actions { display: flex; gap: 8px; }
+
+    .review-name {
+      font-weight: 600;
+      color: var(--brand);
+    }
+
+    .review-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .review-text {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .review-actions {
+      display: flex;
+      gap: 8px;
+    }
+
     .btn-sm {
       padding: 8px 14px;
       font-size: 12px;
@@ -136,10 +201,21 @@
       background: #222;
       color: #fff;
     }
-    .btn-sm:hover { background: #333; }
-    .btn-sm.delete { border-color: #dc2626; color: #dc2626; }
-    .btn-sm.delete:hover { background: #dc2626; color: #fff; }
-    
+
+    .btn-sm:hover {
+      background: #333;
+    }
+
+    .btn-sm.delete {
+      border-color: #dc2626;
+      color: #dc2626;
+    }
+
+    .btn-sm.delete:hover {
+      background: #dc2626;
+      color: #fff;
+    }
+
     .edit-panel {
       display: none;
       background: #0a0a0a;
@@ -148,13 +224,18 @@
       padding: 16px;
       margin-top: 12px;
     }
-    .edit-panel.show { display: block; }
+
+    .edit-panel.show {
+      display: block;
+    }
+
     .edit-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-bottom: 12px;
     }
+
     .edit-row input {
       padding: 10px;
       background: #151515;
@@ -163,23 +244,32 @@
       color: #fff;
       font-size: 13px;
     }
+
     .edit-row input:focus {
       outline: none;
       border-color: var(--brand);
     }
-    
+
     @media (max-width: 768px) {
-      .form-grid, .edit-row { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr; }
+
+      .form-grid,
+      .edit-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
+
+<body class="fade-in">
   <!-- Main Content -->
   <main class="admin-content">
     <h1 class="page-title">Manage Reviews</h1>
     <p class="page-subtitle">Edit client names, dates, and review text from Booksy</p>
-    
+
     <!-- Stats -->
     <div class="stats-grid">
       <div class="stat-card highlight">
@@ -191,7 +281,7 @@
         <div class="value">5.0 ⭐</div>
       </div>
     </div>
-    
+
     <!-- Add Form -->
     <div class="add-form">
       <h3>➕ Add New Review</h3>
@@ -232,7 +322,7 @@
         <button type="submit" class="btn">Add Review</button>
       </form>
     </div>
-    
+
     <!-- Reviews List -->
     <h3 class="section-title">📋 All Reviews (<span id="reviewCount">0</span>)</h3>
     <div class="reviews-list" id="reviewsList">
@@ -245,7 +335,7 @@
     let reviews = [];
 
     // Load reviews on page load
-    window.onload = async function() {
+    window.onload = async function () {
       await loadReviews();
     };
 
@@ -268,7 +358,7 @@
         list.innerHTML = '<p style="color: var(--muted);">No reviews yet.</p>';
         return;
       }
-      
+
       list.innerHTML = reviews.map((r, i) => `
         <div class="review-item">
           <div class="review-header">
@@ -317,7 +407,7 @@
         service: document.getElementById('service-' + i).value,
         text: document.getElementById('text-' + i).value
       };
-      
+
       try {
         const res = await fetch(API + '/reviews/update/' + i, {
           method: 'PUT',
@@ -346,7 +436,7 @@
     }
 
     // Add form
-    document.getElementById('addForm').onsubmit = async function(e) {
+    document.getElementById('addForm').onsubmit = async function (e) {
       e.preventDefault();
       const newReview = {
         name: document.getElementById('newName').value,
@@ -355,7 +445,7 @@
         rating: parseInt(document.getElementById('newRating').value),
         text: document.getElementById('newText').value
       };
-      
+
       try {
         const res = await fetch(API + '/reviews/add', {
           method: 'POST',
@@ -373,4 +463,5 @@
     };
   </script>
 </body>
+
 </html>

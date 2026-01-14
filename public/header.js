@@ -5,62 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       document.body.insertAdjacentHTML("afterbegin", data);
       initHeaderAuth();
-      initCursorGlow();
+
     })
     .catch(err => console.error("Header load failed:", err));
 });
 
-// Initialize cursor glow effect
-function initCursorGlow() {
-  // Create cursor glow element
-  const glow = document.createElement('div');
-  glow.className = 'cursor-glow';
-  // Ensure fixed position for perfect sync with viewport
-  glow.style.position = 'fixed';
-  document.body.appendChild(glow);
-
-  const GLOW_SIZE = 250; // Smaller size
-  const HALF_SIZE = GLOW_SIZE / 2;
-
-  // Track target mouse position
-  let mouseX = 0;
-  let mouseY = 0;
-
-  // Track current glow position
-  let glowX = 0;
-  let glowY = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    if (!glow.classList.contains('active')) {
-      glow.classList.add('active');
-    }
-  });
-
-  // Smooth animation loop (lerp)
-  function animateGlow() {
-    // 0.1 = slow follow, 0.2 = medium, 1 = instant
-    const ease = 0.15;
-
-    glowX += (mouseX - glowX) * ease;
-    glowY += (mouseY - glowY) * ease;
-
-    const x = glowX - HALF_SIZE;
-    const y = glowY - HALF_SIZE;
-
-    glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    requestAnimationFrame(animateGlow);
-  }
-
-  animateGlow();
-
-  // Hide glow when mouse leaves window
-  document.addEventListener('mouseleave', () => {
-    glow.classList.remove('active');
-  });
-}
+// Inject click-spark.js
+const script = document.createElement('script');
+script.src = 'click-spark.js';
+document.body.appendChild(script);
 
 // Secret keyboard shortcut: Ctrl + Shift + A to access admin login
 document.addEventListener('keydown', (e) => {
