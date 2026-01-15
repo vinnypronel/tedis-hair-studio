@@ -1,0 +1,84 @@
+﻿git : remote: error: GH013: 
+Repository rule violations 
+found for refs/heads/main.  
+      
+At line:1 char:1
++ git push origin main 
+--force 2>&1 | Out-File 
+-FilePath push_result.tx ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (remot  
+  e: error: ...s/main.      
+      :String) [], Remot    
+eException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+remote: 
+remote: - GITHUB PUSH 
+PROTECTION        
+remote:   ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö
+ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓ
+ÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇ
+öΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö
+ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö       
+ 
+remote:     Resolve the 
+following violations before 
+pushing again        
+remote: 
+remote:     - Push cannot 
+contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how 
+to resolve a blocked push   
+     
+remote:      https://docs.gi
+thub.com/code-security/secre
+t-scanning/working-with-secr
+et-scanning-and-push-protect
+ion/working-with-push-protec
+tion-from-the-command-line#r
+esolving-a-blocked-push     
+   
+remote:             
+remote:             
+remote:       ΓÇöΓÇö Twilio 
+Account String Identifier ΓÇ
+öΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö
+ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö    
+    
+remote:        locations:   
+     
+remote:          - commit: 5
+6983015c501fac4e0789e262d127
+81a9b45a8f5        
+remote:            path: 
+.env:2        
+remote:             
+remote:        (?) To push, 
+remove secret from 
+commit(s) or follow this 
+URL to allow the secret.    
+    
+remote:        https://githu
+b.com/vinnypronel/tedis-hair
+-studio/security/secret-scan
+ning/unblock-secret/38EsH0uh
+wiuqqaQlkJzV2KU676t        
+remote:             
+remote: 
+remote: 
+To https://github.com/vinnyp
+ronel/tedis-hair-studio.git
+ ! [remote rejected] main 
+-> main (push declined due 
+to repository rule 
+violations)
+error: failed to push some 
+refs to 'https://github.com/
+vinnypronel/tedis-hair-studi
+o.git'
