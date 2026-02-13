@@ -5,62 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       document.body.insertAdjacentHTML("afterbegin", data);
       initHeaderAuth();
-      initCursorGlow();
+
     })
     .catch(err => console.error("Header load failed:", err));
 });
 
-// Initialize cursor glow effect
-function initCursorGlow() {
-  // Create cursor glow element
-  const glow = document.createElement('div');
-  glow.className = 'cursor-glow';
-  // Ensure fixed position for perfect sync with viewport
-  glow.style.position = 'fixed';
-  document.body.appendChild(glow);
-
-  const GLOW_SIZE = 250; // Smaller size
-  const HALF_SIZE = GLOW_SIZE / 2;
-
-  // Track target mouse position
-  let mouseX = 0;
-  let mouseY = 0;
-
-  // Track current glow position
-  let glowX = 0;
-  let glowY = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    if (!glow.classList.contains('active')) {
-      glow.classList.add('active');
-    }
-  });
-
-  // Smooth animation loop (lerp)
-  function animateGlow() {
-    // 0.1 = slow follow, 0.2 = medium, 1 = instant
-    const ease = 0.15;
-
-    glowX += (mouseX - glowX) * ease;
-    glowY += (mouseY - glowY) * ease;
-
-    const x = glowX - HALF_SIZE;
-    const y = glowY - HALF_SIZE;
-
-    glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    requestAnimationFrame(animateGlow);
-  }
-
-  animateGlow();
-
-  // Hide glow when mouse leaves window
-  document.addEventListener('mouseleave', () => {
-    glow.classList.remove('active');
-  });
-}
+// Inject click-spark.js
+const script = document.createElement('script');
+script.src = 'click-spark.js';
+document.body.appendChild(script);
 
 // Secret keyboard shortcut: Ctrl + Shift + A to access admin login
 document.addEventListener('keydown', (e) => {
@@ -83,35 +36,84 @@ function initHeaderAuth() {
 
   // ================= THEME TOGGLE =================
   const navActions = document.querySelector('.nav-actions');
-  const themeBtn = document.createElement('button');
-  themeBtn.className = 'nav-login-btn'; // Re-use styles
-  themeBtn.style.marginRight = '8px';
-  themeBtn.style.padding = '8px 10px';
-  themeBtn.innerHTML = '🌙'; // Default icon
-  themeBtn.title = "Toggle Light/Dark Mode";
 
-  // Insert before login button (or account dropdown if logged in)
+  // Create desktop toggle switch
+  const desktopToggleWrapper = document.createElement('div');
+  desktopToggleWrapper.className = 'nav-theme-toggle';
+  desktopToggleWrapper.innerHTML = `
+    <label class="theme-switch">
+      <input type="checkbox" id="desktopThemeCheckbox">
+      <span class="theme-slider"></span>
+    </label>
+  `;
+
+  // Insert before hamburger button
   if (navActions) {
-    navActions.prepend(themeBtn);
+    navActions.prepend(desktopToggleWrapper);
   }
 
-  function updateThemeIcon(theme) {
-    themeBtn.innerHTML = theme === 'light' ? '☀️' : '🌙';
+  const desktopCheckbox = document.getElementById('desktopThemeCheckbox');
+  const mobileCheckbox = document.getElementById('mobileThemeCheckbox');
+
+  // Function to update all toggle states
+  function updateAllToggles(isDark) {
+    if (desktopCheckbox) desktopCheckbox.checked = isDark;
+    if (mobileCheckbox) mobileCheckbox.checked = isDark;
+  }
+
+  // Function to apply theme
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateAllToggles(theme === 'dark');
   }
 
   // Load saved theme
   const savedTheme = localStorage.getItem('theme') || 'dark';
-  if (savedTheme === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    updateThemeIcon('light');
-  }
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateAllToggles(savedTheme === 'dark');
 
-  themeBtn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    const newTheme = current === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
+  // Desktop toggle event
+  desktopCheckbox?.addEventListener('change', () => {
+    const newTheme = desktopCheckbox.checked ? 'dark' : 'light';
+    applyTheme(newTheme);
+  });
+
+  // Mobile toggle event
+  mobileCheckbox?.addEventListener('change', () => {
+    const newTheme = mobileCheckbox.checked ? 'dark' : 'light';
+    applyTheme(newTheme);
+  });
+
+  // ================= HAMBURGER MENU =================
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+  // Hamburger toggle
+  hamburgerBtn?.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('active');
+    mobileMenuOverlay?.classList.toggle('open');
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = mobileMenuOverlay?.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close menu when clicking a link
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerBtn?.classList.remove('active');
+      mobileMenuOverlay?.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close menu on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+      hamburgerBtn?.classList.remove('active');
+      mobileMenuOverlay?.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   });
   // ===============================================
 
