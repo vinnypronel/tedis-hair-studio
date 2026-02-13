@@ -243,21 +243,33 @@ async function initUsers() {
     }
 
     // Check if admin users exist
-    const adminCount = await get("SELECT COUNT(*) as count FROM users WHERE role = 'admin'");
-    if (adminCount.count === 0) {
-      // Create default admin users (passwords from .env file)
-      const admins = [
-        { username: 'tedi', password: process.env.ADMIN_TEDI_PASSWORD },
-        { username: 'dev', password: process.env.ADMIN_DEV_PASSWORD }
-      ];
+    const adminCountStr = await get("SELECT COUNT(*) as count FROM users WHERE role = 'admin'");
+    const adminCount = parseInt(adminCountStr?.count || 0);
 
+    const admins = [
+      { username: 'tedi', password: process.env.ADMIN_TEDI_PASSWORD },
+      { username: 'dev', password: process.env.ADMIN_DEV_PASSWORD }
+    ];
+
+    if (adminCount === 0) {
       for (const u of admins) {
+        if (!u.password) continue;
         await run(
           'INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)',
           [u.username, hashPassword(u.password), 'admin']
         );
       }
       console.log('✓ Default admin users created (tedi, dev)');
+    } else {
+      // Sync passwords if they changed in .env
+      for (const u of admins) {
+        if (!u.password) continue;
+        await run(
+          'UPDATE users SET password_hash = ? WHERE username = ? AND role = \'admin\'',
+          [hashPassword(u.password), u.username]
+        );
+      }
+      console.log('✓ Admin passwords synced with .env');
     }
 
     console.log('✓ Users table ready');
