@@ -15,7 +15,7 @@ export const galleryImages: GalleryImage[] = [
   { id: "g-cut2", url: "/images/cut2.jpeg", alt: "Clean taper with sharp lineup", category: "cuts", featured: false, sortOrder: 2 },
   { id: "g-cut3", url: "/images/cut3.jpeg", alt: "Mid fade, scissor work on top", category: "cuts", featured: false, sortOrder: 3 },
   { id: "g-cut4", url: "/images/cut4.jpeg", alt: "Burst fade with detailed edges", category: "cuts", featured: true, sortOrder: 4 },
-  { id: "g-cut5", url: "/images/cut5.jpeg", alt: "Low fade with beard blend", category: "cuts", featured: false, sortOrder: 5 },
+
   { id: "g-cut6", url: "/images/cut6.jpeg", alt: "Crop with hard part", category: "cuts", featured: false, sortOrder: 6 },
   { id: "g-beard", url: "/images/beard-cut.jpeg", alt: "Beard sculpt and razor line", category: "cuts", featured: false, sortOrder: 7 },
   { id: "g-gorc", url: "/images/gorc-cut.jpg", alt: "Fresh cut, client portrait", category: "cuts", featured: false, sortOrder: 8 },
@@ -59,7 +59,7 @@ export const instagramPosts: InstagramPost[] = [
   { image: "/professional-images/pops.jpg", caption: "Studio details.", postUrl: "https://www.instagram.com/tedishairstudio/" },
   { image: "/images/cut2.jpeg", caption: "Lineup sharp enough to cut glass.", postUrl: "https://www.instagram.com/tedishairstudio/" },
   { image: "/professional-images/brownshirt.jpg", caption: "Ember Tee. Earth tones.", postUrl: "https://www.instagram.com/tedishairstudio/" },
-  { image: "/images/cut5.jpeg", caption: "Low fade, beard blend.", postUrl: "https://www.instagram.com/tedishairstudio/" },
+
   { image: "/professional-images/yellowshirt.jpg", caption: "Neon Mark. The loud one.", postUrl: "https://www.instagram.com/tedishairstudio/" },
 ];
 
