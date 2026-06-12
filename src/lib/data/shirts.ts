@@ -24,7 +24,7 @@ export type Shirt = {
 export const shirts: Shirt[] = [
   {
     id: "shirt-mark-tee",
-    name: "Green Tee",
+    name: "Forest Green Tee",
     slug: "green-tee",
     description:
       "The studio staple. Forest green body, cream bear mark across the back, small left-chest hit on the front. Cut boxy, made to be kept.",
@@ -40,7 +40,7 @@ export const shirts: Shirt[] = [
   },
   {
     id: "shirt-blue-flame",
-    name: "Blue Tee",
+    name: "Midnight Blue Tee",
     slug: "blue-tee",
     description:
       "Matched to the blue flame cape. Ink body with icy blue bear mark. Bold enough to turn heads, clean enough to wear daily.",
@@ -104,7 +104,7 @@ export const shirts: Shirt[] = [
   },
   {
     id: "shirt-ember",
-    name: "Brown Tee",
+    name: "Espresso Brown Tee",
     slug: "brown-tee",
     description:
       "Matched to the brown cape. Earth-tone body, ink bear mark. One run, never repeated.",
