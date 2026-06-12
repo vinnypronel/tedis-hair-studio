@@ -17,7 +17,7 @@ export const galleryImages: GalleryImage[] = [
   { id: "g-cut4", url: "/images/cut4.jpeg", alt: "Burst fade with detailed edges", category: "cuts", featured: true, sortOrder: 4 },
 
   { id: "g-cut6", url: "/images/cut6.jpeg", alt: "Crop with hard part", category: "cuts", featured: false, sortOrder: 6 },
-  { id: "g-beard", url: "/images/beard-cut.jpeg", alt: "Beard sculpt and razor line", category: "cuts", featured: false, sortOrder: 7 },
+
   { id: "g-gorc", url: "/images/gorc-cut.jpg", alt: "Fresh cut, client portrait", category: "cuts", featured: false, sortOrder: 8 },
   { id: "g-jgorc", url: "/images/jgorc.jpeg", alt: "Finished cut, studio lighting", category: "cuts", featured: false, sortOrder: 9 },
 
