@@ -24,13 +24,13 @@ export type Shirt = {
 export const shirts: Shirt[] = [
   {
     id: "shirt-mark-tee",
-    name: "Forest Green Tee",
+    name: "Olive Green Tee",
     slug: "green-tee",
     description:
-      "The studio staple. Forest green body, cream bear mark across the back, small left-chest hit on the front. Cut boxy, made to be kept.",
+      "The studio staple. Olive green body, cream bear mark across the back, small left-chest hit on the front. Cut boxy, made to be kept.",
     priceCents: 3500,
     images: [
-      { url: "/professional-images/greenshirt.jpg", alt: "The Mark Tee,forest green with cream bear print" },
+      { url: "/professional-images/greenshirt.jpg", alt: "The Mark Tee,olive green with cream bear print" },
     ],
     availableSizes: ["S", "M", "L", "XL", "XXL"],
     status: "for_sale",
