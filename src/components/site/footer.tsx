@@ -117,14 +117,8 @@ export function Footer() {
             © {new Date().getFullYear()} Tedi&rsquo;s Hair Studio · Built with intention
           </p>
           <div className="flex gap-6">
-            <Link href="/legal/privacy" className="mono-micro text-cream/40 hover:text-cream/70">
-              Privacy
-            </Link>
-            <Link href="/legal/terms" className="mono-micro text-cream/40 hover:text-cream/70">
-              Terms
-            </Link>
-            <Link href="/admin" className="mono-micro text-cream/40 hover:text-cream/70">
-              Studio login
+            <Link href="/legal" className="mono-micro text-cream/40 hover:text-cream/70">
+              Privacy & Terms
             </Link>
           </div>
         </div>
