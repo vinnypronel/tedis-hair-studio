@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette */
+  --color-bone: #f4efe6;
+  --color-cream: #faf6ee;
+  --color-ink: #0b0b0b;
+  --color-forest: #1a2f23;
+  --color-forest-deep: #0f1f17;
+  --color-neon: #f5c518;
+  --color-ember: #c8553d;
+
+  --color-stone-100: #ede8dd;
+  --color-stone-300: #c8c0b0;
+  --color-stone-500: #8a8170;
+  --color-stone-700: #4a4438;
+
+  --color-success: #2e5d3a;
+  --color-error: #8b2c1f;
+
+  /* Fonts (wired to next/font variables in layout) */
+  --font-display: var(--font-fraunces), "Fraunces", georgia, serif;
+  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --color-bg: var(--color-bone);
+  --border-hairline: rgba(11, 11, 11, 0.08);
+  --border-strong: rgba(11, 11, 11, 0.16);
+  --grain-opacity: 0.04;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-forest);
+  color: var(--color-cream);
+}
+
+/* ---------- Typography utilities ---------- */
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 9vw, 132px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-variation-settings: "opsz" 144;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 88px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  font-variation-settings: "opsz" 96;
+}
+
+.heading-1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-variation-settings: "opsz" 72;
+}
+
+.heading-2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  font-variation-settings: "opsz" 48;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mono-micro {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------- Hairline borders ---------- */
+
+.hairline {
+  border: 0.5px solid var(--border-hairline);
+}
+.hairline-b {
+  border-bottom: 0.5px solid var(--border-hairline);
+}
+.hairline-t {
+  border-top: 0.5px solid var(--border-hairline);
+}
+.hairline-strong {
+  border: 0.5px solid var(--border-strong);
+}
+.hairline-cream {
+  border: 0.5px solid rgba(250, 246, 238, 0.16);
+}
+.hairline-cream-t {
+  border-top: 0.5px solid rgba(250, 246, 238, 0.16);
+}
+
+/* ---------- Link underline draw ---------- */
+
+.link-draw {
+  position: relative;
+  text-decoration: none;
+}
+.link-draw::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms var(--ease-editorial);
+}
+.link-draw:hover::after,
+.link-draw:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Bear mark (masked, tintable) ---------- */
+
+.bear-mask {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-image: url("/brand/greylogo.png");
+  mask-image: url("/brand/greylogo.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+@keyframes bear-pulse {
+  0%, 87.5%, 100% { transform: scale(1); }
+  93.75% { transform: scale(1.04); }
+}
+.bear-idle {
+  animation: bear-pulse 4s ease-in-out infinite;
+}
+
+/* ---------- Marquee ---------- */
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 60s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ---------- Form inputs (bottom-border editorial style) ---------- */
+
+.input-line {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid var(--border-strong);
+  border-radius: 0;
+  padding: 10px 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 250ms var(--ease-editorial);
+}
+.input-line:focus {
+  border-bottom-color: var(--color-forest);
+  border-bottom-width: 1px;
+}
+.input-line::placeholder {
+  color: var(--color-stone-500);
+}
+
+/* On forest backgrounds */
+.input-line-cream {
+  color: var(--color-cream);
+  border-bottom-color: rgba(250, 246, 238, 0.3);
+}
+.input-line-cream:focus {
+  border-bottom-color: var(--color-cream);
+}
+.input-line-cream::placeholder {
+  color: rgba(250, 246, 238, 0.4);
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Custom cursor (desktop pointer devices only) ---------- */
+
+@media (pointer: fine) {
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-ink);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition:
+      width 200ms var(--ease-editorial),
+      height 200ms var(--ease-editorial),
+      border-color 200ms var(--ease-editorial),
+      opacity 200ms;
+    mix-blend-mode: difference;
+    border-color: #fff;
+  }
+  .cursor-dot.is-active {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ---------- Scrollbar (hidden, still scrollable) ---------- */
+
+html,
+body {
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Active nav link (permanent underline) ---------- */
+
+.link-active::after {
+  transform: scaleX(1);
+}

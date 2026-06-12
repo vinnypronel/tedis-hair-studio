@@ -1,25 +1,26 @@
 {
   "name": "tedis-hair-studio",
-  "version": "1.0.0",
-  "main": "server.js",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
-    "@sendgrid/mail": "^8.1.4",
-    "axios": "^1.13.2",
-    "cheerio": "^1.1.2",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "multer": "^2.0.2",
-    "puppeteer": "^24.34.0",
-    "sqlite3": "^5.1.7",
-    "twilio": "^5.4.0"
+    "motion": "^12.0.0",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.25.0"
   },
-  "description": "",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.8.0"
+  }
 }
