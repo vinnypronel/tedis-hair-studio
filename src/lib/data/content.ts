@@ -27,7 +27,7 @@ export const content = {
   },
   brand: {
     story:
-      "The bear came first. Before the studio had an address, it had a mark. A bear with an X stitched over one eye, wrapped around a barber pole. It's on every cape in the studio, the green, the flame, the black. The X isn't damage; it's a stitch. Something repaired by hand, made better than it was. That's the whole job description. The pole is the oldest symbol in the trade, and the bear holds it like it's his. Tedi doesn't put the mark on anything he wouldn't stand behind, which is why you'll see it stitched, printed, and lit in neon, but never watered down.",
+      "The studio is built on the belief that the environment you get cut in is just as important as the cut itself. Inside, you won't find the loud rush of a traditional shop. Instead, the space is a highly curated personal sanctuary—featuring Tedi's collection of Bearbrick collectibles, framed signed jerseys, and Mr. Brainwash-inspired artwork. It's a private, single-chair room designed for comfort and focus. When you're here, you choose the music, set the vibe, and get the barber's complete, uninterrupted attention.",
   },
   space: {
     story:

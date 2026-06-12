@@ -172,10 +172,10 @@ export function BrandStory() {
             label=""
           />
           <Reveal>
-            <p className="eyebrow text-cream/50">03 · The Mark</p>
+            <p className="eyebrow text-cream/50">03 · The Environment</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="heading-1 mt-5">Stitched with character</h2>
+            <h2 className="heading-1 mt-5">Every detail curated</h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/80">
@@ -184,9 +184,12 @@ export function BrandStory() {
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-10 flex items-center gap-4">
-              <BearLogo size={56} className="text-cream" label="The bear and pole mark" />
+              <span className="mono-micro border-[0.5px] border-cream/30 px-2 py-1 text-cream/70">
+                1 Chair
+              </span>
+              <span aria-hidden className="size-1 rounded-full bg-cream/30" />
               <span className="mono-micro text-cream/50">
-                The bear · The pole · The X-stitch
+                One-on-One · Curated Space · Selected Playlists
               </span>
             </div>
           </Reveal>
