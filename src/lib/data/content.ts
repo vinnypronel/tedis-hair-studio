@@ -27,7 +27,7 @@ export const content = {
   },
   brand: {
     story:
-      "The studio is built on the belief that the environment you get cut in is just as important as the cut itself. Inside, you won't find the loud rush of a traditional shop. Instead, the space is a highly curated personal sanctuary—featuring Tedi's collection of Bearbrick collectibles, framed signed jerseys, and Mr. Brainwash-inspired artwork. It's a private, single-chair room designed for comfort and focus. When you're here, you choose the music, set the vibe, and get the barber's complete, uninterrupted attention.",
+      "The studio is built on the belief that the environment you get cut in is just as important as the cut itself. Inside, you won't find the loud rush of a traditional shop. Instead, the space is a highly curated personal sanctuary, featuring Tedi's collection of Bearbrick collectibles, framed signed jerseys, and Mr. Brainwash-inspired artwork. It's a private, single-chair room designed for comfort and focus. When you're here, you choose the music, set the vibe, and get the barber's complete, uninterrupted attention.",
   },
   space: {
     story:
