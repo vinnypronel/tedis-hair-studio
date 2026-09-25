@@ -22,41 +22,9 @@ export function formatHour(time: string): string {
   return m === 0 ? `${hour12} ${period}` : `${hour12}:${String(m).padStart(2, "0")} ${period}`;
 }
 
-/**
- * Mock slot generation. Mirrors what the server will eventually compute from
- * availability_blocks − appointments − overrides. Deterministically "books out"
- * a few slots per day so the calendar looks real.
- */
-export function getAvailableSlots(date: Date, durationMinutes: number): string[] {
-  const day = weeklyHours[date.getDay()];
-  if (!day.open || !day.close) return [];
-
-  const [openH, openM] = day.open.split(":").map(Number);
-  const [closeH, closeM] = day.close.split(":").map(Number);
-  const openMins = openH * 60 + openM;
-  const closeMins = closeH * 60 + closeM;
-
-  const slots: string[] = [];
-  // pseudo-random but stable per date: pretend some slots are taken
-  const seed = date.getFullYear() * 372 + (date.getMonth() + 1) * 31 + date.getDate();
-
-  for (let t = openMins; t + durationMinutes <= closeMins; t += durationMinutes) {
-    const taken = (seed * 2654435761 + t * 97) % 100 < 30; // ~30% booked
-    if (taken) continue;
-    const h = Math.floor(t / 60);
-    const m = t % 60;
-    slots.push(`${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`);
-  }
-  return slots;
-}
-
-export function isDateBookable(date: Date): boolean {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  if (date < today) return false;
-  const day = weeklyHours[date.getDay()];
-  return day.open !== null;
-}
+/* Slot generation (getAvailableSlots, isDateBookable) lived here for the on-site
+   booking flow. Booking now runs on Booksy, so both were archived. See
+   archive/BOOKING-FEATURE.md section 3a to bring them back. */
 
 /** Returns true if the studio is open right now (America/New_York). */
 export function isOpenNow(now: Date = new Date()): boolean {

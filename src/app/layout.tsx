@@ -4,8 +4,9 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { Grain } from "@/components/site/grain";
 import { Cursor } from "@/components/site/cursor";
-import { CartProvider } from "@/lib/cart";
 import { content } from "@/lib/data/content";
+import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
+import { Scrollbar } from "@/components/site/scrollbar";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -29,51 +30,58 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(content.meta.siteUrl),
   title: {
-    default: "Tedi's Hair Studio |Private Barber Studio in Matawan, NJ",
-    template: "%s |Tedi's Hair Studio",
+    default: "Tedi's Hair Studio | Private Barber Studio in Matawan, NJ",
+    template: "%s | Tedi's Hair Studio",
   },
   description: content.meta.description,
   openGraph: {
+    title: "Tedi's Hair Studio | Private Barber Studio in Matawan, NJ",
+    description: content.meta.description,
     siteName: content.meta.siteName,
     type: "website",
     locale: "en_US",
+    images: [{ url: "/professional-images/chair-wash.jpg", alt: "Inside Tedi's Hair Studio" }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "HairSalon",
+  "@id": `${content.meta.siteUrl}/#studio`,
   name: "Tedi's Hair Studio",
   description: content.meta.description,
-  telephone: "+17329477359",
+  url: content.meta.siteUrl,
+  telephone: content.contact.phoneHref.replace("tel:", ""),
+  image: `${content.meta.siteUrl}/professional-images/chair-wash.jpg`,
   priceRange: "$$",
+  sameAs: [
+    content.social.instagram,
+    content.social.tiktok,
+    content.booking.profileUrl,
+  ],
+  hasMap: content.contact.googleMapsUrl,
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: content.booking.url,
+      inLanguage: "en-US",
+      actionPlatform: [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/IOSPlatform",
+        "http://schema.org/AndroidPlatform",
+      ],
+    },
+    result: { "@type": "Reservation", name: "Book an appointment" },
+  },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "259 Broad St #103",
+    streetAddress: content.contact.addressLine1,
     addressLocality: "Matawan",
     addressRegion: "NJ",
     postalCode: "07747",
     addressCountry: "US",
-  },
-  geo: { "@type": "GeoCoordinates", latitude: 40.4131, longitude: -74.2293 },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "10:00",
-      closes: "20:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "09:00",
-      closes: "17:00",
-    },
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "127",
   },
 };
 
@@ -87,17 +95,21 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-bone focus:p-4 focus:text-forest">
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
-        <CartProvider>
+        <SmoothScrollProvider>
           <Header />
-          <main>{children}</main>
+          <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
-        </CartProvider>
+        </SmoothScrollProvider>
         <Grain />
         <Cursor />
+        <Scrollbar />
       </body>
     </html>
   );

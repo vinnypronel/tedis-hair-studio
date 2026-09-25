@@ -1,117 +1,33 @@
-"use client";
-
-import { useState } from "react";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-
-const messageSchema = z.object({
-  name: z.string().min(2, "Your name, please"),
-  email: z.string().email("That email doesn't look right"),
-  phone: z.string().min(7, "Phone number, please"),
-  message: z.string().min(10, "Tell us a little more"),
-});
+import { content } from "@/lib/data/content";
+import styles from "./contact-form.module.css";
 
 export function ContactForm() {
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const payload = {
-      name: String(form.get("name") ?? ""),
-      email: String(form.get("email") ?? ""),
-      phone: String(form.get("phone") ?? ""),
-      message: String(form.get("message") ?? ""),
-    };
-    const result = messageSchema.safeParse(payload);
-    if (!result.success) {
-      const errs: Record<string, string> = {};
-      for (const issue of result.error.issues) {
-        errs[String(issue.path[0])] = issue.message;
-      }
-      setErrors(errs);
-      return;
-    }
-    setErrors({});
-    console.log("[contact] message payload:", result.data);
-    setSent(true);
-  }
-
-  if (sent) {
-    return (
-      <div className="hairline-strong bg-cream p-10 text-center">
-        <p className="font-display text-3xl tracking-tight italic">Got it.</p>
-        <p className="mt-3 text-sm text-stone-700">
-          Tedi reads everything. You&rsquo;ll hear back within a day.
-        </p>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={handleSubmit} noValidate className="grid gap-10 md:grid-cols-2">
-      <div>
-        <label htmlFor="contact-name" className="eyebrow text-stone-500">
-          Name
-        </label>
-        <input id="contact-name" name="name" className="input-line mt-2" autoComplete="name" />
-        {errors.name && (
-          <p role="alert" aria-live="polite" className="mt-2 text-xs text-error">
-            {errors.name}
-          </p>
-        )}
+    <div className="hairline-strong bg-cream p-8 md:p-10">
+      <p className="font-display text-3xl tracking-tight italic">Talk to Tedi.</p>
+      <p className="mt-4 max-w-lg text-sm leading-relaxed text-stone-700">
+        For questions about the studio or your visit, call or text directly.
+        Book, reschedule, or cancel your appointment through Booksy.
+      </p>
+      <div className="mt-7 flex flex-wrap items-center gap-6">
+        <a href={content.contact.phoneHref.replace("tel:", "sms:")} className={`${styles.textButton} inline-flex items-center px-6 py-3 text-sm font-medium text-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest`}>
+          <span className={styles.icon} aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-3 3V11.5a8.5 8.5 0 0 1 8.5-8.5h3a8.5 8.5 0 0 1 8.5 8.5Z" />
+              <path d="M7 10h8M7 14h5" />
+            </svg>
+          </span>
+          <span className={styles.label}>Text the studio</span>
+        </a>
+        <a href={content.contact.phoneHref} className={`${styles.callButton} inline-flex items-center px-6 py-3 text-sm font-medium text-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest`}>
+          <span className={styles.phoneIcon} aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </span>
+          <span className={styles.label}>Call {content.contact.phone}</span>
+        </a>
       </div>
-      <div>
-        <label htmlFor="contact-email" className="eyebrow text-stone-500">
-          Email
-        </label>
-        <input
-          id="contact-email"
-          name="email"
-          type="email"
-          className="input-line mt-2"
-          autoComplete="email"
-        />
-        {errors.email && (
-          <p role="alert" aria-live="polite" className="mt-2 text-xs text-error">
-            {errors.email}
-          </p>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label htmlFor="contact-phone" className="eyebrow text-stone-500">
-          Phone
-        </label>
-        <input
-          id="contact-phone"
-          name="phone"
-          type="tel"
-          className="input-line mt-2"
-          autoComplete="tel"
-        />
-        {errors.phone && (
-          <p role="alert" aria-live="polite" className="mt-2 text-xs text-error">
-            {errors.phone}
-          </p>
-        )}
-      </div>
-      <div className="md:col-span-2">
-        <label htmlFor="contact-message" className="eyebrow text-stone-500">
-          Message
-        </label>
-        <textarea id="contact-message" name="message" rows={4} className="input-line mt-2 resize-none" />
-        {errors.message && (
-          <p role="alert" aria-live="polite" className="mt-2 text-xs text-error">
-            {errors.message}
-          </p>
-        )}
-      </div>
-      <div>
-        <Button type="submit" arrow>
-          Send message
-        </Button>
-      </div>
-    </form>
+    </div>
   );
 }

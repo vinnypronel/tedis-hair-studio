@@ -8,14 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/services",
-    "/book",
     "/shop",
     "/reviews",
     "/gallery",
     "/contact",
   ].map((path) => ({
     url: `${base}${path}`,
-    lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: path === "" ? 1 : 0.8,
   }));
@@ -24,7 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((s) => s.status !== "archived")
     .map((s) => ({
       url: `${base}/shop/${s.slug}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));

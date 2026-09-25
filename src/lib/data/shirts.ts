@@ -23,14 +23,14 @@ export type Shirt = {
 
 export const shirts: Shirt[] = [
   {
-    id: "shirt-mark-tee",
-    name: "Olive Green Tee",
-    slug: "green-tee",
+    id: "shirt-red-black",
+    name: "Red/Black Tee",
+    slug: "red-black-tee",
     description:
-      "The studio staple. Olive green body, cream bear mark across the back, small left-chest hit on the front. Cut boxy, made to be kept.",
+      "Bold red bear mark and studio typography on a black body. Sleeve hit and full back print. Cut boxy, made to last.",
     priceCents: 3500,
     images: [
-      { url: "/professional-images/greenshirt.jpg", alt: "The Mark Tee,olive green with cream bear print" },
+      { url: "/professional-images/redblackshirt.jpg", alt: "Red/Black Tee, black body with red bear mark" },
     ],
     availableSizes: ["S", "M", "L", "XL", "XXL"],
     status: "for_sale",
@@ -40,13 +40,13 @@ export const shirts: Shirt[] = [
   },
   {
     id: "shirt-blue-flame",
-    name: "Midnight Blue Tee",
+    name: "Blue Tee",
     slug: "blue-tee",
     description:
       "Matched to the blue flame cape. Ink body with icy blue bear mark. Bold enough to turn heads, clean enough to wear daily.",
     priceCents: 3500,
     images: [
-      { url: "/professional-images/blueshirt.jpg", alt: "Blue Flame Tee,ink body with blue bear mark" },
+      { url: "/professional-images/blueshirt.jpg", alt: "Blue Tee, ink body with blue bear mark" },
     ],
     availableSizes: ["S", "M", "L", "XL"],
     status: "for_sale",
@@ -62,7 +62,7 @@ export const shirts: Shirt[] = [
       "The loud one. Yellow body, ink bear mark front and center. Matches the neon sign in the studio. You'll know it when you see it.",
     priceCents: 3500,
     images: [
-      { url: "/professional-images/yellowshirt.jpg", alt: "Neon Mark Tee,yellow body with ink bear mark", objectPosition: "right center" },
+      { url: "/professional-images/yellowshirt.jpg", alt: "Yellow/Black Tee,yellow body with ink bear mark", objectPosition: "right center" },
     ],
     availableSizes: ["M", "L", "XL"],
     status: "for_sale",
@@ -71,18 +71,50 @@ export const shirts: Shirt[] = [
     drop: "DROP 003",
   },
   {
+    id: "shirt-mark-tee",
+    name: "Green Tee",
+    slug: "green-tee",
+    description:
+      "The studio staple. Olive green body, cream bear mark across the back, small left-chest hit on the front. Cut boxy, made to be kept.",
+    priceCents: 3500,
+    images: [
+      { url: "/professional-images/greenshirt.jpg", alt: "Green Tee, olive green with cream bear print" },
+    ],
+    availableSizes: ["S", "M", "L", "XL", "XXL"],
+    status: "for_sale",
+    sortOrder: 4,
+    releaseYear: 2026,
+    drop: "DROP 003",
+  },
+  {
+    id: "shirt-glow",
+    name: "Glow in the Dark Tee",
+    slug: "glow-in-the-dark-tee",
+    description:
+      "Black body with high-visibility glow-in-the-dark bear mark and studio typography. Lights up under blacklight. Built boxy, made to last.",
+    priceCents: 3500,
+    images: [
+      { url: "/professional-images/glowindarkshirt.jpg", alt: "Glow in the Dark Tee, black body with neon glow bear mark" },
+    ],
+    availableSizes: ["S", "M", "L", "XL", "XXL"],
+    status: "for_sale",
+    sortOrder: 5,
+    releaseYear: 2026,
+    drop: "DROP 003",
+  },
+  {
     id: "shirt-holiday",
-    name: "Holiday Tee '25",
+    name: "Christmas Tee '25",
     slug: "holiday-tee-25",
     description:
       "The December drop. Full back print, sold out in a week. Kept here for the archive. If you have one, hold onto it.",
     priceCents: 3500,
     images: [
-      { url: "/professional-images/christmashirt.jpg", alt: "Holiday Tee 2025,full back print" },
+      { url: "/professional-images/christmashirt.jpg", alt: "Christmas Tee 2025, full back print" },
     ],
     availableSizes: [],
     status: "display_only",
-    sortOrder: 4,
+    sortOrder: 6,
     releaseYear: 2025,
     drop: "DROP 002",
   },
@@ -98,23 +130,23 @@ export const shirts: Shirt[] = [
     ],
     availableSizes: [],
     status: "display_only",
-    sortOrder: 5,
+    sortOrder: 7,
     releaseYear: 2025,
     drop: "DROP 002",
   },
   {
     id: "shirt-ember",
-    name: "Espresso Brown Tee",
+    name: "Brown Tee",
     slug: "brown-tee",
     description:
       "Matched to the brown cape. Earth-tone body, ink bear mark. One run, never repeated.",
     priceCents: 3500,
     images: [
-      { url: "/professional-images/brownshirt.jpg", alt: "Ember Tee,earth-tone body with ink bear mark" },
+      { url: "/professional-images/brownshirt.jpg", alt: "Brown Tee,earth-tone body with ink bear mark" },
     ],
     availableSizes: [],
     status: "display_only",
-    sortOrder: 6,
+    sortOrder: 8,
     releaseYear: 2025,
     drop: "DROP 002",
   },

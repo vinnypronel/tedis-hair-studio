@@ -4,28 +4,34 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { shirts, type ShirtStatus } from "@/lib/data/shirts";
-import { formatPrice } from "@/lib/data/services";
 import { ShirtVisual } from "@/components/shop/shirt-visual";
 import { cn } from "@/lib/utils";
 
-type Filter = "all" | "for_sale" | "archive";
+type Filter = "all" | "holiday";
 
 const filters: { key: Filter; label: string }[] = [
   { key: "all", label: "All" },
-  { key: "for_sale", label: "For Sale" },
-  { key: "archive", label: "Archive" },
+  { key: "holiday", label: "Holiday" },
 ];
 
-function matches(filter: Filter, status: ShirtStatus): boolean {
-  if (filter === "all") return status !== "archived";
-  if (filter === "for_sale") return status === "for_sale";
-  return status === "display_only" || status === "archived";
+function matches(filter: Filter, shirt: (typeof shirts)[number]): boolean {
+  if (filter === "all") return shirt.status !== "archived";
+  if (filter === "holiday") {
+    return (
+      shirt.slug.includes("christmas") ||
+      shirt.slug.includes("holiday") ||
+      shirt.slug.includes("halloween") ||
+      shirt.id === "shirt-holiday" ||
+      shirt.id === "shirt-halloween"
+    );
+  }
+  return true;
 }
 
 export function ShopClient() {
   const [filter, setFilter] = useState<Filter>("all");
   const visible = shirts
-    .filter((s) => matches(filter, s.status))
+    .filter((s) => matches(filter, s))
     .sort((a, b) => a.sortOrder - b.sortOrder);
 
   return (
@@ -53,7 +59,7 @@ export function ShopClient() {
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-12 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3"
+        className="mt-8 grid gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         {visible.map((shirt) => (
           <Link key={shirt.id} href={`/shop/${shirt.slug}`} className="group block">
@@ -73,21 +79,8 @@ export function ShopClient() {
                   <ShirtVisual shirt={shirt} imageIndex={1} />
                 </div>
               )}
-              {shirt.status !== "for_sale" && (
-                <span className="mono-micro absolute top-4 left-4 z-10 bg-ink px-2 py-1 text-cream">
-                  Archive
-                </span>
-              )}
             </div>
-            <div className="mt-4 flex items-baseline justify-between">
-              <span className="font-display text-xl tracking-tight">{shirt.name}</span>
-              <span className="font-mono text-sm">
-                {shirt.status === "for_sale" ? formatPrice(shirt.priceCents) : "Sold out"}
-              </span>
-            </div>
-            <p className="mono-micro mt-1 text-stone-500">
-              {shirt.drop} · {shirt.releaseYear}
-            </p>
+            <p className="mt-4 font-display text-xl tracking-tight">{shirt.name}</p>
           </Link>
         ))}
       </motion.div>

@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/site/page-header";
 import { content } from "@/lib/data/content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/legal" },
   title: "Privacy & Terms",
   robots: { index: false },
 };
@@ -10,19 +11,19 @@ export const metadata: Metadata = {
 const privacySections = [
   {
     heading: "What we collect",
-    body: "When you book an appointment or place a shop order, we collect your name, email address, and phone number. That's it. No accounts, no passwords, no tracking profiles. Optional notes you add to a booking are stored with the appointment.",
+    body: "Appointments are booked through Booksy. Information you provide during booking is handled through that service. This website does not accept online orders or contact form submissions. If you call, text, or email the studio, you share the contact information and message you choose to send.",
   },
   {
     heading: "How it's used",
-    body: "Your contact details are used for exactly two things: confirming and managing your appointments, and reaching you about an order you placed. We don't sell, rent, or share your information with anyone, ever.",
+    body: "The studio uses information you share to respond to your inquiry and manage your appointment. For information about how Booksy handles booking data, review its privacy policy when booking.",
   },
   {
-    heading: "Emails and messages",
-    body: "You'll receive a confirmation when you book and, if needed, a message about changes to your appointment. We don't send marketing email unless you explicitly join the drop list, and you can leave it any time.",
+    heading: "Third-party services",
+    body: "The contact page embeds Google Maps. Loading that map sends connection information to Google. Links to Booksy, Instagram, and TikTok open services with their own privacy policies. Website hosting providers may process technical request information to deliver and secure this website.",
   },
   {
-    heading: "Retention",
-    body: "Appointment history is kept so Tedi can give you a better cut next time: what was done, what you liked. If you'd like your information removed, text or email the studio and it's gone.",
+    heading: "Privacy requests",
+    body: "Contact the studio with questions about information you have shared directly. Requests about information held by Booksy or another service may also need to be made to that provider.",
   },
   {
     heading: "Questions",
@@ -37,19 +38,19 @@ const termsSections = [
   },
   {
     heading: "Cancellations",
-    body: "Life happens. Cancel or reschedule any time up to 24 hours before your appointment at no cost. Cancellations within 24 hours, or no-shows, forfeit any deposit paid. Repeated no-shows may require prepayment for future bookings.",
+    body: "Booking, rescheduling, and cancellations run through Booksy. Please give at least 24 hours notice. Review the cancellation and payment conditions displayed in Booksy before confirming your appointment.",
   },
   {
     heading: "Payment",
-    body: "Cash and Zelle are accepted at the studio. Card and Apple Pay are coming soon. Prices shown at booking are the prices charged. No surprises in the chair.",
+    body: "Cash and Zelle are accepted at the studio. Confirm current prices and any booking conditions in Booksy before booking.",
   },
   {
-    heading: "Shop orders",
-    body: "Shirts are picked up in person during your appointment; there is no shipping. An order without a connected appointment isn't an order yet. You'll be asked to book first. Unclaimed orders are released after 30 days.",
+    heading: "Studio merchandise",
+    body: "Shirts are not sold online. Ask Tedi about current availability, sizes, and purchases at the studio, or contact the studio on Instagram.",
   },
   {
     heading: "The studio",
-    body: "The studio is a curated space. Treat it the way you'd want your own things treated. Tedi reserves the right to refuse service, though in three years, he hasn't had to.",
+    body: "Please treat the studio and its collection with care. Contact Tedi before your appointment if you have questions about access or your visit.",
   },
   {
     heading: "Contact",
@@ -61,13 +62,11 @@ export default function LegalPage() {
   return (
     <div className="pb-24 lg:pb-36">
       <PageHeader
-        eyebrow="Legal"
         title="Privacy & Terms"
-        sub="Our guidelines and rules, written plainly."
       />
       <div className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-6xl">
-          <p className="mono-micro mb-8 text-stone-500">Last updated June 2026</p>
+          <p className="mono-micro mb-8 text-stone-500">Last updated September 2026</p>
           
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:divide-x md:divide-stone-200">
             {/* Privacy Policy */}

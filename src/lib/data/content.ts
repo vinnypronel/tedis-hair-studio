@@ -7,17 +7,28 @@ export const content = {
     ctaPrimary: "Book Now",
     ctaSecondary: "See the work",
   },
+  booking: {
+    // Tedi takes every appointment through Booksy. Every "Book Now" on the site
+    // opens this in a new tab. The on-site booking flow is archived, see
+    // archive/BOOKING-FEATURE.md.
+    provider: "Booksy",
+    url: "https://booksy.com/en-us/instant-experiences/widget/1231797?instant_experiences_enabled=true",
+    profileUrl:
+      "https://booksy.com/en-us/1231797_tedis-hair-studio_barber-shop_28674_matawan",
+    reviewsUrl:
+      "https://booksy.com/en-us/1231797_tedis-hair-studio_barber-shop_28674_matawan#business-reviews",
+  },
   contact: {
     phone: "(732) 947-7359",
     phoneHref: "tel:+17329477359",
     email: "book@tedishairstudio.com",
-    addressLine1: "259 Broad St #103",
+    addressLine1: "259-267 Broad St, Suite 128",
     addressLine2: "Matawan, NJ 07747",
     addressInside: "Inside Bellazio Collective",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=259+Broad+St+%23103+Matawan+NJ+07747",
+      "https://www.google.com/maps/search/?api=1&query=259-267+Broad+St+Suite+128+Matawan+NJ+07747",
     mapsEmbedUrl:
-      "https://www.google.com/maps?q=259+Broad+St+%23103,+Matawan,+NJ+07747&output=embed",
+      "https://www.google.com/maps?q=259-267+Broad+St+Suite+128,+Matawan,+NJ+07747&output=embed",
   },
   social: {
     instagram: "https://instagram.com/tedishairstudio",
@@ -64,15 +75,14 @@ export const content = {
     ],
   },
   servicesNotes: [
-    "Appointments are private. The studio is yours for the duration of the cut.",
-    "Cancellations within 24 hours forfeit any deposit.",
+    "Appointments are private. 1:1.",
+    "Booking, rescheduling, and cancellations all run through Booksy. Give at least 24 hours notice.",
     "Running late? Text the studio. More than 15 minutes may require rebooking.",
-    "Cash and Zelle accepted at the studio. Card and Apple Pay coming soon.",
+    "Cash and Zelle accepted at the studio.",
   ],
   shop: {
-    note: "Shirts ship with your next cut. Booking required.",
     disclaimer:
-      "All shirts are picked up during your appointment. Booking is required to purchase.",
+      "Shirts are not sold online. Current drops are available at the studio, ask Tedi at your appointment or send a DM.",
   },
   meta: {
     siteName: "Tedi's Hair Studio",

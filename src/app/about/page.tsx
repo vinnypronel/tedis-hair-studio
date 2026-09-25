@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { content } from "@/lib/data/content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "Meet Tedi",
   description:
     "The barber behind the one-chair studio. Tedi's story, the space, and the objects that make it his.",
@@ -108,7 +109,7 @@ export default function AboutPage() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <ButtonLink href="/book" size="large" arrow>
+            <ButtonLink href={content.booking.url} size="large" arrow>
               Book with Tedi
             </ButtonLink>
           </Reveal>

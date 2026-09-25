@@ -53,6 +53,29 @@ body {
   color: var(--color-cream);
 }
 
+/* ---------- Interactive Cursor Rules ---------- */
+
+button,
+[role="button"],
+[type="button"],
+[type="submit"],
+[type="reset"],
+a,
+summary,
+select,
+input[type="range"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+}
+
 /* ---------- Typography utilities ---------- */
 
 .display-xl {
@@ -143,12 +166,13 @@ body {
   width: 100%;
   background: currentColor;
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: right;
   transition: transform 200ms var(--ease-editorial);
 }
 .link-draw:hover::after,
 .link-draw:focus-visible::after {
   transform: scaleX(1);
+  transform-origin: left;
 }
 
 /* ---------- Bear mark (masked, tintable) ---------- */
@@ -183,10 +207,7 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 60s linear infinite;
-}
-.marquee-track:hover {
-  animation-play-state: paused;
+  animation: marquee-scroll 54s linear infinite;
 }
 
 /* ---------- Form inputs (bottom-border editorial style) ---------- */
@@ -267,18 +288,64 @@ body {
   }
 }
 
-/* ---------- Scrollbar (hidden, still scrollable) ---------- */
+/* ---------- Scrollbar ---------- */
 
-html,
-body {
+html.overlay-scrollbar {
   scrollbar-width: none;
 }
-::-webkit-scrollbar {
+html.overlay-scrollbar::-webkit-scrollbar {
   display: none;
+}
+.page-scrollbar {
+  position: fixed;
+  top: 0;
+  right: 3px;
+  z-index: 9998;
+  width: 6px;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  transition: opacity 400ms ease;
+}
+.page-scrollbar[data-visible="true"],
+.page-scrollbar:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-scrollbar {
+    transition: none;
+  }
 }
 
 /* ---------- Active nav link (permanent underline) ---------- */
 
 .link-active::after {
   transform: scaleX(1);
+}
+
+/* ---------- Lenis Smooth Scroll Rules ---------- */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }

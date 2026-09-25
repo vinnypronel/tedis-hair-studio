@@ -81,24 +81,24 @@ export default function ConfirmedPage({
   }, [code]);
 
   return (
-    <div className="px-6 pt-36 pb-24 md:px-12 lg:px-20 lg:pt-44 lg:pb-36">
+    <div className="px-6 pt-24 pb-10 md:px-12 lg:px-20 lg:pt-28 lg:pb-12">
       <div className="mx-auto max-w-2xl">
         <div className="text-center">
-          <BearLogo size={72} className="mx-auto text-forest" />
-          <p className="eyebrow mt-10 text-stone-500">Confirmed</p>
-          <h1 className="display-lg mt-6 italic">You&rsquo;re in.</h1>
+          <BearLogo size={52} className="mx-auto text-forest" />
+          <p className="eyebrow mt-5 text-stone-500">Confirmed</p>
+          <h1 className="display-lg mt-3 italic">You&rsquo;re in.</h1>
           <p
-            className="mt-10 font-mono text-5xl tracking-[0.25em] md:text-6xl"
+            className="mt-5 font-mono text-4xl tracking-[0.25em] md:text-5xl"
             aria-label={`Confirmation code ${code}`}
           >
             {code}
           </p>
-          <p className="mono-micro mt-3 text-stone-500">Your confirmation code</p>
+          <p className="mono-micro mt-2 text-stone-500">Your confirmation code</p>
         </div>
 
         {booking ? (
-          <div className="hairline-strong mt-14 bg-cream p-8">
-            <div className="flex flex-col gap-3 text-sm">
+          <div className="hairline-strong mt-8 bg-cream p-6">
+            <div className="flex flex-col gap-2 text-sm">
               <div className="flex justify-between">
                 <span className="font-display text-xl tracking-tight">
                   {booking.service.name}
@@ -126,7 +126,7 @@ export default function ConfirmedPage({
             </div>
 
             {booking.paymentMethod === "zelle" && (
-              <div className="mt-6 border-[0.5px] border-forest bg-forest/5 p-5 text-sm leading-relaxed">
+              <div className="mt-4 border-[0.5px] border-forest bg-forest/5 p-4 text-sm leading-relaxed">
                 <p className="eyebrow text-forest">Zelle instructions</p>
                 <p className="mt-2 text-stone-700">
                   Send {formatPrice(booking.totalCents)} to{" "}
@@ -136,10 +136,10 @@ export default function ConfirmedPage({
               </div>
             )}
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-5 flex flex-wrap gap-4">
               <button
                 onClick={() => downloadIcs(booking)}
-                className="rounded-[2px] border-[0.5px] border-ink/40 px-5 py-3 text-sm transition-colors hover:bg-ink hover:text-cream"
+                className="rounded-[2px] border-[0.5px] border-ink/40 px-5 py-2.5 text-sm transition-colors hover:bg-ink hover:text-cream"
               >
                 Add to calendar (.ics)
               </button>
@@ -147,7 +147,7 @@ export default function ConfirmedPage({
                 href={googleCalUrl(booking)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-[2px] border-[0.5px] border-ink/40 px-5 py-3 text-sm transition-colors hover:bg-ink hover:text-cream"
+                className="rounded-[2px] border-[0.5px] border-ink/40 px-5 py-2.5 text-sm transition-colors hover:bg-ink hover:text-cream"
               >
                 Google Calendar
               </a>
@@ -159,7 +159,7 @@ export default function ConfirmedPage({
           </p>
         )}
 
-        <div className="mt-12 flex flex-col gap-3 text-center text-sm text-stone-700">
+        <div className="mt-6 flex flex-col gap-2 text-center text-sm text-stone-700">
           <p>
             <span className="mono-micro text-stone-500">Where ·</span>{" "}
             {content.contact.addressInside} · {content.contact.addressLine1},{" "}
@@ -187,11 +187,11 @@ export default function ConfirmedPage({
             href={content.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-draw mx-auto mt-4 w-fit text-sm font-medium"
+            className="link-draw mx-auto mt-2 w-fit text-sm font-medium"
           >
             Follow {content.social.instagramHandle} →
           </a>
-          <Link href="/" className="link-draw mx-auto mt-2 w-fit text-sm text-stone-500">
+          <Link href="/" className="link-draw mx-auto w-fit text-sm text-stone-500">
             Back home
           </Link>
         </div>

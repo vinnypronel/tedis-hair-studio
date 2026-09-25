@@ -15,7 +15,7 @@ export function LiveClock({ tone = "cream" }: { tone?: "cream" | "ink" }) {
   }, []);
 
   if (!now) {
-    return <div className="mono-micro opacity-0">00:00:00 EST</div>;
+    return <div className="mono-micro opacity-0">00:00:00 ET</div>;
   }
 
   const open = isOpenNow(now);
@@ -34,7 +34,7 @@ export function LiveClock({ tone = "cream" }: { tone?: "cream" | "ink" }) {
         tone === "cream" ? "text-cream/80" : "text-ink/70"
       )}
     >
-      <span className="mono-micro tabular-nums">{time} EST</span>
+      <span className="mono-micro tabular-nums">{time} ET</span>
       <span
         className={cn(
           "mono-micro flex items-center gap-1.5 border-[0.5px] px-2 py-1",

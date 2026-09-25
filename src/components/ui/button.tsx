@@ -70,11 +70,20 @@ export function ButtonLink({
   className,
   children,
 }: CommonProps & { href: string }) {
+  const classes = cn(base, variants[variant], variant !== "ghost" && sizes[size], className);
+
+  // External destinations (Booksy, maps, socials) open in a new tab.
+  if (href.startsWith("http")) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {children}
+        {arrow && <Arrow />}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={cn(base, variants[variant], variant !== "ghost" && sizes[size], className)}
-    >
+    <Link href={href} className={classes}>
       {children}
       {arrow && <Arrow />}
     </Link>

@@ -1,0 +1,167 @@
+.textButton,
+.callButton {
+  position: relative;
+  isolation: isolate;
+  white-space: nowrap;
+  /* Keep the link's hit area fixed while its decorative children move. */
+}
+
+.textButton::before,
+.callButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 7px;
+  background: var(--color-forest);
+  transform: skewX(-10deg);
+  transition:
+    left 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    right 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 350ms ease;
+}
+
+.label {
+  pointer-events: none;
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.icon {
+  position: absolute;
+  left: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(12px) scale(0.4);
+  transition:
+    opacity 250ms ease,
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.textButton:is(:hover, :focus-visible) .label {
+  transform: translateY(-3px);
+}
+
+/* Anchor the right edge so the extension never shifts the adjacent call link. */
+.textButton:is(:hover, :focus-visible)::before {
+  left: -24px;
+  transform: translateY(-3px) skewX(-10deg);
+  background: var(--color-forest-deep);
+}
+
+.textButton:is(:hover, :focus-visible) .icon {
+  opacity: 1;
+  transform: translate(0, -3px) scale(1);
+}
+
+.textButton:is(:hover, :focus-visible) .icon svg {
+  animation: messageNudge 900ms ease-in-out 150ms infinite;
+}
+
+@keyframes messageNudge {
+  0%, 100% { transform: rotate(0) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.1); }
+  50% { transform: rotate(8deg) scale(1.1); }
+  75% { transform: rotate(-4deg) scale(1.04); }
+}
+
+.callButton::before {
+  transform: skewX(10deg);
+}
+
+.phoneIcon {
+  position: absolute;
+  left: 24px;
+  display: flex;
+  width: 0;
+  height: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.4);
+  transition:
+    width 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 300ms ease,
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.phoneIcon svg {
+  flex-shrink: 0;
+}
+
+.callButton:is(:hover, :focus-visible)::before {
+  right: -24px;
+  transform: translate(3px, -3px) skewX(10deg);
+  background: var(--color-forest-deep);
+}
+
+.callButton:is(:hover, :focus-visible) .label {
+  /* 16px handset + 8px gap, plus the guide's 3px lift to the right. */
+  transform: translate(27px, -3px);
+}
+
+.callButton:is(:hover, :focus-visible) .phoneIcon {
+  width: 16px;
+  opacity: 1;
+  transform: translate(3px, -3px) scale(1);
+}
+
+.callButton:is(:hover, :focus-visible) .phoneIcon svg {
+  animation: phoneRing 600ms ease-in-out infinite alternate;
+}
+
+@keyframes phoneRing {
+  0% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-16deg) scale(1.12); }
+  40% { transform: rotate(16deg) scale(1.12); }
+  60% { transform: rotate(-12deg) scale(1.08); }
+  80% { transform: rotate(12deg) scale(1.08); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .textButton::before,
+  .callButton::before,
+  .phoneIcon,
+  .icon {
+    transition: none;
+  }
+
+  .textButton:is(:hover, :focus-visible) .label {
+    transform: none;
+  }
+
+  .textButton:is(:hover, :focus-visible)::before {
+    transform: skewX(-10deg);
+  }
+
+  .textButton:is(:hover, :focus-visible) .icon {
+    transform: scale(1);
+  }
+
+  .textButton:is(:hover, :focus-visible) .icon svg {
+    animation: none;
+  }
+
+  .callButton:is(:hover, :focus-visible)::before {
+    transform: skewX(10deg);
+  }
+
+  .callButton:is(:hover, :focus-visible) .label {
+    transform: translateX(24px);
+  }
+
+  .callButton:is(:hover, :focus-visible) .phoneIcon {
+    transform: scale(1);
+  }
+
+  .callButton:is(:hover, :focus-visible) .phoneIcon svg {
+    animation: none;
+  }
+}

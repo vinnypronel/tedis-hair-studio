@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BearLogo } from "@/components/site/bear-logo";
 import { LoginForm } from "./login-form";
 
@@ -9,7 +10,16 @@ export const metadata: Metadata = {
 
 export default function AdminLoginPage() {
   return (
-    <div className="flex min-h-svh items-center justify-center bg-forest-deep px-6 py-24 text-cream">
+    <div className="relative flex min-h-svh items-center justify-center bg-forest-deep px-6 py-24 text-cream">
+      {/* Top Left: Back to Home */}
+      <Link
+        href="/"
+        className="cursor-pointer absolute top-6 left-6 flex items-center gap-2 rounded px-3 py-2 text-xs font-mono tracking-wider text-cream/70 transition-colors hover:bg-cream/10 hover:text-cream md:top-8 md:left-12 lg:left-20"
+      >
+        <span>←</span>
+        <span>Back to home</span>
+      </Link>
+
       <div className="w-full max-w-sm">
         <BearLogo size={64} className="mx-auto text-cream" />
         <p className="eyebrow mt-8 text-center text-cream/50">Studio Access</p>

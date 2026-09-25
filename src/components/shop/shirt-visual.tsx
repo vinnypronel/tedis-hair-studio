@@ -19,11 +19,13 @@ export function ShirtVisual({
   shirt,
   imageIndex = 0,
   className,
+  fit = "cover",
   sizes = "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
 }: {
   shirt: Shirt;
   imageIndex?: number;
   className?: string;
+  fit?: "cover" | "contain";
   sizes?: string;
 }) {
   const img: ShirtImage | undefined = shirt.images[imageIndex] ?? shirt.images[0];
@@ -38,7 +40,8 @@ export function ShirtVisual({
         sizes={sizes}
         style={img.objectPosition ? { objectPosition: img.objectPosition } : undefined}
         className={cn(
-          "object-cover transition-transform duration-500 group-hover:scale-[1.03]",
+          fit === "contain" ? "object-contain" : "object-cover",
+          "transition-transform duration-500 group-hover:scale-[1.03]",
           className
         )}
       />

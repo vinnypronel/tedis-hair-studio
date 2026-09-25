@@ -14,6 +14,7 @@ import { shirts } from "@/lib/data/shirts";
 import { Button } from "@/components/ui/button";
 import { BearLogo } from "@/components/site/bear-logo";
 import { cn, formatDateLong, formatTime12, generateConfirmationCode } from "@/lib/utils";
+import { saveBooking, type StoredBooking } from "@/lib/data/bookings";
 
 /* ------------------------------------------------------------------ */
 /* Schema                                                              */
@@ -202,12 +203,21 @@ export function BookingFlow() {
     setSubmitting(true);
 
     const code = generateConfirmationCode();
-    const booking = {
+    const booking: StoredBooking = {
       confirmationCode: code,
+      createdAtISO: new Date().toISOString(),
       service: { id: service.id, name: service.name, priceCents: service.priceCents },
+      dateISO: date.toISOString(),
+      slot,
       scheduledFor: `${date.toDateString()} ${slot}`,
       durationMinutes: service.durationMinutes,
-      customer: info,
+      customer: {
+        firstName: info.firstName,
+        lastName: info.lastName,
+        email: info.email,
+        phone: info.phone,
+        notes: info.notes,
+      },
       shirts: Object.entries(addedShirts).map(([shirtId, size]) => {
         const s = shirts.find((x) => x.id === shirtId)!;
         return { shirtId, name: s.name, size, priceCents: s.priceCents };
@@ -218,14 +228,10 @@ export function BookingFlow() {
       totalCents,
     };
     console.log("[booking] appointment payload:", booking);
-    sessionStorage.setItem(
-      `ths-booking-${code}`,
-      JSON.stringify({
-        ...booking,
-        dateISO: date.toISOString(),
-        slot,
-      })
-    );
+    // Persist to the booking log (feeds the admin dashboard) and keep a
+    // per-code copy for the confirmation screen.
+    saveBooking(booking);
+    sessionStorage.setItem(`ths-booking-${code}`, JSON.stringify(booking));
     router.push(`/book/confirmed/${code}`);
   }
 
