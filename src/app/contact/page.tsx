@@ -41,17 +41,17 @@ export default function ContactPage() {
                   </a>
 
                   <div className="mt-14 flex flex-col gap-2.5 text-sm">
-                    <a href={content.contact.phoneHref} className="link-draw w-fit font-mono tracking-widest">
+                    <a href={content.contact.phoneHref} className="contact-drift-link link-draw w-fit font-mono tracking-widest">
                       {content.contact.phone}
                     </a>
-                    <a href={`mailto:${content.contact.email}`} className="link-draw w-fit">
+                    <a href={`mailto:${content.contact.email}`} className="contact-drift-link link-draw w-fit">
                       {content.contact.email}
                     </a>
                     <a
                       href={content.social.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="link-draw w-fit"
+                      className="contact-drift-link link-draw w-fit"
                     >
                       Instagram · {content.social.instagramHandle}
                     </a>
@@ -59,7 +59,7 @@ export default function ContactPage() {
                       href={content.social.tiktok}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="link-draw w-fit"
+                      className="contact-drift-link link-draw w-fit"
                     >
                       TikTok · {content.social.tiktokHandle}
                     </a>

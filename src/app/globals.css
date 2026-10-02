@@ -190,6 +190,18 @@ footer a.mono-micro:focus-visible {
   transform: translateX(6px);
 }
 
+.contact-drift-link {
+  display: inline-block;
+  transition:
+    transform 500ms var(--ease-editorial),
+    color 500ms var(--ease-editorial);
+}
+
+.contact-drift-link:hover,
+.contact-drift-link:focus-visible {
+  transform: translateX(6px);
+}
+
 /* ---------- Bear mark (masked, tintable) ---------- */
 
 .bear-mask {
