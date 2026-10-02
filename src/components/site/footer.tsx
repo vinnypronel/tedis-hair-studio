@@ -121,7 +121,7 @@ export function Footer() {
       <div className="hairline-cream-t">
         <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-3 px-6 py-6 md:flex-row md:items-center md:px-12 lg:px-20">
           <p className="mono-micro text-cream/40">
-            © {new Date().getFullYear()} Tedi&rsquo;s Hair Studio · Built with intention
+            © {new Date().getFullYear()} Tedi&rsquo;s Hair Studio
           </p>
           <div className="flex gap-6">
             <Link href="/legal" className="link-draw mono-micro text-cream/40 hover:text-cream/70">
