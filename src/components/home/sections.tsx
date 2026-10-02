@@ -183,7 +183,10 @@ export function BrandStory() {
             <p className="eyebrow text-cream/50">03 · The Standard</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="heading-1 mt-5">Clean room. Serious work.</h2>
+            <h2 className="heading-1 mt-5">
+              <span className="block">Clean room.</span>
+              <span className="block">Serious work.</span>
+            </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/80">
@@ -477,3 +480,4 @@ export function Visit() {
     </section>
   );
 }
+
