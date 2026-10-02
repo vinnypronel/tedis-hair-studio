@@ -19,21 +19,21 @@ export default function ServicesPage() {
       {/* Hero + services fill exactly one viewport */}
       <div className="flex min-h-screen flex-col">
         <div className="px-6 pt-28 pb-3 md:px-12 lg:px-20 lg:pt-32 lg:pb-4">
-          <div className="mx-auto max-w-[1440px]">
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <Reveal delay={0.1}>
               <h1 className="font-display text-4xl tracking-tight sm:text-5xl lg:text-[54px]">
                 What we do:
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600 sm:text-base">
+              <p className="text-sm leading-relaxed text-stone-600 sm:text-right sm:text-base">
                 Each cut is 30 mins.
               </p>
             </Reveal>
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col px-6 md:px-12 lg:px-20">
+        <div className="-mt-2 flex flex-1 flex-col px-6 md:px-12 lg:px-20">
           <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col">
             <RevealGroup stagger={0.04} className="flex flex-1 flex-col">
               {services.map((svc) => (
