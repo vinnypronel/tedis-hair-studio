@@ -111,7 +111,7 @@ export function Footer() {
           </span>
         </div>
         <div className="lg:col-start-3">
-          <BookLink className="group inline-flex items-center gap-3 rounded-[2px] bg-bone px-7 py-3.5 text-sm font-medium text-forest-deep transition-colors duration-300 hover:bg-stone-300">
+          <BookLink className="group inline-flex items-center gap-3 rounded-[2px] bg-bone px-7 py-3.5 text-sm font-medium text-forest-deep transition-all duration-300 hover:-translate-y-0.5 hover:translate-x-0.5 hover:bg-forest-deep hover:text-cream">
             Book Now
             <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
           </BookLink>
