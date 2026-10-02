@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { BookLink } from "@/components/site/book-link";
 import { LiveClock } from "@/components/site/live-clock";
@@ -87,9 +88,9 @@ export function Hero() {
               →
             </span>
           </BookLink>
-          <a href="#the-work" className="link-draw text-sm text-cream/90">
+          <Link href="/gallery" className="link-draw text-sm text-cream/90">
             {content.hero.ctaSecondary}
-          </a>
+          </Link>
         </motion.div>
       </div>
 
@@ -107,3 +108,4 @@ export function Hero() {
     </section>
   );
 }
+
