@@ -30,7 +30,7 @@ export const galleryImages: GalleryImage[] = [
   // ----- The Studio -----
   { id: "g-chair", url: "/professional-images/chair.jpg", alt: "The chair, green cape with the bear mark", category: "studio", featured: true, sortOrder: 1 },
   { id: "g-bwj", url: "/professional-images/bwjerseys.jpg", alt: "Signed Quist and Arringo jerseys", category: "studio", featured: false, sortOrder: 2 },
-  { id: "g-pops", url: "/professional-images/pops.jpg", alt: "Bape and Funko collection shelf", category: "studio", featured: false, sortOrder: 3 },
+  { id: "g-pops", url: "/professional-images/pops.jpg", alt: "Studio display shelf", category: "studio", featured: false, sortOrder: 3 },
   { id: "g-xmas-decor", url: "/professional-images/christmasdecor.jpg", alt: "Holiday studio decor and custom 3D bear figures", category: "studio", featured: true, sortOrder: 4 },
   { id: "g-gbj", url: "/professional-images/gbjerseys.jpg", alt: "Signed Quist and Brunson jerseys", category: "studio", featured: false, sortOrder: 5 },
   { id: "g-wash", url: "/professional-images/chair-wash.jpg", alt: "Studio interior with shampoo chair", category: "studio", featured: false, sortOrder: 6 },
@@ -82,7 +82,7 @@ export const instagramPosts: InstagramPost[] = [
   },
   {
     image: "/professional-images/brownshirt.jpg",
-    caption: "Brown Tee 🧸 Earth tones. Rep the studio.",
+    caption: "Brown Tee 🧸 Earth tones from a past drop.",
     postUrl: "https://www.instagram.com/tedishairstudio/",
   },
   {

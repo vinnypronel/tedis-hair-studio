@@ -1,8 +1,8 @@
 export const content = {
   hero: {
     eyebrow: "MATAWAN, NJ · BY APPOINTMENT ONLY",
-    headline: "A studio of one.",
-    headlineItalic: "one.",
+    headline: "Personal private cuts.",
+    headlineItalic: "cuts.",
     sub: "Private, by-appointment hair studio for cuts done with intention.",
     ctaPrimary: "Book Now",
     ctaSecondary: "See the work",
@@ -38,23 +38,23 @@ export const content = {
   },
   brand: {
     story:
-      "The studio is built on the belief that the environment you get cut in is just as important as the cut itself. Inside, you won't find the loud rush of a traditional shop. Instead, the space is a highly curated personal sanctuary, featuring Tedi's collection of Bearbrick collectibles, framed signed jerseys, and Mr. Brainwash-inspired artwork. It's a private, single-chair room designed for comfort and focus. When you're here, you choose the music, set the vibe, and get the barber's complete, uninterrupted attention.",
+      "The studio is built for people who care how they look when they leave. No crowd, no rush, no extra noise. Just a clean room, one chair, and enough time to get the cut right. Tedi keeps the space sharp, focused, and personal so every appointment gets his full attention from start to finish.",
   },
   space: {
     story:
-      "The studio sits inside Bellazio Collective, a modern, curated space in the heart of Matawan. No strip-mall storefront, no row of chairs, no walk-in churn. Tedi chose this address because the standards match his own: marble counters, black cabinetry, light wood floors, and one chair in the middle of it all. You don't pass it on the way to somewhere else. You come here on purpose.",
+      "Tedi's studio is tucked inside Bellazio Collective in Matawan. It is not a walk-in shop and it is not built for waiting around. It is one room, one chair, and a clean setup made for focused appointments. You show up on time, sit down, and get the cut handled right.",
   },
   about: {
     bio: [
       "Tedi didn't set out to own a barbershop. He set out to never compromise on a haircut again, and a one-chair private studio turned out to be the only way to do it. No double-bookings, no rushing a fade because three people are waiting, no music you didn't choose. When you're in the chair, you're the only client in the building.",
-      "He came up cutting the hard way: friends' kitchens, then a chain shop, then a booth rental, each stop teaching him exactly what he didn't want his own place to feel like. The studio inside Bellazio Collective is the answer to all of it. Every object in the room is chosen: the Bearbrick shelf, the signed jerseys, the 'High Class' print. Tedi believes the space you get cut in is part of the cut.",
+      "He came up cutting the hard way: friends' kitchens, then a chain shop, then a booth rental, each stop teaching him exactly what he didn't want his own place to feel like. The studio inside Bellazio Collective is the answer to all of it. Every part of the room is intentional: the chair, the lighting, the walls, the music, and the pace. Tedi believes the space you get cut in is part of the cut.",
       "The work is appointment-only and it stays that way. Fewer cuts a day, more attention per cut. If that sounds like your kind of arrangement, the chair is one booking away.",
     ],
     pullQuote: "The space you get cut in is part of the cut.",
     objects: [
       {
-        name: "The Bearbrick shelf",
-        note: "The collection that started the bear obsession.",
+        name: "The studio wall",
+        note: "Personal details, framed pieces, and the visual language of the room.",
         image: "/professional-images/pops.jpg",
       },
       {
@@ -63,8 +63,8 @@ export const content = {
         image: "/professional-images/gbjerseys.jpg",
       },
       {
-        name: "The 'High Class' print",
-        note: "Mr. Brainwash energy, studio-approved.",
+        name: "The art corner",
+        note: "Color, texture, and personality without the noise of a busy shop.",
         image: "/professional-images/bwjerseys.jpg",
       },
       {

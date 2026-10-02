@@ -32,10 +32,12 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    "build/responsive-audit/types/**/*.ts",
     "next-env.d.ts",
-    "build/responsive-audit/types/**/*.ts"
+    "build/cloudflare-next/types/**/*.ts"
   ],
   "exclude": [
+    ".open-next",
     "node_modules",
     "archive"
   ]

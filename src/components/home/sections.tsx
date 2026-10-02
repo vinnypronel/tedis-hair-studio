@@ -26,7 +26,7 @@ export function IntroStrip() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="display-lg mx-auto mt-4 max-w-4xl text-center italic">
-            One cut at a time.
+            Clean work, quiet setting.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
@@ -180,10 +180,10 @@ export function BrandStory() {
             label=""
           />
           <Reveal>
-            <p className="eyebrow text-cream/50">03 · The Environment</p>
+            <p className="eyebrow text-cream/50">03 · The Standard</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="heading-1 mt-5">Every detail curated</h2>
+            <h2 className="heading-1 mt-5">Clean room. Serious work.</h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-cream/80">
@@ -192,7 +192,7 @@ export function BrandStory() {
           </Reveal>
           <Reveal delay={0.3}>
             <p className="mono-micro mt-16 text-cream/50 lg:mt-10">
-              One-on-One · Curated Space · Selected Playlists
+              One-on-One · Clean Space · Full Attention
             </p>
           </Reveal>
         </div>
@@ -214,7 +214,7 @@ export function SpaceStory() {
             <p className="eyebrow text-stone-500">04 · The Space</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="heading-1 mt-5 italic">Inside Bellazio Collective.</h2>
+            <h2 className="heading-1 mt-5 italic">Inside Bellazio. Kept sharp.</h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-stone-700">
@@ -337,7 +337,7 @@ export function ShopTeaser() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Reveal className="translate-y-1">
             <p className="eyebrow text-stone-500">06 · The Merch</p>
-            <h2 className="heading-1 mt-1 text-3xl md:text-4xl lg:text-5xl">Rep the studio.</h2>
+            <h2 className="heading-1 mt-1 text-3xl md:text-4xl lg:text-5xl">Past drops.</h2>
           </Reveal>
           <Reveal delay={0.1}>
             <Link href="/shop" className="link-draw text-sm font-medium">
@@ -371,8 +371,11 @@ export function InstagramStrip() {
     <section className="px-6 pb-24 md:px-12 lg:px-20 lg:pb-36">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
-          <div className="flex flex-wrap items-baseline justify-between gap-4">
-            <p className="eyebrow text-stone-500">07 · @tedishairstudio</p>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow text-stone-500">07 · @tedishairstudio</p>
+              <h2 className="heading-1 mt-2 text-ink">Instagram</h2>
+            </div>
             <a
               href={content.social.instagram}
               target="_blank"

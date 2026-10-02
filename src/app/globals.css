@@ -303,7 +303,7 @@ html.overlay-scrollbar::-webkit-scrollbar {
   z-index: 9998;
   width: 6px;
   border-radius: 999px;
-  background: #fff;
+  background: #294b37;
   opacity: 0;
   pointer-events: none;
   touch-action: none;

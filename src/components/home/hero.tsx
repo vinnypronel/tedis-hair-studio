@@ -63,7 +63,7 @@ export function Hero() {
           transition={{ delay: 0.85, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="display-xl max-w-5xl"
         >
-          A studio of <em className="italic">one.</em>
+          Personal private <em className="italic">cuts.</em>
         </motion.h1>
 
         <motion.p
