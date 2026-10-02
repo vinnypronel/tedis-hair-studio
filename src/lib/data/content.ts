@@ -17,6 +17,10 @@ export const content = {
       "https://booksy.com/en-us/1231797_tedis-hair-studio_barber-shop_28674_matawan",
     reviewsUrl:
       "https://booksy.com/en-us/1231797_tedis-hair-studio_barber-shop_28674_matawan#business-reviews",
+    // Universal Google "write a review" link (Bellazio Collective / Salon Suites
+    // listing the studio sits in). Opens the review dialog directly.
+    googleReviewUrl:
+      "https://search.google.com/local/writereview?placeid=ChIJJ_J4wAzNw4kRlwrMZya2xDM",
   },
   contact: {
     phone: "(732) 947-7359",

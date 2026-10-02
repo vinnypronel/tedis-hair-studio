@@ -64,7 +64,7 @@ export function Hero() {
           transition={{ delay: 0.85, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="display-xl max-w-5xl"
         >
-          Personal private <em className="italic">cuts.</em>
+          Personal <br className="sm:hidden" />private <em className="italic">cuts.</em>
         </motion.h1>
 
         <motion.p
@@ -88,7 +88,10 @@ export function Hero() {
               →
             </span>
           </BookLink>
-          <Link href="/gallery" className="link-draw text-sm text-cream/90">
+          <Link
+            href="/gallery"
+            className="text-sm text-cream/90 underline underline-offset-4 decoration-cream/50 transition-colors hover:decoration-cream"
+          >
             {content.hero.ctaSecondary}
           </Link>
         </motion.div>

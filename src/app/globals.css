@@ -227,14 +227,13 @@ footer a.mono-micro:focus-visible {
 
 /* ---------- Marquee ---------- */
 
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* Hide the horizontal scrollbar on the swipeable gallery strip. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll 54s linear infinite;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* ---------- Form inputs (bottom-border editorial style) ---------- */
