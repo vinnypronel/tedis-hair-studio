@@ -3,7 +3,7 @@ export const content = {
     eyebrow: "MATAWAN, NJ · BY APPOINTMENT ONLY",
     headline: "Personal private cuts.",
     headlineItalic: "cuts.",
-    sub: "Private, by-appointment hair studio for cuts done with intention.",
+    sub: "Private, by-appointment hair studio for a fade done right.",
     ctaPrimary: "Book Now",
     ctaSecondary: "See the work",
   },
@@ -42,7 +42,7 @@ export const content = {
   },
   brand: {
     story:
-      "The studio is built for people who care how they look when they leave. No crowd, no rush, no extra noise. Just a clean room, one chair, and enough time to get the cut right. Tedi keeps the space sharp, focused, and personal so every appointment gets his full attention from start to finish.",
+      "The studio is built for people who care how they look when they leave. No crowd, no rush, no extra noise. Just a clean room, one chair, and enough time to get the cut right. We keep the space focused and personal so every appointment gets its full attention from start to finish.",
   },
   space: {
     story:
@@ -93,7 +93,7 @@ export const content = {
     siteUrl: "https://tedishairstudio.com",
     description:
       "Private, by-appointment hair studio in Matawan, NJ. One chair, one barber, cuts done with intention. Inside Bellazio Collective.",
-    established: 2023,
+    established: 2024,
   },
 } as const;
 

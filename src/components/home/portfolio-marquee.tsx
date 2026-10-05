@@ -62,7 +62,7 @@ export function PortfolioMarquee() {
     <section id="the-work" className="overflow-hidden pb-24 lg:pb-36">
       <Reveal className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto flex max-w-[1440px] items-baseline justify-between">
-          <p className="eyebrow text-stone-500">The work, in motion</p>
+          <p className="eyebrow text-stone-500">My work</p>
           <Link href="/gallery" className="link-draw text-sm font-medium">
             Full gallery →
           </Link>
