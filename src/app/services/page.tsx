@@ -55,8 +55,8 @@ export default function ServicesPage() {
                     <div className="flex items-baseline gap-4 md:col-span-1 md:justify-end">
                       <span className="font-mono text-xl font-medium">{formatPrice(svc.priceCents)}</span>
                     </div>
-                    <div className="md:col-span-2 md:text-right">
-                      <BookLink className="link-draw text-sm font-medium whitespace-nowrap">
+                    <div className="text-right md:col-span-2">
+                      <BookLink className="text-sm font-medium whitespace-nowrap underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink">
                         Book this →
                       </BookLink>
                     </div>

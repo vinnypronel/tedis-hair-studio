@@ -60,7 +60,10 @@ export function ServicesTeaser() {
                 Five services, no filler. Every appointment is private and
                 every cut gets the full duration it deserves.
               </p>
-              <Link href="/services" className="link-draw mt-7 inline-block text-sm font-medium">
+              <Link
+                href="/services"
+                className="mt-7 inline-block text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+              >
                 View all services →
               </Link>
             </Reveal>
@@ -211,7 +214,7 @@ export function ReviewsPreview() {
     <section className="bg-stone-100 px-6 py-24 md:px-12 lg:px-20 lg:py-36">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
-          <p className="eyebrow text-stone-500">05 · What They&rsquo;re Saying</p>
+          <p className="eyebrow text-stone-500">05 · Our Reviews</p>
           <h2 className="heading-1 mt-5">Five stars, only.</h2>
         </Reveal>
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3" stagger={0.1}>
@@ -325,11 +328,14 @@ export function ShopTeaser() {
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Reveal className="translate-y-1">
-            <p className="eyebrow text-stone-500">06 · The Merch</p>
+            <p className="eyebrow text-stone-500">06 · Our Merch</p>
             <h2 className="heading-1 mt-1 text-3xl md:text-4xl lg:text-5xl">Past drops.</h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <Link href="/shop" className="link-draw text-sm font-medium">
+            <Link
+              href="/shop"
+              className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+            >
               View our tees →
             </Link>
           </Reveal>
@@ -369,7 +375,7 @@ export function InstagramStrip() {
               href={content.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-draw text-sm font-medium"
+              className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
             >
               Follow along →
             </a>
