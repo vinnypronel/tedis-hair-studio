@@ -7,6 +7,15 @@ import { BookLink } from "@/components/site/book-link";
 import { content } from "@/lib/data/content";
 import { weeklyHours, formatHour } from "@/lib/data/availability";
 
+const siteMap = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/shop", label: "Shirts" },
+  { href: "/contact", label: "Contact" },
+];
+
 export function Footer() {
   const pathname = usePathname();
   if (pathname.startsWith("/admin")) return null;
@@ -15,10 +24,24 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-forest-deep text-cream">
       <BearLogo
         size={320}
-        className="absolute -right-[3px] bottom-[96px] text-cream opacity-[0.03] pointer-events-none"
+        className="pointer-events-none absolute -right-[3px] bottom-[96px] text-cream opacity-[0.03] md:top-1/2 md:bottom-auto md:-right-16 md:-translate-y-1/2 md:!h-[620px] md:!w-[620px] md:opacity-[0.05] lg:top-auto lg:bottom-[96px] lg:-right-[3px] lg:translate-y-0 lg:!h-[320px] lg:!w-[320px] lg:opacity-[0.03]"
         label=""
       />
-      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-20 md:px-12 lg:translate-x-16 lg:grid-cols-3 lg:gap-8 lg:px-20 xl:translate-x-24">
+      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-20 md:px-12 lg:grid-cols-4 lg:gap-8 lg:px-20">
+        {/* Explore / sitemap */}
+        <div>
+          <h3 className="eyebrow mb-6 text-cream/50">Explore</h3>
+          <ul className="flex flex-col gap-3 text-sm text-cream/80">
+            {siteMap.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="link-draw w-fit">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Hours + brand */}
         <div className="flex flex-col">
           <h3 className="eyebrow mb-6 text-cream/50">Hours</h3>

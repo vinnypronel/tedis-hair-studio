@@ -63,7 +63,10 @@ export function PortfolioMarquee() {
       <Reveal className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto flex max-w-[1440px] items-baseline justify-between">
           <p className="eyebrow text-stone-500">My work</p>
-          <Link href="/gallery" className="link-draw text-sm font-medium">
+          <Link
+            href="/gallery"
+            className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+          >
             Full gallery →
           </Link>
         </div>
