@@ -10,9 +10,5 @@
     "binding": "ASSETS"
   },
   "observability": { "enabled": true },
-  "workers_dev": true,
-  "routes": [
-    { "pattern": "tedishairstudio.com", "custom_domain": true },
-    { "pattern": "www.tedishairstudio.com", "custom_domain": true }
-  ]
+  "workers_dev": true
 }
