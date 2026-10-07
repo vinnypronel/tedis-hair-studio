@@ -97,11 +97,13 @@ export function Header() {
           position: fixed;
           inset: 0;
           z-index: 40;
+          height: 100dvh;
+          max-height: 100dvh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
-          padding: 110px 24px 32px;
+          padding: 92px 24px max(18px, env(safe-area-inset-bottom));
           background:
             radial-gradient(ellipse 80% 50% at 50% 25%, rgba(245, 197, 24, 0.06) 0%, transparent 70%),
             radial-gradient(ellipse 70% 50% at 50% 85%, rgba(26, 47, 35, 0.4) 0%, transparent 70%),
@@ -111,7 +113,7 @@ export function Header() {
           pointer-events: none;
           transform: translateY(-8px);
           transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.45s;
-          overflow-y: auto;
+          overflow: hidden;
         }
 
         .nav-takeover-panel.open {
@@ -127,9 +129,9 @@ export function Header() {
           align-items: center;
           justify-content: center;
           gap: 12px;
-          padding: 8px 16px;
+          padding: 4px 16px;
           font-family: var(--font-display);
-          font-size: clamp(2rem, 7vw, 3.2rem);
+          font-size: clamp(1.85rem, 8.5vw, 2.8rem);
           font-weight: 400;
           line-height: 1.15;
           letter-spacing: -0.02em;
@@ -188,14 +190,14 @@ export function Header() {
         /* ── Landscape / Short-Screen Optimizations ── */
         @media (max-height: 620px) {
           .nav-takeover-panel {
-            padding: 80px 16px 16px !important;
+            padding: 76px 16px 14px !important;
             gap: 12px !important;
           }
           .nav-takeover-links {
             gap: 4px !important;
           }
           .nav-takeover-link {
-            font-size: clamp(1.3rem, 5vh, 1.8rem) !important;
+            font-size: clamp(1.2rem, 5vh, 1.65rem) !important;
             padding: 4px 8px !important;
           }
         }
@@ -320,11 +322,9 @@ export function Header() {
         inert={!menuOpen}
         data-lenis-prevent
       >
-        <BearLogo size={64} className="mx-auto text-cream/90" />
-
         {/* Center: Navigation Links */}
         <nav aria-label="Mobile Navigation" className="w-full max-w-sm">
-          <ul className="nav-takeover-links flex flex-col items-center gap-2 list-none p-0 m-0">
+          <ul className="nav-takeover-links flex flex-col items-center gap-1 list-none p-0 m-0">
             {navLinks.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
               return (
@@ -345,7 +345,7 @@ export function Header() {
           </ul>
 
           {/* Book Now Button in Takeover */}
-          <div className="nav-takeover-cta mt-6 flex justify-center">
+          <div className="nav-takeover-cta mt-4 flex justify-center">
             <BookLink
               onClick={() => setMenuOpen(false)}
               className="font-display inline-flex items-center gap-3 rounded-[2px] bg-cream px-8 py-3 text-xl tracking-tight text-forest-deep transition-transform duration-300 hover:scale-105"
@@ -357,7 +357,7 @@ export function Header() {
         </nav>
 
         {/* Bottom Socials & Phone Strip */}
-        <div className="nav-takeover-footer flex flex-wrap items-center justify-center gap-6 pt-4 text-cream/70">
+        <div className="nav-takeover-footer flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-3 text-cream/70">
           <a
             href={content.social.instagram}
             target="_blank"
