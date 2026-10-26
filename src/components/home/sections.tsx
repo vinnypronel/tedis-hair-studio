@@ -20,16 +20,13 @@ export function IntroStrip() {
   return (
     <section className="bg-forest px-6 pt-5 pb-8 text-cream md:px-12 lg:px-20 lg:pt-6 lg:pb-10">
       <div className="mx-auto max-w-[1440px]">
-        <Reveal>
-          <p className="eyebrow text-cream/50">01 · The Studio</p>
-        </Reveal>
         <Reveal delay={0.1}>
-          <p className="display-lg mx-auto mt-4 max-w-4xl text-center italic">
+          <p className="display-lg mx-auto max-w-4xl text-center italic whitespace-nowrap max-sm:!text-[5.3vw]">
             Clean work, quiet setting.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          <div className="mt-6 flex flex-col items-center justify-center gap-y-2 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
             <span className="eyebrow text-cream/60">Est. {content.meta.established}</span>
             <span aria-hidden className="hidden size-1 rounded-full bg-cream/30 sm:block" />
             <span className="eyebrow text-cream/60">1 Chair</span>
@@ -62,7 +59,7 @@ export function ServicesTeaser() {
               </p>
               <Link
                 href="/services"
-                className="mt-7 inline-block text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+                className="mt-7 hidden text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink lg:inline-block"
               >
                 View all services →
               </Link>
@@ -82,7 +79,7 @@ export function ServicesTeaser() {
                       </span>
                     )}
                   </div>
-                  <div className="flex shrink-0 items-baseline gap-6">
+                  <div className="ml-auto flex shrink-0 items-baseline gap-6 sm:ml-0">
                     <span className="font-mono text-xs tracking-widest text-stone-500 uppercase">
                       {svc.durationMinutes} min
                     </span>
@@ -99,6 +96,15 @@ export function ServicesTeaser() {
             ))}
             <div className="hairline-t" />
           </RevealGroup>
+          {/* Mobile-only: "View all services" below the list, right-aligned */}
+          <div className="flex justify-end lg:hidden">
+            <Link
+              href="/services"
+              className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+            >
+              View all services →
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -121,7 +127,7 @@ export function BrandStory() {
     // 4px of horizontal scroll to the page on desktop.
     <section className="overflow-hidden bg-ink text-cream">
       <div className="grid lg:grid-cols-2">
-        <div className="relative min-h-[420px] lg:min-h-[640px]">
+        <div className="relative order-2 min-h-[420px] lg:order-1 lg:min-h-[640px]">
           <Image
             src="/professional-images/chair-wash.jpg"
             alt="Inside the studio, the cape with the bear mark"
@@ -131,7 +137,7 @@ export function BrandStory() {
           />
           <div className="absolute inset-0 bg-ink/20" />
         </div>
-        <div className="relative flex flex-col justify-center px-6 py-24 md:px-12 lg:px-20 lg:py-32">
+        <div className="relative order-1 flex flex-col justify-center px-6 py-24 md:px-12 lg:order-2 lg:px-20 lg:py-32">
           <BearLogo
             size={280}
             className="absolute -right-1 -bottom-1 text-cream opacity-[0.05]"
@@ -211,7 +217,7 @@ export function SpaceStory() {
 export function ReviewsPreview() {
   const featured = getFeaturedReviews();
   return (
-    <section className="bg-stone-100 px-6 pt-24 pb-14 md:px-12 lg:px-20 lg:pt-36 lg:pb-16">
+    <section className="bg-stone-100 px-6 pt-16 pb-10 md:px-12 lg:px-20 lg:pt-36 lg:pb-16">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <p className="eyebrow text-stone-500">05 · Our Reviews</p>
@@ -269,14 +275,14 @@ export function ReviewsPreview() {
           ))}
         </RevealGroup>
         <Reveal delay={0.2}>
-          <div className="mt-14 flex flex-wrap items-center justify-between gap-6">
+          <div className="mt-10 flex flex-col items-center gap-5 sm:mt-14 sm:flex-row sm:flex-wrap sm:justify-between sm:gap-6">
             <p className="font-mono text-sm tracking-widest">
               <span className="text-neon">★★★★★</span>
               <span className="ml-4 text-stone-500">
                 {reviewStats.count} five-star reviews
               </span>
             </p>
-            <div className="ml-auto flex flex-wrap items-center gap-6">
+            <div className="flex flex-col items-center gap-4 sm:ml-auto sm:flex-row sm:gap-6">
               <a
                 href={content.booking.googleReviewUrl}
                 target="_blank"
@@ -424,7 +430,7 @@ export function Visit() {
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
           <Reveal delay={0.1}>
             <p className="mono-micro text-cream/50">Inside Bellazio Collective</p>
-            <p className="font-display mt-3 text-3xl leading-tight tracking-tight md:text-[38px]">
+            <p className="font-display mt-3 text-[26px] leading-tight tracking-tight sm:text-3xl md:text-[38px]">
               {content.contact.addressLine1}
               <br />
               {content.contact.addressLine2}

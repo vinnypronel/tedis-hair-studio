@@ -28,7 +28,7 @@ export function Footer() {
         className="pointer-events-none absolute -right-[3px] bottom-[96px] text-cream opacity-[0.03] md:top-1/2 md:bottom-auto md:-right-16 md:-translate-y-1/2 md:!h-[620px] md:!w-[620px] md:opacity-[0.05] lg:top-auto lg:bottom-[96px] lg:-right-[3px] lg:translate-y-0 lg:!h-[320px] lg:!w-[320px] lg:opacity-[0.03]"
         label=""
       />
-      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-20 md:px-12 lg:grid-cols-4 lg:gap-8 lg:px-20">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-12 px-6 py-20 md:px-12 lg:grid-cols-4 lg:gap-8 lg:px-20">
         {/* Explore / sitemap */}
         <div>
           <h3 className="eyebrow mb-6 text-cream/50">Explore</h3>

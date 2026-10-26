@@ -37,8 +37,8 @@ export function LiveClock({ tone = "cream" }: { tone?: "cream" | "ink" }) {
   const open = isOpenNow(now);
   const time = now.toLocaleTimeString("en-US", {
     timeZone: "America/New_York",
-    hour12: false,
-    hour: "2-digit",
+    hour12: true,
+    hour: "numeric",
     minute: "2-digit",
     second: "2-digit",
   });

@@ -23,7 +23,7 @@ export function PortfolioMarquee() {
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const SPEED = 60; // px per second
+    const SPEED = window.innerWidth < 640 ? 95 : 60; // px per second (faster on mobile)
     let last = performance.now();
     let raf = 0;
     let inView = true;
@@ -93,7 +93,7 @@ export function PortfolioMarquee() {
             <Link
               key={`${img.id}-${i}`}
               href="/gallery"
-              className="hairline relative block h-[400px] w-[320px] shrink-0 overflow-hidden"
+              className="hairline relative block h-[300px] w-[240px] shrink-0 overflow-hidden sm:h-[400px] sm:w-[320px]"
               tabIndex={i >= marqueeImages.length ? -1 : 0}
               aria-hidden={i >= marqueeImages.length}
               aria-label={i < marqueeImages.length ? `View gallery: ${img.alt}` : undefined}
@@ -109,7 +109,7 @@ export function PortfolioMarquee() {
                   src={img.url}
                   alt={i >= marqueeImages.length ? "" : img.alt}
                   fill
-                  sizes="320px"
+                  sizes="(min-width: 640px) 320px, 240px"
                   className="object-cover transition-transform duration-500 hover:scale-[1.03]"
                 />
               )}
