@@ -26,12 +26,14 @@ export function PortfolioMarquee() {
     const SPEED = 60; // px per second
     let last = performance.now();
     let raf = 0;
+    let inView = true;
 
     const tick = (now: number) => {
       const dt = now - last;
       last = now;
       const half = el.scrollWidth / 2;
-      if (half > 0 && now >= resumeAt.current) {
+      // Only advance when the strip is on screen (saves battery on mobile).
+      if (inView && half > 0 && now >= resumeAt.current) {
         let next = el.scrollLeft + (SPEED * dt) / 1000;
         if (next >= half) next -= half; // seamless wrap
         el.scrollLeft = next;
@@ -39,6 +41,16 @@ export function PortfolioMarquee() {
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
+
+    // Pause the loop entirely when the strip scrolls out of the viewport.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        last = performance.now(); // avoid a jump after being paused
+      },
+      { threshold: 0 }
+    );
+    io.observe(el);
 
     // Pause auto-scroll briefly whenever the user drives it.
     const hold = () => {
@@ -51,6 +63,7 @@ export function PortfolioMarquee() {
 
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
       el.removeEventListener("pointerdown", hold);
       el.removeEventListener("touchstart", hold);
       el.removeEventListener("touchmove", hold);

@@ -192,14 +192,14 @@ export const reviews: Review[] = [
 ];
 
 /**
- * Saved Booksy totals, updated to 149 reviews on 2026-09-25.
- * Retains the existing five-star rating breakdown.
+ * Saved Booksy totals, updated to 168 reviews on 2026-10-26.
+ * All five-star, verified on Booksy.
  */
 export const reviewStats = {
   average: 5.0,
-  count: 149,
+  count: 168,
   platform: "Booksy",
-  distribution: { 5: 149, 4: 0, 3: 0, 2: 0, 1: 0 } as Record<number, number>,
+  distribution: { 5: 168, 4: 0, 3: 0, 2: 0, 1: 0 } as Record<number, number>,
 };
 
 export function getFeaturedReviews(): Review[] {

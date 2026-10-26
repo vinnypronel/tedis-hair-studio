@@ -39,9 +39,9 @@ export function Hero() {
           sizes="100vw"
           className="hidden object-cover lg:block"
         />
-        <div className="absolute inset-0 bg-forest-deep/45" />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/85 via-forest-deep/20 to-forest-deep/45" />
+        <div className="absolute inset-0 bg-forest-deep/35 md:bg-forest-deep/45" />
+        <div className="absolute inset-0 bg-black/15 md:bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/75 via-forest-deep/15 to-forest-deep/35 md:from-forest-deep/85 md:via-forest-deep/20 md:to-forest-deep/45" />
       </motion.div>
 
       {/* Eyebrow */}

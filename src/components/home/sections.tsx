@@ -211,7 +211,7 @@ export function SpaceStory() {
 export function ReviewsPreview() {
   const featured = getFeaturedReviews();
   return (
-    <section className="bg-stone-100 px-6 py-24 md:px-12 lg:px-20 lg:py-36">
+    <section className="bg-stone-100 px-6 pt-24 pb-14 md:px-12 lg:px-20 lg:pt-36 lg:pb-16">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <p className="eyebrow text-stone-500">05 · Our Reviews</p>
@@ -363,7 +363,7 @@ export function ShopTeaser() {
 
 export function InstagramStrip() {
   return (
-    <section className="px-6 pb-24 md:px-12 lg:px-20 lg:pb-36">
+    <section className="px-6 pt-16 pb-24 md:px-12 lg:px-20 lg:pt-28 lg:pb-36">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -419,12 +419,9 @@ export function InstagramStrip() {
 
 export function Visit() {
   return (
-    <section className="bg-forest px-6 py-14 text-cream md:px-12 md:py-16 lg:px-20 lg:py-20">
+    <section className="bg-forest px-6 pt-8 pb-14 text-cream md:px-12 md:pt-8 md:pb-16 lg:px-20 lg:pt-10 lg:pb-20">
       <div className="mx-auto max-w-[1440px]">
-        <Reveal>
-          <p className="eyebrow text-cream/50">08 · Visit</p>
-        </Reveal>
-        <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
           <Reveal delay={0.1}>
             <p className="mono-micro text-cream/50">Inside Bellazio Collective</p>
             <p className="font-display mt-3 text-3xl leading-tight tracking-tight md:text-[38px]">

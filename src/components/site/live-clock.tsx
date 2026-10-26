@@ -10,8 +10,24 @@ export function LiveClock({ tone = "cream" }: { tone?: "cream" | "ink" }) {
 
   useEffect(() => {
     setNow(new Date());
-    const t = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(t);
+    let t: ReturnType<typeof setInterval> | null = null;
+    const start = () => {
+      if (t) return;
+      setNow(new Date());
+      t = setInterval(() => setNow(new Date()), 1000);
+    };
+    const stop = () => {
+      if (t) clearInterval(t);
+      t = null;
+    };
+    // Don't tick while the tab is hidden (saves battery).
+    const onVisibility = () => (document.hidden ? stop() : start());
+    start();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
   }, []);
 
   if (!now) {

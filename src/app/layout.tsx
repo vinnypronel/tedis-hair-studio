@@ -38,11 +38,24 @@ export const metadata: Metadata = {
     title: "Tedi's Hair Studio | Private Barber Studio in Matawan, NJ",
     description: content.meta.description,
     siteName: content.meta.siteName,
+    url: content.meta.siteUrl,
     type: "website",
     locale: "en_US",
-    images: [{ url: "/professional-images/chair-wash.jpg", alt: "Inside Tedi's Hair Studio" }],
+    images: [
+      {
+        url: "/professional-images/backgroundmaybe.jpeg",
+        width: 2160,
+        height: 1440,
+        alt: "Inside Tedi's Hair Studio, Matawan NJ",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tedi's Hair Studio | Private Barber Studio in Matawan, NJ",
+    description: content.meta.description,
+    images: ["/professional-images/backgroundmaybe.jpeg"],
+  },
 };
 
 const localBusinessJsonLd = {
