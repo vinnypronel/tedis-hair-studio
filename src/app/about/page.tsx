@@ -61,7 +61,9 @@ export default function AboutPage() {
           <Reveal delay={0.15} className="lg:col-span-4 lg:col-start-9">
             <blockquote className="font-display border-l-2 border-forest pl-8 text-3xl leading-snug tracking-tight italic lg:sticky lg:top-32">
               &ldquo;{about.pullQuote}&rdquo;
-              <footer className="eyebrow mt-6 text-stone-500 not-italic">- Tedi</footer>
+              <footer className="eyebrow mt-6 text-right text-stone-500 not-italic lg:text-left">
+                - Tedi
+              </footer>
             </blockquote>
           </Reveal>
         </div>
