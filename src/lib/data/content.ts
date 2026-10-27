@@ -50,8 +50,8 @@ export const content = {
   },
   about: {
     bio: [
-      "Tedi built the studio around one simple idea: take your time and get the cut right. It is one chair, appointment only, and no rushing people in and out. When you sit down, the focus is on you and the haircut you came in for.",
-      "He takes pride in keeping the space clean, comfortable, and easy to be in. Come through, talk, put something on, and relax while he handles the details. It is professional without feeling too serious, and personal without all the noise of a busy shop.",
+      "Tedi built the studio around one simple idea: just get the cut right. It is one chair and appointment only, so when you sit down, the focus is on you and the haircut you came in for.",
+      "He takes pride in keeping the space clean, comfortable, and easy to be in. Come through, talk, put something on, and relax while he handles your cut. It is professional without feeling too serious, and personal without all the noise of a busy shop.",
       "Whether you already know exactly what you want or need help figuring it out, Tedi will listen and make sure you leave looking fresh. Good cuts, good conversation, and a spot you will want to come back to.",
     ],
     pullQuote: "The space you get cut in is part of the cut.",
