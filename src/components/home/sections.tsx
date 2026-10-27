@@ -26,12 +26,18 @@ export function IntroStrip() {
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-6 flex flex-col items-center justify-center gap-y-2 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
-            <span className="eyebrow text-cream/60">Est. {content.meta.established}</span>
-            <span aria-hidden className="hidden size-1 rounded-full bg-cream/30 sm:block" />
-            <span className="eyebrow text-cream/60">1 Chair</span>
-            <span aria-hidden className="hidden size-1 rounded-full bg-cream/30 sm:block" />
-            <span className="eyebrow text-cream/60">Appointment only</span>
+          <div className="mt-6 flex flex-row flex-nowrap items-center justify-center gap-x-2.5 sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
+            <span className="eyebrow whitespace-nowrap text-cream/60 max-sm:!text-[9px] max-sm:!tracking-[0.06em]">
+              Est. {content.meta.established}
+            </span>
+            <span aria-hidden className="size-1 shrink-0 rounded-full bg-cream/30" />
+            <span className="eyebrow whitespace-nowrap text-cream/60 max-sm:!text-[9px] max-sm:!tracking-[0.06em]">
+              1 Chair
+            </span>
+            <span aria-hidden className="size-1 shrink-0 rounded-full bg-cream/30" />
+            <span className="eyebrow whitespace-nowrap text-cream/60 max-sm:!text-[9px] max-sm:!tracking-[0.06em]">
+              Appointment only
+            </span>
           </div>
         </Reveal>
       </div>
