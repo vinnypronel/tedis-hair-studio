@@ -217,7 +217,7 @@ export function SpaceStory() {
 export function ReviewsPreview() {
   const featured = getFeaturedReviews();
   return (
-    <section className="bg-stone-100 px-6 pt-16 pb-10 md:px-12 lg:px-20 lg:pt-36 lg:pb-16">
+    <section className="bg-stone-100 px-6 pt-16 pb-8 md:px-12 lg:px-20 lg:pt-36 lg:pb-16">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <p className="eyebrow text-stone-500">05 · Our Reviews</p>
@@ -275,14 +275,14 @@ export function ReviewsPreview() {
           ))}
         </RevealGroup>
         <Reveal delay={0.2}>
-          <div className="mt-10 flex flex-col items-center gap-5 sm:mt-14 sm:flex-row sm:flex-wrap sm:justify-between sm:gap-6">
+          <div className="mt-8 flex flex-col items-center gap-4 sm:mt-14 sm:flex-row sm:flex-wrap sm:justify-between sm:gap-6">
             <p className="font-mono text-sm tracking-widest">
               <span className="text-neon">★★★★★</span>
               <span className="ml-4 text-stone-500">
                 {reviewStats.count} five-star reviews
               </span>
             </p>
-            <div className="flex flex-col items-center gap-4 sm:ml-auto sm:flex-row sm:gap-6">
+            <div className="flex flex-row items-center gap-5 sm:ml-auto sm:gap-6">
               <a
                 href={content.booking.googleReviewUrl}
                 target="_blank"

@@ -72,7 +72,8 @@ export function Footer() {
             <span className="mono-micro mb-1 text-cream/50">
               {content.contact.addressInside}
             </span>
-            <span>{content.contact.addressLine1}</span>
+            {/* Keep "Suite 128" together so it never leaves 128 orphaned on its own line */}
+            <span>{content.contact.addressLine1.replace("Suite ", "Suite ")}</span>
             <span>{content.contact.addressLine2}</span>
             <a
               href={content.contact.googleMapsUrl}
