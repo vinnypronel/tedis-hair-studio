@@ -62,7 +62,7 @@ export const instagramPosts: InstagramPost[] = [
   },
   {
     image: "/professional-images/blueshirt.jpg",
-    caption: "Blue Tee 🧸 Matched to the cape. In studio now.",
+    caption: "Blue Tee 🧸 Matched to the cape. One from the studio archive.",
     postUrl: "https://www.instagram.com/tedishairstudio/",
   },
   {
@@ -87,7 +87,7 @@ export const instagramPosts: InstagramPost[] = [
   },
   {
     image: "/professional-images/yellowshirt.jpg",
-    caption: "Yellow/Black Tee ⚡️ Available in the studio. Ask Tedi at your next cut.",
+    caption: "Yellow/Black Tee ⚡️ One of the rotating designs Tedi has given out with cuts.",
     postUrl: "https://www.instagram.com/tedishairstudio/",
   },
   {

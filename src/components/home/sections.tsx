@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { BearLogo } from "@/components/site/bear-logo";
 import { BookLink } from "@/components/site/book-link";
+import { ArrowLink } from "@/components/ui/arrow-link";
 import { MapBadge } from "@/components/site/map-badge";
 import { services, formatPrice } from "@/lib/data/services";
 import { getFeaturedReviews, reviewStats } from "@/lib/data/reviews";
@@ -63,12 +64,9 @@ export function ServicesTeaser() {
                 Five services, no filler. Every appointment is private and
                 every cut gets the full duration it deserves.
               </p>
-              <Link
-                href="/services"
-                className="mt-7 hidden text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink lg:inline-block"
-              >
-                View all services →
-              </Link>
+              <ArrowLink href="/services" className="mt-7 max-lg:hidden">
+                View all services
+              </ArrowLink>
             </Reveal>
           </div>
           <RevealGroup className="lg:col-span-8" stagger={0.08}>
@@ -76,7 +74,7 @@ export function ServicesTeaser() {
               <RevealItem key={svc.id}>
                 <BookLink className="hairline-t group flex flex-nowrap items-start justify-between gap-3 py-7 transition-colors duration-300 hover:bg-stone-100/60 sm:items-baseline sm:gap-8 sm:px-4">
                   <div className="min-w-0">
-                    <span className="font-display text-2xl tracking-tight md:text-3xl">
+                    <span className="font-display text-2xl tracking-tight underline-offset-4 group-hover:underline md:text-3xl">
                       {svc.name}
                     </span>
                     {svc.mostPopular && (
@@ -92,7 +90,7 @@ export function ServicesTeaser() {
                     <span className="font-mono text-lg">{formatPrice(svc.priceCents)}</span>
                     <span
                       aria-hidden
-                      className="text-stone-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink"
+                      className="inline-block -translate-x-2 text-stone-500 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:text-ink group-hover:opacity-100"
                     >
                       →
                     </span>
@@ -104,12 +102,7 @@ export function ServicesTeaser() {
           </RevealGroup>
           {/* Mobile-only: "View all services" below the list, right-aligned */}
           <div className="flex justify-end lg:hidden">
-            <Link
-              href="/services"
-              className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
-            >
-              View all services →
-            </Link>
+            <ArrowLink href="/services">View all services</ArrowLink>
           </div>
         </div>
       </div>
@@ -150,7 +143,10 @@ export function BrandStory() {
             label=""
           />
           <Reveal>
-            <p className="eyebrow text-cream/50">03 · The Standard</p>
+            <p className="eyebrow text-cream/50">
+              <span className="md:hidden">02 · The Standard</span>
+              <span className="hidden md:inline">03 · The Standard</span>
+            </p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="heading-1 mt-5">
@@ -184,10 +180,16 @@ export function SpaceStory() {
       <div className="mx-auto grid max-w-[1440px] items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="lg:translate-x-[30px]">
           <Reveal>
-            <p className="eyebrow text-stone-500">04 · The Space</p>
+            <p className="eyebrow text-stone-500">
+              <span className="md:hidden">01 · The Space</span>
+              <span className="hidden md:inline">04 · The Space</span>
+            </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="heading-1 mt-5 italic">Inside Bellazio. Kept sharp.</h2>
+            <h2 className="heading-1 mt-5 italic">
+              <span className="block md:inline">Inside Bellazio.</span>{" "}
+              <span className="block md:inline">Kept sharp.</span>
+            </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-stone-700">
@@ -315,12 +317,7 @@ export function ReviewsPreview() {
                 </svg>
                 Leave a review
               </a>
-              <Link
-                href="/reviews"
-                className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
-              >
-                Read all →
-              </Link>
+              <ArrowLink href="/reviews">Read all</ArrowLink>
             </div>
           </div>
         </Reveal>
@@ -340,16 +337,11 @@ export function ShopTeaser() {
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Reveal className="translate-y-1">
-            <p className="eyebrow text-stone-500">06 · Our Merch</p>
-            <h2 className="heading-1 mt-1 text-3xl md:text-4xl lg:text-5xl">Past drops.</h2>
+            <p className="eyebrow text-stone-500">06 · Shirt Archive</p>
+            <h2 className="heading-1 mt-1 text-3xl md:text-4xl lg:text-5xl">From the studio.</h2>
           </Reveal>
           <Reveal delay={0.1} className="max-sm:hidden">
-            <Link
-              href="/shop"
-              className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
-            >
-              View our tees →
-            </Link>
+            <ArrowLink href="/shop">View the archive</ArrowLink>
           </Reveal>
         </div>
         <RevealGroup className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
@@ -364,14 +356,9 @@ export function ShopTeaser() {
             </RevealItem>
           ))}
         </RevealGroup>
-        {/* Mobile-only: "View our tees" under the last shirt, right-aligned */}
+        {/* Mobile-only archive link under the last shirt, right-aligned */}
         <div className="mt-6 flex justify-end sm:hidden">
-          <Link
-            href="/shop"
-            className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
-          >
-            View our tees →
-          </Link>
+          <ArrowLink href="/shop">View the archive</ArrowLink>
         </div>
       </div>
     </section>
@@ -392,14 +379,9 @@ export function InstagramStrip() {
               <p className="eyebrow text-stone-500">07 · @tedishairstudio</p>
               <h2 className="heading-1 mt-2 text-ink">Instagram</h2>
             </div>
-            <a
-              href={content.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink sm:inline-block"
-            >
-              Follow us on Instagram →
-            </a>
+            <ArrowLink href={content.social.instagram} external className="max-sm:hidden">
+              Follow us on Instagram
+            </ArrowLink>
           </div>
         </Reveal>
         <RevealGroup className="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4" stagger={0.05}>
@@ -431,14 +413,9 @@ export function InstagramStrip() {
         </RevealGroup>
         {/* Mobile-only: "Follow us on Instagram" under the images, right-aligned */}
         <div className="mt-6 flex justify-end sm:hidden">
-          <a
-            href={content.social.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
-          >
-            Follow us on Instagram →
-          </a>
+          <ArrowLink href={content.social.instagram} external>
+            Follow us on Instagram
+          </ArrowLink>
         </div>
       </div>
     </section>

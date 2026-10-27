@@ -81,7 +81,7 @@ export const content = {
   ],
   shop: {
     disclaimer:
-      "Shirts are not sold online. Current drops are available at the studio, ask Tedi at your appointment or send a DM.",
+      "The shirts are not for sale. Tedi occasionally gives out new designs with cuts, and each batch is different.",
   },
   meta: {
     siteName: "Tedi's Hair Studio",

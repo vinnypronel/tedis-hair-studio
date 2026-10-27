@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { shirts, type ShirtStatus } from "@/lib/data/shirts";
+import { shirts } from "@/lib/data/shirts";
 import { ShirtVisual } from "@/components/shop/shirt-visual";
 import { cn } from "@/lib/utils";
 

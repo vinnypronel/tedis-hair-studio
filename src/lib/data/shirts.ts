@@ -1,4 +1,4 @@
-export type ShirtStatus = "for_sale" | "display_only" | "archived";
+export type ShirtStatus = "display_only" | "archived";
 
 export type ShirtImage = {
   url: string | null;
@@ -12,9 +12,7 @@ export type Shirt = {
   name: string;
   slug: string;
   description: string;
-  priceCents: number;
   images: ShirtImage[];
-  availableSizes: string[];
   status: ShirtStatus;
   sortOrder: number;
   releaseYear: number;
@@ -28,28 +26,24 @@ export const shirts: Shirt[] = [
     slug: "red-black-tee",
     description:
       "Bold red bear mark and studio typography on a black body. Sleeve hit and full back print. Cut boxy, made to last.",
-    priceCents: 3500,
     images: [
       { url: "/professional-images/redblackshirt.jpg", alt: "Red/Black Tee, black body with red bear mark" },
     ],
-    availableSizes: ["S", "M", "L", "XL", "XXL"],
-    status: "for_sale",
+    status: "display_only",
     sortOrder: 1,
     releaseYear: 2026,
     drop: "DROP 003",
   },
   {
     id: "shirt-blue-flame",
-    name: "Blue Tee",
+    name: "Navy Blue Tee",
     slug: "blue-tee",
     description:
       "Matched to the blue flame cape. Ink body with icy blue bear mark. Bold enough to turn heads, clean enough to wear daily.",
-    priceCents: 3500,
     images: [
-      { url: "/professional-images/blueshirt.jpg", alt: "Blue Tee, ink body with blue bear mark" },
+      { url: "/professional-images/blueshirt.jpg", alt: "Navy Blue Tee, ink body with blue bear mark" },
     ],
-    availableSizes: ["S", "M", "L", "XL"],
-    status: "for_sale",
+    status: "display_only",
     sortOrder: 2,
     releaseYear: 2026,
     drop: "DROP 003",
@@ -60,12 +54,10 @@ export const shirts: Shirt[] = [
     slug: "yellow-black-tee",
     description:
       "The loud one. Yellow body, ink bear mark front and center. Matches the neon sign in the studio. You'll know it when you see it.",
-    priceCents: 3500,
     images: [
       { url: "/professional-images/yellowshirt.jpg", alt: "Yellow/Black Tee,yellow body with ink bear mark", objectPosition: "right center" },
     ],
-    availableSizes: ["M", "L", "XL"],
-    status: "for_sale",
+    status: "display_only",
     sortOrder: 3,
     releaseYear: 2026,
     drop: "DROP 003",
@@ -76,12 +68,10 @@ export const shirts: Shirt[] = [
     slug: "green-tee",
     description:
       "The studio staple. Olive green body, cream bear mark across the back, small left-chest hit on the front. Cut boxy, made to be kept.",
-    priceCents: 3500,
     images: [
       { url: "/professional-images/greenshirt.jpg", alt: "Green Tee, olive green with cream bear print" },
     ],
-    availableSizes: ["S", "M", "L", "XL", "XXL"],
-    status: "for_sale",
+    status: "display_only",
     sortOrder: 4,
     releaseYear: 2026,
     drop: "DROP 003",
@@ -92,12 +82,10 @@ export const shirts: Shirt[] = [
     slug: "glow-in-the-dark-tee",
     description:
       "Black body with high-visibility glow-in-the-dark bear mark and studio typography. Lights up under blacklight. Built boxy, made to last.",
-    priceCents: 3500,
     images: [
       { url: "/professional-images/glowindarkshirt.jpg", alt: "Glow in the Dark Tee, black body with neon glow bear mark" },
     ],
-    availableSizes: ["S", "M", "L", "XL", "XXL"],
-    status: "for_sale",
+    status: "display_only",
     sortOrder: 5,
     releaseYear: 2026,
     drop: "DROP 003",
@@ -107,12 +95,10 @@ export const shirts: Shirt[] = [
     name: "Christmas Tee '25",
     slug: "holiday-tee-25",
     description:
-      "The December drop. Full back print, sold out in a week. Kept here for the archive. If you have one, hold onto it.",
-    priceCents: 3500,
+      "A December edition with a full back print. One of the rotating designs Tedi has given out with cuts.",
     images: [
       { url: "/professional-images/christmashirt.jpg", alt: "Christmas Tee 2025, full back print" },
     ],
-    availableSizes: [],
     status: "display_only",
     sortOrder: 6,
     releaseYear: 2025,
@@ -123,12 +109,10 @@ export const shirts: Shirt[] = [
     name: "Halloween Tee '25",
     slug: "halloween-tee-25",
     description:
-      "The October drop. Orange flame cape print on a black body. Limited run for the season. Gone before November.",
-    priceCents: 3500,
+      "An October edition with an orange flame cape print on a black body. Made for the season and kept here in the archive.",
     images: [
       { url: "/professional-images/halloweenshirt.jpg", alt: "Halloween Tee 2025,orange flame cape print" },
     ],
-    availableSizes: [],
     status: "display_only",
     sortOrder: 7,
     releaseYear: 2025,
@@ -139,12 +123,10 @@ export const shirts: Shirt[] = [
     name: "Brown Tee",
     slug: "brown-tee",
     description:
-      "Matched to the brown cape. Earth-tone body, ink bear mark. One run, never repeated.",
-    priceCents: 3500,
+      "Matched to the brown cape. Earth-tone body, ink bear mark, and one of the studio's rotating shirt designs.",
     images: [
       { url: "/professional-images/brownshirt.jpg", alt: "Brown Tee,earth-tone body with ink bear mark" },
     ],
-    availableSizes: [],
     status: "display_only",
     sortOrder: 8,
     releaseYear: 2025,

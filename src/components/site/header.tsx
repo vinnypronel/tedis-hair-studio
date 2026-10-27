@@ -232,7 +232,7 @@ export function Header() {
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-3"
+            className="flex origin-left items-center gap-3 transition-transform duration-300 hover:scale-105"
             aria-label="Tedi's Hair Studio, home"
           >
             <BearLogo size={48} idle />

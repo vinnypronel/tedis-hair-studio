@@ -90,9 +90,15 @@ export function Hero() {
           </BookLink>
           <Link
             href="/gallery"
-            className="text-sm text-cream/90 underline underline-offset-4 decoration-cream/50 transition-colors hover:decoration-cream"
+            className="group inline-flex origin-left items-center gap-1.5 text-sm text-cream/90 underline underline-offset-4 decoration-cream/50 transition-all duration-300 hover:scale-110 hover:decoration-cream"
           >
             {content.hero.ctaSecondary}
+            <span
+              aria-hidden
+              className="inline-block -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+            >
+              →
+            </span>
           </Link>
         </motion.div>
       </div>

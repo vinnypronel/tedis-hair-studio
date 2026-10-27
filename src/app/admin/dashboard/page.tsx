@@ -721,38 +721,38 @@ export default function AdminDashboardPage() {
                         <span
                           className={cn(
                             "mono-micro px-2 py-1 rounded text-[10px] uppercase font-semibold shrink-0 self-end mb-1",
-                            shirt.status === "for_sale"
+                            shirt.status === "display_only"
                               ? "bg-success/15 text-success"
                               : "bg-stone-300 text-stone-700"
                           )}
                         >
-                          {shirt.status === "for_sale" ? "Active" : "Archived"}
+                          {shirt.status === "display_only" ? "Displayed" : "Archived"}
                         </span>
                       </div>
                     </div>
 
                     <div className="pt-3 border-t border-stone-200 flex items-center justify-between">
                       <span className="mono-micro text-stone-500">
-                        Status: <span className="font-semibold text-stone-800">{shirt.status === "for_sale" ? "Featured in Showcase" : "Display Only / Past Drop"}</span>
+                        Status: <span className="font-semibold text-stone-800">{shirt.status === "display_only" ? "Displayed in Archive" : "Hidden from Archive"}</span>
                       </span>
                       <button
                         type="button"
                         onClick={() => {
                           const copy = [...shirtsList];
                           const nextStatus: ShirtStatus =
-                            shirt.status === "for_sale" ? "display_only" : "for_sale";
+                            shirt.status === "display_only" ? "archived" : "display_only";
                           copy[index] = { ...copy[index], status: nextStatus };
                           setShirtsList(copy);
                           triggerFeedback(`Toggled status for ${shirt.name}`);
                         }}
                         className={cn(
                           "cursor-pointer w-28 py-1.5 text-center text-xs font-semibold tracking-wide rounded-[2px] border transition-colors duration-200",
-                          shirt.status === "for_sale"
+                          shirt.status === "display_only"
                             ? "border-stone-800 bg-white text-stone-900 hover:bg-stone-100"
                             : "border-stone-300 bg-stone-200/80 text-stone-500 hover:bg-stone-300 hover:text-stone-700"
                         )}
                       >
-                        {shirt.status === "for_sale" ? "Archive" : "Unarchive"}
+                        {shirt.status === "display_only" ? "Hide" : "Show"}
                       </button>
                     </div>
                   </div>

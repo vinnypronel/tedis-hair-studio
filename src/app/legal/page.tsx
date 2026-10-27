@@ -45,8 +45,8 @@ const termsSections = [
     body: "Cash and Zelle are accepted at the studio. Confirm current prices and any booking conditions in Booksy before booking.",
   },
   {
-    heading: "Studio merchandise",
-    body: "Shirts are not sold online. Ask Tedi about current availability, sizes, and purchases at the studio, or contact the studio on Instagram.",
+    heading: "Studio shirts",
+    body: "The shirts shown on this site are not for sale. Tedi occasionally gives out new shirt designs with cuts, but a shirt is not included with every appointment and availability is not guaranteed.",
   },
   {
     heading: "The studio",
