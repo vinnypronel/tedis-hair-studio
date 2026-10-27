@@ -74,7 +74,7 @@ export default function AboutPage() {
             <p className="eyebrow text-cream/50">Inside the Studio</p>
             <h2 className="heading-1 mt-5">Everything in the room is chosen.</h2>
           </Reveal>
-          <RevealGroup className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+          <RevealGroup className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {about.objects.map((obj) => (
               <RevealItem key={obj.name}>
                 <figure>

@@ -50,9 +50,9 @@ export const content = {
   },
   about: {
     bio: [
-      "Tedi didn't set out to own a barbershop. He set out to never compromise on a haircut again, and a one-chair private studio turned out to be the only way to do it. No double-bookings, no rushing a fade because three people are waiting, no music you didn't choose. When you're in the chair, you're the only client in the building.",
-      "He came up cutting the hard way: friends' kitchens, then a chain shop, then a booth rental, each stop teaching him exactly what he didn't want his own place to feel like. The studio inside Bellazio Collective is the answer to all of it. Every part of the room is intentional: the chair, the lighting, the walls, the music, and the pace. Tedi believes the space you get cut in is part of the cut.",
-      "The work is appointment-only and it stays that way. Fewer cuts a day, more attention per cut. If that sounds like your kind of arrangement, the chair is one booking away.",
+      "Tedi built the studio around one simple idea: take your time and get the cut right. It is one chair, appointment only, and no rushing people in and out. When you sit down, the focus is on you and the haircut you came in for.",
+      "He takes pride in keeping the space clean, comfortable, and easy to be in. Come through, talk, put something on, and relax while he handles the details. It is professional without feeling too serious, and personal without all the noise of a busy shop.",
+      "Whether you already know exactly what you want or need help figuring it out, Tedi will listen and make sure you leave looking fresh. Good cuts, good conversation, and a spot you will want to come back to.",
     ],
     pullQuote: "The space you get cut in is part of the cut.",
     objects: [
@@ -63,13 +63,8 @@ export const content = {
       },
       {
         name: "Signed jerseys",
-        note: "Quist, Brunson, Arringo. Framed and earned.",
+        note: "A signed Brunson jersey beside one from Tedi's friend Quist.",
         image: "/professional-images/gbjerseys.jpg",
-      },
-      {
-        name: "The art corner",
-        note: "Color, texture, and personality without the noise of a busy shop.",
-        image: "/professional-images/bwjerseys.jpg",
       },
       {
         name: "The neon bear",

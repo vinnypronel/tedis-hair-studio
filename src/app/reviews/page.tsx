@@ -87,14 +87,16 @@ export default function ReviewsPage() {
           <ReviewsList reviews={published} platform={reviewStats.platform} />
 
           <Reveal delay={0.1}>
-            <div className="hairline-t mt-16 flex flex-wrap items-center justify-between gap-6 pt-8">
+            <div className="hairline-t mt-16 flex flex-col gap-4 pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-6">
               <p className="text-sm text-stone-500">
                 Showing all {published.length} reviews. Every review here was left by a client
                 on {reviewStats.platform}.
               </p>
-              <ButtonLink href={content.booking.reviewsUrl} arrow>
-                Read all {reviewStats.count} on {reviewStats.platform}
-              </ButtonLink>
+              <div className="flex justify-end">
+                <ButtonLink href={content.booking.reviewsUrl} arrow>
+                  Read all {reviewStats.count} on {reviewStats.platform}
+                </ButtonLink>
+              </div>
             </div>
           </Reveal>
         </div>

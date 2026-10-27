@@ -82,7 +82,7 @@ export function Hero() {
           transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mt-10 flex flex-wrap items-center gap-6"
         >
-          <BookLink className="group inline-flex items-center gap-3 rounded-[2px] bg-cream px-9 py-4 text-base font-medium text-forest-deep transition-colors duration-300 hover:bg-stone-300 focus-visible:bg-stone-300">
+          <BookLink className="group inline-flex items-center gap-3 rounded-[2px] border border-transparent bg-cream px-9 py-4 text-base font-medium text-forest-deep transition-all duration-300 hover:-translate-y-0.5 hover:translate-x-0.5 hover:border-cream hover:bg-forest hover:text-cream focus-visible:border-cream focus-visible:bg-forest focus-visible:text-cream">
             {content.hero.ctaPrimary}
             <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
               →

@@ -51,6 +51,27 @@ export function ReviewsList({ reviews, platform }: ReviewsListProps) {
     });
   };
 
+  // Compact, windowed page list: 1 … around-current … last.
+  const pageItems = useMemo<(number | "ellipsis")[]>(() => {
+    if (pageCount <= 7) {
+      return Array.from({ length: pageCount }, (_, i) => i + 1);
+    }
+    const set = new Set<number>([1, pageCount]);
+    if (safePage <= 3) [2, 3].forEach((n) => set.add(n));
+    else if (safePage >= pageCount - 2)
+      [pageCount - 2, pageCount - 1].forEach((n) => set.add(n));
+    else [safePage - 1, safePage, safePage + 1].forEach((n) => set.add(n));
+    const sorted = [...set].filter((n) => n >= 1 && n <= pageCount).sort((a, b) => a - b);
+    const out: (number | "ellipsis")[] = [];
+    let prev = 0;
+    for (const n of sorted) {
+      if (prev && n - prev > 1) out.push("ellipsis");
+      out.push(n);
+      prev = n;
+    }
+    return out;
+  }, [pageCount, safePage]);
+
   return (
     <>
       <div id="review-list" className="scroll-mt-28">
@@ -94,38 +115,46 @@ export function ReviewsList({ reviews, platform }: ReviewsListProps) {
         </RevealGroup>
       </div>
 
-      <nav className="hairline-t mt-10 flex flex-wrap items-center justify-center gap-2 pt-8" aria-label="Reviews pagination">
+      <nav className="hairline-t mt-10 flex items-center justify-center gap-1 pt-8 sm:gap-2" aria-label="Reviews pagination">
         <button
           type="button"
           onClick={() => goToPage(safePage - 1)}
           disabled={safePage === 1}
-          className="mono-micro min-h-11 px-4 text-stone-600 transition-colors hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
+          aria-label="Previous page"
+          className="flex size-9 shrink-0 items-center justify-center rounded-full border border-stone-300 text-stone-600 transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30 sm:size-11"
         >
-          Previous
+          ←
         </button>
-        {Array.from({ length: pageCount }, (_, index) => index + 1).map((pageNumber) => (
-          <button
-            key={pageNumber}
-            type="button"
-            onClick={() => goToPage(pageNumber)}
-            aria-current={pageNumber === safePage ? "page" : undefined}
-            aria-label={`Page ${pageNumber}`}
-            className={`h-11 min-w-11 border px-3 font-mono text-xs transition-colors ${
-              pageNumber === safePage
-                ? "border-forest bg-forest text-bone"
-                : "border-stone-300 text-stone-600 hover:border-forest hover:text-forest"
-            }`}
-          >
-            {pageNumber}
-          </button>
-        ))}
+        {pageItems.map((item, i) =>
+          item === "ellipsis" ? (
+            <span key={`e-${i}`} className="px-1 font-mono text-xs text-stone-400 select-none">
+              …
+            </span>
+          ) : (
+            <button
+              key={item}
+              type="button"
+              onClick={() => goToPage(item)}
+              aria-current={item === safePage ? "page" : undefined}
+              aria-label={`Page ${item}`}
+              className={`size-9 shrink-0 rounded-[4px] border font-mono text-xs transition-colors sm:size-11 ${
+                item === safePage
+                  ? "border-forest bg-forest text-bone"
+                  : "border-stone-300 text-stone-600 hover:border-forest hover:text-forest"
+              }`}
+            >
+              {item}
+            </button>
+          )
+        )}
         <button
           type="button"
           onClick={() => goToPage(safePage + 1)}
           disabled={safePage === pageCount}
-          className="mono-micro min-h-11 px-4 text-stone-600 transition-colors hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
+          aria-label="Next page"
+          className="flex size-9 shrink-0 items-center justify-center rounded-full border border-stone-300 text-stone-600 transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30 sm:size-11"
         >
-          Next
+          →
         </button>
       </nav>
 

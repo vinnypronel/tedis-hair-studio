@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="pb-24 lg:pb-36">
-      <PageHeader title={<em className="italic">Step inside</em>} />
+      <PageHeader title={<em className="italic">Get in touch</em>} />
 
       <div className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
