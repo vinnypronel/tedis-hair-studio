@@ -18,15 +18,15 @@ import { ShirtVisual } from "@/components/shop/shirt-visual";
 
 export function IntroStrip() {
   return (
-    <section className="bg-forest px-6 pt-5 pb-8 text-cream md:px-12 lg:px-20 lg:pt-6 lg:pb-10">
+    <section className="bg-forest px-4 pt-5 pb-9 text-cream sm:px-6 md:px-12 lg:px-20 lg:pt-6 lg:pb-10">
       <div className="mx-auto max-w-[1440px]">
         <Reveal delay={0.1}>
-          <p className="display-lg mx-auto max-w-4xl text-center italic whitespace-nowrap max-sm:!text-[5.3vw]">
+          <p className="display-lg mx-auto max-w-4xl text-center italic whitespace-nowrap max-sm:!text-[6vw] max-sm:!tracking-[-0.035em]">
             Clean work, quiet setting.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-6 flex flex-row flex-nowrap items-center justify-center gap-x-2.5 sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
+          <div className="mt-9 flex flex-row flex-nowrap items-center justify-center gap-x-2.5 sm:mt-6 sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
             <span className="eyebrow whitespace-nowrap text-cream/60 max-sm:!text-[9px] max-sm:!tracking-[0.06em]">
               Est. {content.meta.established}
             </span>
@@ -52,10 +52,10 @@ export function IntroStrip() {
 export function ServicesTeaser() {
   const featured = services.slice(0, 3);
   return (
-    <section className="px-6 py-20 md:px-12 lg:px-20 lg:py-24">
+    <section className="px-6 pt-8 pb-20 md:px-12 lg:py-24 lg:px-20">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4 pt-6 lg:pt-16">
+          <div className="lg:col-span-4 lg:pt-16">
             <Reveal>
               <p className="eyebrow text-stone-500">02 · Services</p>
               <h2 className="heading-1 mt-4">What we do</h2>
@@ -74,18 +74,18 @@ export function ServicesTeaser() {
           <RevealGroup className="lg:col-span-8" stagger={0.08}>
             {featured.map((svc) => (
               <RevealItem key={svc.id}>
-                <BookLink className="hairline-t group flex flex-wrap items-baseline justify-between gap-3 py-7 transition-colors duration-300 hover:bg-stone-100/60 sm:flex-nowrap sm:gap-8 sm:px-4">
+                <BookLink className="hairline-t group flex flex-nowrap items-start justify-between gap-3 py-7 transition-colors duration-300 hover:bg-stone-100/60 sm:items-baseline sm:gap-8 sm:px-4">
                   <div className="min-w-0">
                     <span className="font-display text-2xl tracking-tight md:text-3xl">
                       {svc.name}
                     </span>
                     {svc.mostPopular && (
-                      <span className="mono-micro ml-4 border-[0.5px] border-forest px-2 py-1 align-middle text-forest">
+                      <span className="mono-micro mt-1.5 block w-fit border-[0.5px] border-forest px-2 py-0.5 text-forest sm:mt-0 sm:ml-4 sm:inline-block sm:w-auto sm:py-1 sm:align-middle">
                         Most booked
                       </span>
                     )}
                   </div>
-                  <div className="ml-auto flex shrink-0 items-baseline gap-6 sm:ml-0">
+                  <div className="flex shrink-0 items-baseline gap-6">
                     <span className="font-mono text-xs tracking-widest text-stone-500 uppercase">
                       {svc.durationMinutes} min
                     </span>
@@ -227,7 +227,7 @@ export function ReviewsPreview() {
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <p className="eyebrow text-stone-500">05 · Our Reviews</p>
-          <h2 className="heading-1 mt-5">Five stars, only.</h2>
+          <h2 className="heading-1 mt-5">Five star reviews, ONLY.</h2>
         </Reveal>
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3" stagger={0.1}>
           {featured.map((review) => (
@@ -343,7 +343,7 @@ export function ShopTeaser() {
             <p className="eyebrow text-stone-500">06 · Our Merch</p>
             <h2 className="heading-1 mt-1 text-3xl md:text-4xl lg:text-5xl">Past drops.</h2>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="max-sm:hidden">
             <Link
               href="/shop"
               className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
@@ -364,6 +364,15 @@ export function ShopTeaser() {
             </RevealItem>
           ))}
         </RevealGroup>
+        {/* Mobile-only: "View our tees" under the last shirt, right-aligned */}
+        <div className="mt-6 flex justify-end sm:hidden">
+          <Link
+            href="/shop"
+            className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+          >
+            View our tees →
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -387,9 +396,9 @@ export function InstagramStrip() {
               href={content.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+              className="hidden text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink sm:inline-block"
             >
-              Follow along →
+              Follow us on Instagram →
             </a>
           </div>
         </Reveal>
@@ -420,6 +429,17 @@ export function InstagramStrip() {
             </RevealItem>
           ))}
         </RevealGroup>
+        {/* Mobile-only: "Follow us on Instagram" under the images, right-aligned */}
+        <div className="mt-6 flex justify-end sm:hidden">
+          <a
+            href={content.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
+          >
+            Follow us on Instagram →
+          </a>
+        </div>
       </div>
     </section>
   );

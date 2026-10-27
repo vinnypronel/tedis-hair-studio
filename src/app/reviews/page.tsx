@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/site/page-header";
-import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
+import { Reveal } from "@/components/site/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { RatingBreakdown } from "@/components/reviews/rating-breakdown";
+import { ReviewsList } from "@/components/reviews/reviews-list";
 import { reviews, reviewStats } from "@/lib/data/reviews";
 import { content } from "@/lib/data/content";
 
@@ -24,7 +25,19 @@ export default function ReviewsPage() {
 
   return (
     <div className="pb-24 lg:pb-36">
-      <PageHeader compact title={<em className="italic">Five stars, only.</em>} />
+      <PageHeader
+        compact
+        title={<em className="italic">Five stars, only.</em>}
+        sub={
+          <span className="mono-micro text-stone-500">
+            Last updated 10/27/26
+            <span
+              aria-hidden
+              className="caret-blink ml-1 inline-block h-[1em] w-[2px] translate-y-[2px] bg-stone-500 align-middle"
+            />
+          </span>
+        }
+      />
 
       <div className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
@@ -71,51 +84,13 @@ export default function ReviewsPage() {
             </div>
           </Reveal>
 
-          {/* Masonry-ish columns */}
-          <RevealGroup
-            className="mt-14 columns-1 gap-6 sm:columns-2 lg:columns-3 [&>div]:mb-6 [&>div]:break-inside-avoid"
-            stagger={0.06}
-          >
-            {published.map((review) => (
-              <RevealItem key={review.id}>
-                <a
-                  href={content.booking.reviewsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Read ${review.authorName}'s review on Booksy`}
-                  className="group block"
-                >
-                  <figure className="hairline-strong bg-cream p-8 transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-bone group-hover:shadow-lg">
-                    <p className="font-mono text-xs tracking-[0.3em] text-forest">
-                      {"★".repeat(review.rating)}
-                    </p>
-                    <blockquote className="mt-5 text-[15px] leading-relaxed text-stone-700">
-                      {review.text}
-                    </blockquote>
-                    <figcaption className="mono-micro mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 text-stone-500">
-                      <span className="text-ink">{review.authorName}</span>
-                      <span aria-hidden>·</span>
-                      <span>
-                        {new Date(review.sourceDate + "T12:00:00").toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
-                      </span>
-                      <span aria-hidden>·</span>
-                      <span className="text-forest">via {reviewStats.platform} ↗</span>
-                    </figcaption>
-                  </figure>
-                </a>
-              </RevealItem>
-            ))}
-          </RevealGroup>
+          <ReviewsList reviews={published} platform={reviewStats.platform} />
 
           <Reveal delay={0.1}>
             <div className="hairline-t mt-16 flex flex-wrap items-center justify-between gap-6 pt-8">
               <p className="text-sm text-stone-500">
-                Showing the {published.length} most recent. Every review here was left by a
-                client on {reviewStats.platform}.
+                Showing all {published.length} reviews. Every review here was left by a client
+                on {reviewStats.platform}.
               </p>
               <ButtonLink href={content.booking.reviewsUrl} arrow>
                 Read all {reviewStats.count} on {reviewStats.platform}

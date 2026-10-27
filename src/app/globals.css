@@ -236,6 +236,26 @@ footer a.mono-micro:focus-visible {
   display: none;
 }
 
+/* Blinking caret, e.g. after a "last updated" date to show it's live. */
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.caret-blink {
+  animation: caret-blink 1.1s step-end infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .caret-blink {
+    animation: none;
+  }
+}
+
 /* ---------- Form inputs (bottom-border editorial style) ---------- */
 
 .input-line {
