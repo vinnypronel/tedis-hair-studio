@@ -19,6 +19,7 @@ export function PortfolioMarquee() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const resumeAt = useRef(0);
   const pausedRef = useRef(false);
+  const suppressClickRef = useRef(false);
   const [active, setActive] = useState<number | null>(null);
 
   // Keep the animation loop aware of the lightbox without re-running the effect.
@@ -60,21 +61,80 @@ export function PortfolioMarquee() {
     );
     io.observe(el);
 
-    // Pause auto-scroll briefly whenever the user drives the strip.
+    // Mouse and wheel input still pause immediately. On touch screens, only a
+    // deliberate one-second press freezes the strip. Quick taps and swipes do
+    // not interrupt the auto-scroll.
     const hold = () => {
       resumeAt.current = performance.now() + 2500;
     };
-    el.addEventListener("pointerdown", hold);
-    el.addEventListener("touchstart", hold, { passive: true });
-    el.addEventListener("touchmove", hold, { passive: true });
+    let longPressTimer: number | null = null;
+    let longPressFrozen = false;
+    let pressStartX = 0;
+    let pressStartY = 0;
+
+    const clearLongPressTimer = () => {
+      if (longPressTimer !== null) {
+        window.clearTimeout(longPressTimer);
+        longPressTimer = null;
+      }
+    };
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.pointerType !== "touch") {
+        hold();
+        return;
+      }
+
+      suppressClickRef.current = false;
+      pressStartX = event.clientX;
+      pressStartY = event.clientY;
+      clearLongPressTimer();
+      longPressTimer = window.setTimeout(() => {
+        longPressFrozen = true;
+        suppressClickRef.current = true;
+        resumeAt.current = Number.POSITIVE_INFINITY;
+      }, 1000);
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      if (
+        event.pointerType === "touch" &&
+        (Math.abs(event.clientX - pressStartX) > 10 ||
+          Math.abs(event.clientY - pressStartY) > 10)
+      ) {
+        clearLongPressTimer();
+      }
+    };
+
+    const finishTouchPress = (event: PointerEvent) => {
+      if (event.pointerType !== "touch") return;
+      clearLongPressTimer();
+      if (longPressFrozen) {
+        longPressFrozen = false;
+        resumeAt.current = performance.now() + 300;
+      }
+    };
+
+    const preventLongPressMenu = (event: MouseEvent) => {
+      if (suppressClickRef.current) event.preventDefault();
+    };
+
+    el.addEventListener("pointerdown", onPointerDown);
+    el.addEventListener("pointermove", onPointerMove);
+    el.addEventListener("pointerup", finishTouchPress);
+    el.addEventListener("pointercancel", finishTouchPress);
+    el.addEventListener("contextmenu", preventLongPressMenu);
     el.addEventListener("wheel", hold, { passive: true });
 
     return () => {
       cancelAnimationFrame(raf);
       io.disconnect();
-      el.removeEventListener("pointerdown", hold);
-      el.removeEventListener("touchstart", hold);
-      el.removeEventListener("touchmove", hold);
+      clearLongPressTimer();
+      el.removeEventListener("pointerdown", onPointerDown);
+      el.removeEventListener("pointermove", onPointerMove);
+      el.removeEventListener("pointerup", finishTouchPress);
+      el.removeEventListener("pointercancel", finishTouchPress);
+      el.removeEventListener("contextmenu", preventLongPressMenu);
       el.removeEventListener("wheel", hold);
     };
   }, []);
@@ -114,11 +174,17 @@ export function PortfolioMarquee() {
               <button
                 type="button"
                 key={`${img.id}-${i}`}
-                onClick={() => setActive(realIndex)}
+                onClick={() => {
+                  if (suppressClickRef.current) {
+                    suppressClickRef.current = false;
+                    return;
+                  }
+                  setActive(realIndex);
+                }}
                 tabIndex={isClone ? -1 : 0}
                 aria-hidden={isClone}
                 aria-label={isClone ? undefined : `View larger: ${img.alt}`}
-                className="hairline group relative block h-[300px] w-[240px] shrink-0 cursor-pointer overflow-hidden sm:h-[400px] sm:w-[320px]"
+                className="hairline group relative block h-[300px] w-[240px] shrink-0 cursor-pointer overflow-hidden select-none [-webkit-touch-callout:none] sm:h-[400px] sm:w-[320px]"
               >
                 {img.type === "video" ? (
                   <InViewVideo
