@@ -62,13 +62,13 @@ export const content = {
         image: "/professional-images/pops.jpg",
       },
       {
-        name: "Signed jerseys",
-        note: "A signed Brunson jersey beside one from Tedi's friend Quist.",
+        name: "Brunson",
+        note: "Signed jersey displayed inside the studio.",
         image: "/professional-images/gbjerseys.jpg",
       },
       {
-        name: "The neon bear",
-        note: "Yellow neon, X-stitched eye, always on.",
+        name: "The whole space",
+        note: "One chair, one room, and everything in its place.",
         image: "/professional-images/chair-wash.jpg",
       },
     ],
@@ -88,7 +88,7 @@ export const content = {
     siteUrl: "https://tedishairstudio.com",
     description:
       "Private, by-appointment hair studio in Matawan, NJ. One chair, one barber, cuts done with intention. Inside Bellazio Collective.",
-    established: 2024,
+    established: 2023,
   },
 } as const;
 

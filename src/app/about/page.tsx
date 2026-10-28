@@ -15,7 +15,7 @@ export default function AboutPage() {
   const { about } = content;
 
   return (
-    <div className="pb-24 lg:pb-36">
+    <div className="pb-14 md:pb-20 lg:pb-36">
       {/* Hero */}
       <div className="px-6 pt-36 md:px-12 lg:px-20 lg:pt-44">
         <div className="mx-auto max-w-[1440px]">
@@ -101,8 +101,8 @@ export default function AboutPage() {
       </div>
 
       {/* Credentials + CTA */}
-      <div className="px-6 pt-24 md:px-12 lg:px-20 lg:pt-36">
-        <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
+      <div className="px-6 pt-14 md:px-12 md:pt-20 lg:px-20 lg:pt-36">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
           <Reveal>
             <p className="eyebrow text-stone-500">Licensed &amp; Certified</p>
             <p className="mt-4 max-w-md text-base leading-relaxed text-stone-700">
@@ -110,7 +110,7 @@ export default function AboutPage() {
               Funko wall. Credentials and character, side by side.
             </p>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="self-end lg:self-auto">
             <ButtonLink href={content.booking.url} size="large" arrow>
               Book with Tedi
             </ButtonLink>
