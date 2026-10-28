@@ -75,6 +75,7 @@ export const content = {
     "Booking, rescheduling, and cancellations all run through Booksy. Give at least 24 hours notice.",
     "Running late? Text the studio. More than 15 minutes may require rebooking.",
     "Cash and Zelle accepted at the studio.",
+    "No-show an appointment and you owe the full balance of that appointment, regardless.",
   ],
   shop: {
     disclaimer:

@@ -104,7 +104,7 @@ export function Header() {
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
-          padding: 92px 24px max(18px, env(safe-area-inset-bottom));
+          padding: 120px 24px max(18px, env(safe-area-inset-bottom));
           background:
             radial-gradient(ellipse 80% 50% at 50% 25%, rgba(245, 197, 24, 0.06) 0%, transparent 70%),
             radial-gradient(ellipse 70% 50% at 50% 85%, rgba(26, 47, 35, 0.4) 0%, transparent 70%),
@@ -325,7 +325,7 @@ export function Header() {
       >
         {/* Center: Navigation Links */}
         <nav aria-label="Mobile Navigation" className="w-full max-w-sm">
-          <ul className="nav-takeover-links flex flex-col items-center gap-1 list-none p-0 m-0">
+          <ul className="nav-takeover-links flex flex-col items-center gap-2 list-none p-0 m-0">
             {navLinks.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`));
               return (
@@ -346,7 +346,7 @@ export function Header() {
           </ul>
 
           {/* Book Now Button in Takeover */}
-          <div className="nav-takeover-cta mt-4 flex justify-center">
+          <div className="nav-takeover-cta mt-9 flex justify-center">
             <BookLink
               onClick={() => setMenuOpen(false)}
               className="font-display inline-flex items-center gap-3 rounded-[2px] bg-cream px-8 py-3 text-xl tracking-tight text-forest-deep transition-transform duration-300 hover:scale-105"
@@ -364,7 +364,7 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
             tabIndex={menuOpen ? 0 : -1}
-            className="mono-micro transition-colors hover:text-neon"
+            className="mono-micro text-[13px] transition-colors hover:text-neon"
           >
             Instagram ↗
           </a>
@@ -372,7 +372,7 @@ export function Header() {
           <a
             href={content.contact.phoneHref}
             tabIndex={menuOpen ? 0 : -1}
-            className="mono-micro transition-colors hover:text-neon"
+            className="mono-micro text-[13px] transition-colors hover:text-neon"
           >
             {content.contact.phone}
           </a>
