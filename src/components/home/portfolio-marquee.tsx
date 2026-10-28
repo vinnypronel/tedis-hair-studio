@@ -98,7 +98,7 @@ export function PortfolioMarquee() {
     <section id="the-work" className="overflow-hidden pb-24 lg:pb-36">
       <Reveal className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
-          <p className="eyebrow text-stone-500">My work</p>
+          <p className="eyebrow text-stone-500">02 · My Work</p>
         </div>
       </Reveal>
 

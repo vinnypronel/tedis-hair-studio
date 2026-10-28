@@ -58,7 +58,7 @@ export function ServicesTeaser() {
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4 lg:pt-16">
             <Reveal>
-              <p className="eyebrow text-stone-500">02 · Services</p>
+              <p className="eyebrow text-stone-500">01 · Services</p>
               <h2 className="heading-1 mt-4">What we do</h2>
               <p className="mt-5 max-w-sm text-sm leading-relaxed text-stone-700">
                 Five services, no filler. Every appointment is private and
@@ -143,10 +143,7 @@ export function BrandStory() {
             label=""
           />
           <Reveal>
-            <p className="eyebrow text-cream/50">
-              <span className="md:hidden">02 · The Standard</span>
-              <span className="hidden md:inline">03 · The Standard</span>
-            </p>
+            <p className="eyebrow text-cream/50">03 · The Standard</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="heading-1 mt-5">
@@ -180,10 +177,7 @@ export function SpaceStory() {
       <div className="mx-auto grid max-w-[1440px] items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="lg:translate-x-[30px]">
           <Reveal>
-            <p className="eyebrow text-stone-500">
-              <span className="md:hidden">01 · The Space</span>
-              <span className="hidden md:inline">04 · The Space</span>
-            </p>
+            <p className="eyebrow text-stone-500">04 · The Space</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="heading-1 mt-5 italic">
@@ -432,7 +426,7 @@ export function Visit() {
       <div className="mx-auto max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
           <Reveal delay={0.1}>
-            <p className="mono-micro text-cream/50">Inside Bellazio Collective</p>
+            <p className="eyebrow text-cream/50">08 · Visit</p>
             <p className="font-display mt-3 text-[26px] leading-tight tracking-tight sm:text-3xl md:text-[38px]">
               {content.contact.addressLine1}
               <br />
