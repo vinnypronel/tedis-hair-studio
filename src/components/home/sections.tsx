@@ -19,15 +19,15 @@ import { ShirtVisual } from "@/components/shop/shirt-visual";
 
 export function IntroStrip() {
   return (
-    <section className="bg-forest px-4 pt-5 pb-9 text-cream sm:px-6 md:px-12 lg:px-20 lg:pt-6 lg:pb-10">
+    <section className="bg-forest px-4 pt-4 pb-6 text-cream sm:px-6 md:px-12 lg:px-20 lg:pt-6 lg:pb-10">
       <div className="mx-auto max-w-[1440px]">
         <Reveal delay={0.1}>
-          <p className="display-lg mx-auto max-w-4xl text-center italic whitespace-nowrap max-sm:!text-[6vw] max-sm:!tracking-[-0.035em]">
+          <p className="display-lg mx-auto max-w-4xl text-center italic whitespace-nowrap max-sm:!text-[7vw] max-sm:!tracking-[-0.04em]">
             Clean work, quiet setting.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-9 flex flex-row flex-nowrap items-center justify-center gap-x-2.5 sm:mt-6 sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
+          <div className="mt-6 flex flex-row flex-nowrap items-center justify-center gap-x-2.5 sm:mt-6 sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
             <span className="eyebrow whitespace-nowrap text-cream/60 max-sm:!text-[9px] max-sm:!tracking-[0.06em]">
               Est. {content.meta.established}
             </span>
@@ -53,9 +53,9 @@ export function IntroStrip() {
 export function ServicesTeaser() {
   const featured = services.slice(0, 3);
   return (
-    <section className="px-6 pt-8 pb-20 md:px-12 lg:py-24 lg:px-20">
+    <section className="px-6 pt-8 pb-12 md:px-12 lg:py-24 lg:px-20">
       <div className="mx-auto max-w-[1440px]">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4 lg:pt-16">
             <Reveal>
               <p className="eyebrow text-stone-500">02 · Services</p>

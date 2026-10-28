@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Editorial text link: underlined, no arrow by default. On hover it grows a
- * little and an arrow slides in from left to right. Use for "View all services",
- * "Full gallery", "Read all", etc. Pass `external` for off-site links.
+ * Editorial text link: underlined, with an arrow visible on mobile. On larger
+ * screens the arrow slides in on hover. Use for "View all services", "Full
+ * gallery", "Read all", etc. Pass `external` for off-site links.
  */
 export function ArrowLink({
   href,
@@ -27,7 +27,7 @@ export function ArrowLink({
       {children}
       <span
         aria-hidden
-        className="inline-block -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+        className="inline-block translate-x-0 opacity-100 transition-all duration-300 sm:-translate-x-2 sm:opacity-0 sm:group-hover:translate-x-0 sm:group-hover:opacity-100"
       >
         →
       </span>
