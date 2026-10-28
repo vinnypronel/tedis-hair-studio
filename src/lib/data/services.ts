@@ -16,7 +16,7 @@ export const services: Service[] = [
     name: "Basic Haircut",
     slug: "basic-haircut",
     description:
-      "The foundation. Consultation, precision cut, hot-lather neckline, styled to finish. Every cut starts with a conversation about what you actually want.",
+      "Precision cut, styled to finish.",
     durationMinutes: 30,
     priceCents: 3500,
     active: true,
@@ -28,7 +28,7 @@ export const services: Service[] = [
     name: "Shape Up",
     slug: "shape-up",
     description:
-      "Hairline, temples, and neckline brought back to crisp. The maintenance visit between full cuts. In and out, sharp again.",
+      "Hairline, temples, and neckline brought back to crisp. The maintenance visit between full cuts.",
     durationMinutes: 30,
     priceCents: 2500,
     active: true,
@@ -40,7 +40,7 @@ export const services: Service[] = [
     name: "Haircut w/ Beard",
     slug: "haircut-beard",
     description:
-      "The full session. Complete cut plus beard sculpting. Lined, faded, and conditioned. The everything appointment.",
+      "The full session. Complete cut plus beard sculpting, lined and faded.",
     durationMinutes: 30,
     priceCents: 4000,
     active: true,
@@ -64,7 +64,7 @@ export const services: Service[] = [
     name: "Beard Trim",
     slug: "beard-trim",
     description:
-      "Beard only. Shaped, faded into the cheek line, finished with razor detail and oil.",
+      "Beard only. Shaped, faded into the cheek line, finished with razor detail.",
     durationMinutes: 30,
     priceCents: 2000,
     active: true,

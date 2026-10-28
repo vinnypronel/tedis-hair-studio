@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/site/reveal";
+import { ArrowLink } from "@/components/ui/arrow-link";
 import { InViewVideo } from "@/components/site/in-view-video";
 import { marqueeImages } from "@/lib/data/gallery";
 
@@ -155,7 +155,7 @@ export function PortfolioMarquee() {
   const activeItem = active === null ? null : marqueeImages[active];
 
   return (
-    <section id="the-work" className="overflow-hidden pb-24 lg:pb-36">
+    <section id="the-work" className="overflow-hidden pb-8 md:pb-24 lg:pb-36">
       <Reveal className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
           <p className="eyebrow text-stone-500">02 · My Work</p>
@@ -209,12 +209,7 @@ export function PortfolioMarquee() {
 
       <Reveal className="mt-6 px-6 md:px-12 lg:px-20">
         <div className="mx-auto flex max-w-[1440px] justify-end">
-          <Link
-            href="/gallery"
-            className="text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink"
-          >
-            Full gallery →
-          </Link>
+          <ArrowLink href="/gallery">Full gallery</ArrowLink>
         </div>
       </Reveal>
 

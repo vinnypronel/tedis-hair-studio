@@ -67,20 +67,11 @@ export function Hero() {
           Personal <br className="sm:hidden" />private <em className="italic">cuts.</em>
         </motion.h1>
 
-        <motion.p
-          initial={reduced ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.05, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 max-w-md text-sm leading-relaxed text-cream/85"
-        >
-          {content.hero.sub}
-        </motion.p>
-
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 flex flex-wrap items-center gap-6"
+          className="mt-8 flex flex-wrap items-center gap-6"
         >
           <BookLink className="group inline-flex items-center gap-3 rounded-[2px] border border-transparent bg-cream px-9 py-4 text-base font-medium text-forest-deep transition-all duration-300 hover:-translate-y-0.5 hover:translate-x-0.5 hover:border-cream hover:bg-forest hover:text-cream focus-visible:border-cream focus-visible:bg-forest focus-visible:text-cream">
             {content.hero.ctaPrimary}

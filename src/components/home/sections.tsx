@@ -147,7 +147,7 @@ export function BrandStory() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="heading-1 mt-5">
-              <span className="block">Clean room.</span>
+              <span className="block">Clean studio.</span>
               <span className="block">Serious work.</span>
             </h2>
           </Reveal>
@@ -181,8 +181,7 @@ export function SpaceStory() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="heading-1 mt-5 italic">
-              <span className="block md:inline">Inside Bellazio.</span>{" "}
-              <span className="block md:inline">Kept sharp.</span>
+              <span className="block md:inline">Inside Bellazio.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>

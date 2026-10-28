@@ -104,16 +104,6 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a
-                href={content.social.tiktok}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-draw"
-              >
-                TikTok · {content.social.tiktokHandle}
-              </a>
-            </li>
-            <li>
               <a href={`mailto:${content.contact.email}`} className="link-draw">
                 {content.contact.email}
               </a>

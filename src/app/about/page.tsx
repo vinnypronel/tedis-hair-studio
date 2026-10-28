@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
   title: "Meet Tedi",
   description:
-    "The barber behind the one-chair studio. Tedi's story, the space, and the objects that make it his.",
+    "Meet Tedi and see his private barber studio inside Bellazio Collective in Matawan, NJ.",
 };
 
 export default function AboutPage() {
@@ -17,7 +17,7 @@ export default function AboutPage() {
   return (
     <div className="pb-14 md:pb-20 lg:pb-36">
       {/* Hero */}
-      <div className="px-6 pt-36 md:px-12 lg:px-20 lg:pt-44">
+      <div className="px-6 pt-24 md:px-12 lg:px-20 lg:pt-32">
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
             <p className="eyebrow text-stone-500">The Barber</p>
@@ -28,7 +28,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <Reveal delay={0.2} className="mt-14 px-6 md:px-12 lg:px-20">
+      <Reveal delay={0.2} className="mt-8 px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
           <div className="hairline relative aspect-[16/10] overflow-hidden md:aspect-[21/9]">
             <Image
@@ -47,7 +47,7 @@ export default function AboutPage() {
       </Reveal>
 
       {/* Bio + pull quote */}
-      <div className="mt-24 px-6 md:px-12 lg:mt-36 lg:px-20">
+      <div className="mt-10 px-6 md:px-12 lg:mt-14 lg:px-20">
         <div className="mx-auto grid max-w-[1440px] gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-6 lg:col-start-2">
             <div className="flex flex-col gap-7 text-[17px] leading-[1.75] text-stone-700">
@@ -61,7 +61,7 @@ export default function AboutPage() {
           <Reveal delay={0.15} className="lg:col-span-4 lg:col-start-9">
             <blockquote className="font-display border-l-2 border-forest pl-8 text-3xl leading-snug tracking-tight italic lg:sticky lg:top-32">
               &ldquo;{about.pullQuote}&rdquo;
-              <footer className="eyebrow mt-6 text-right text-stone-500 not-italic lg:text-left">
+              <footer className="eyebrow mt-3 pl-1 text-left text-stone-500 not-italic lg:mt-6">
                 - Tedi
               </footer>
             </blockquote>
@@ -70,11 +70,11 @@ export default function AboutPage() {
       </div>
 
       {/* Inside the studio */}
-      <div className="mt-28 bg-forest px-6 py-24 text-cream md:px-12 lg:mt-40 lg:px-20 lg:py-32">
+      <div className="mt-12 bg-forest px-6 pt-24 pb-10 text-cream md:px-12 md:pb-24 lg:mt-40 lg:px-20 lg:py-32">
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
             <p className="eyebrow text-cream/50">Inside the Studio</p>
-            <h2 className="heading-1 mt-5">Everything in the room is chosen.</h2>
+            <h2 className="heading-1 mt-5">A look inside the studio.</h2>
           </Reveal>
           <RevealGroup className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {about.objects.map((obj) => (
@@ -106,8 +106,7 @@ export default function AboutPage() {
           <Reveal>
             <p className="eyebrow text-stone-500">Licensed &amp; Certified</p>
             <p className="mt-4 max-w-md text-base leading-relaxed text-stone-700">
-              NJ State Board licensed. The framed certificate hangs next to the
-              Funko wall. Credentials and character, side by side.
+              NJ State Board licensed. The certificate is displayed in the studio.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="self-end lg:self-auto">

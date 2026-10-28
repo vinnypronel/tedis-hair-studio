@@ -3,7 +3,6 @@ export const content = {
     eyebrow: "MATAWAN, NJ · BY APPOINTMENT ONLY",
     headline: "Personal private cuts.",
     headlineItalic: "cuts.",
-    sub: "Private, by-appointment hair studio for a fade done right.",
     ctaPrimary: "Book Now",
     ctaSecondary: "See the work",
   },
@@ -25,7 +24,7 @@ export const content = {
   contact: {
     phone: "(732) 947-7359",
     phoneHref: "tel:+17329477359",
-    email: "book@tedishairstudio.com",
+    email: "tedishairstudio@gmail.com",
     addressLine1: "259-267 Broad St, Suite 128",
     addressLine2: "Matawan, NJ 07747",
     addressInside: "Inside Bellazio Collective",
@@ -37,8 +36,6 @@ export const content = {
   social: {
     instagram: "https://instagram.com/tedishairstudio",
     instagramHandle: "@tedishairstudio",
-    tiktok: "https://tiktok.com/@tedishairstudio",
-    tiktokHandle: "@tedishairstudio",
   },
   brand: {
     story:
@@ -46,23 +43,23 @@ export const content = {
   },
   space: {
     story:
-      "Tedi's studio is tucked inside Bellazio Collective in Matawan. It is not a walk-in shop and it is not built for waiting around. It is one room, one chair, and a clean setup made for focused appointments. You show up on time, sit down, and get the cut handled right.",
+      "Tedi's studio is inside Bellazio Collective in Matawan. It is not a walk-in shop and it is not built for waiting around. It is one room, one chair, and a clean setup made for focused appointments. You show up on time, sit down, and get the cut handled right.",
   },
   about: {
     bio: [
-      "Tedi built the studio around one simple idea: just get the cut right. It is one chair and appointment only, so when you sit down, the focus is on you and the haircut you came in for.",
-      "He takes pride in keeping the space clean, comfortable, and easy to be in. Come through, talk, put something on, and relax while he handles your cut. It is professional without feeling too serious, and personal without all the noise of a busy shop.",
-      "Whether you already know exactly what you want or need help figuring it out, Tedi will listen and make sure you leave looking fresh. Good cuts, good conversation, and a spot you will want to come back to.",
+      "Tedi's Hair Studio is a private barber studio inside Bellazio Collective in Matawan, NJ.",
+      "Tedi offers haircuts, fades, shape ups, and beard trims in a relaxed, single-chair space. Every appointment is one-on-one, with time to talk through what you want and attention to the details that make your cut feel right.",
+      "Whether you're keeping your usual look or trying something new, you'll get personal attention from start to finish. Appointment only. Book through Booksy.",
     ],
-    pullQuote: "The space you get cut in is part of the cut.",
+    pullQuote: "Come as a client, leave as a regular.",
     objects: [
       {
         name: "The studio wall",
-        note: "Personal details, framed pieces, and the visual language of the room.",
+        note: "Personal items and framed pieces displayed in the studio.",
         image: "/professional-images/pops.jpg",
       },
       {
-        name: "Brunson",
+        name: "2026 Finals MVP Jalen Brunson",
         note: "Signed jersey displayed inside the studio.",
         image: "/professional-images/gbjerseys.jpg",
       },

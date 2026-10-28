@@ -40,7 +40,7 @@ export default function ServicesPage() {
                 <RevealItem key={svc.id} className="flex flex-1">
                   <div className="hairline-t group grid w-full flex-1 items-center gap-2 py-5 md:grid-cols-12 md:gap-6 md:py-4">
                     <div className="md:col-span-4 flex flex-wrap items-center gap-3">
-                      <h2 className="font-display text-[22px] tracking-tight lg:text-[26px]">
+                      <h2 className="font-display text-[22px] tracking-tight underline-offset-4 group-hover:underline lg:text-[26px]">
                         {svc.name}
                       </h2>
                       {svc.mostPopular && (
@@ -56,8 +56,14 @@ export default function ServicesPage() {
                       <span className="font-mono text-xl font-medium">{formatPrice(svc.priceCents)}</span>
                     </div>
                     <div className="text-right md:col-span-2">
-                      <BookLink className="text-sm font-medium whitespace-nowrap underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink">
-                        Book this →
+                      <BookLink className="inline-flex items-center gap-1.5 text-sm font-medium whitespace-nowrap underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink">
+                        Book this
+                        <span
+                          aria-hidden
+                          className="inline-block translate-x-0 opacity-100 transition-all duration-300 sm:-translate-x-2 sm:opacity-0 sm:group-hover:translate-x-0 sm:group-hover:opacity-100"
+                        >
+                          →
+                        </span>
                       </BookLink>
                     </div>
                   </div>

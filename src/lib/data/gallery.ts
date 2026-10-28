@@ -20,7 +20,6 @@ export const galleryImages: GalleryImage[] = [
   { id: "g-cut3", url: "/images/cut3.jpeg", alt: "Mid fade, scissor work on top", category: "cuts", featured: false, sortOrder: 4 },
   { id: "g-video-kid-fade", type: "video", url: "/Cut Videos/Kid_Fade_Design.mp4", alt: "Kid's fade with custom razor design detail", category: "cuts", featured: true, sortOrder: 5 },
   { id: "g-cut4", url: "/images/cut4.jpeg", alt: "Burst fade with detailed edges", category: "cuts", featured: true, sortOrder: 6 },
-  { id: "g-cut6", url: "/images/cut6.jpeg", alt: "Crop with hard part", category: "cuts", featured: false, sortOrder: 7 },
   { id: "g-video-fade2", type: "video", url: "/Cut Videos/Fade2.mp4", alt: "Clean fade and beard detailing in the chair", category: "cuts", featured: true, sortOrder: 8 },
   { id: "g-design", url: "/images/designsidehair.jpg", alt: "Lightning bolt design fade", category: "cuts", featured: false, sortOrder: 9 },
   { id: "g-gorc", url: "/images/gorc-cut.jpg", alt: "Fresh cut, client portrait", category: "cuts", featured: false, sortOrder: 10 },
@@ -46,7 +45,9 @@ export function getGalleryByCategory(category: GalleryCategory): GalleryImage[] 
 }
 
 /** Images for the home-page marquee. */
-export const marqueeImages = galleryImages.filter((i) => i.category === "cuts");
+export const marqueeImages = galleryImages.filter(
+  (i) => i.category === "cuts" && i.id !== "g-video-kid-fade"
+);
 
 export type InstagramPost = {
   image: string;

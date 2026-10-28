@@ -19,7 +19,7 @@ const privacySections = [
   },
   {
     heading: "Third-party services",
-    body: "The contact page embeds Google Maps. Loading that map sends connection information to Google. Links to Booksy, Instagram, and TikTok open services with their own privacy policies. Website hosting providers may process technical request information to deliver and secure this website.",
+    body: "The contact page embeds Google Maps. Loading that map sends connection information to Google. Links to Booksy and Instagram open services with their own privacy policies. Website hosting providers may process technical request information to deliver and secure this website.",
   },
   {
     heading: "Privacy requests",

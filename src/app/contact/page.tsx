@@ -55,14 +55,6 @@ export default function ContactPage() {
                     >
                       Instagram · {content.social.instagramHandle}
                     </a>
-                    <a
-                      href={content.social.tiktok}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-drift-link link-draw w-fit"
-                    >
-                      TikTok · {content.social.tiktokHandle}
-                    </a>
                   </div>
                 </Reveal>
 

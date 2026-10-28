@@ -68,11 +68,7 @@ const localBusinessJsonLd = {
   telephone: content.contact.phoneHref.replace("tel:", ""),
   image: `${content.meta.siteUrl}/professional-images/chair-wash.jpg`,
   priceRange: "$$",
-  sameAs: [
-    content.social.instagram,
-    content.social.tiktok,
-    content.booking.profileUrl,
-  ],
+  sameAs: [content.social.instagram, content.booking.profileUrl],
   hasMap: content.contact.googleMapsUrl,
   potentialAction: {
     "@type": "ReserveAction",

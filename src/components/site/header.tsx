@@ -370,16 +370,6 @@ export function Header() {
           </a>
           <span className="text-cream/30">·</span>
           <a
-            href={content.social.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            tabIndex={menuOpen ? 0 : -1}
-            className="mono-micro transition-colors hover:text-neon"
-          >
-            TikTok ↗
-          </a>
-          <span className="text-cream/30">·</span>
-          <a
             href={content.contact.phoneHref}
             tabIndex={menuOpen ? 0 : -1}
             className="mono-micro transition-colors hover:text-neon"
