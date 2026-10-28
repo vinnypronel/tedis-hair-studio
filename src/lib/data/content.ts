@@ -88,7 +88,7 @@ export const content = {
     siteUrl: "https://tedishairstudio.com",
     description:
       "Private, by-appointment hair studio in Matawan, NJ. One chair, one barber, cuts done with intention. Inside Bellazio Collective.",
-    established: 2023,
+    established: 2024,
   },
 } as const;
 
