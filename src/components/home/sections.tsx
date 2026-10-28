@@ -219,13 +219,18 @@ export function SpaceStory() {
 export function ReviewsPreview() {
   const featured = getFeaturedReviews();
   return (
-    <section className="bg-stone-100 px-6 pt-16 pb-8 md:px-12 lg:px-20 lg:pt-36 lg:pb-16">
+    <section className="bg-stone-100 px-6 pt-10 pb-5 md:px-12 md:pt-16 md:pb-8 lg:px-20 lg:pt-36 lg:pb-16">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
-          <p className="eyebrow text-stone-500">05 · Our Reviews</p>
-          <h2 className="heading-1 mt-5">Five star reviews, ONLY.</h2>
+          <div className="flex items-center justify-between gap-4">
+            <p className="eyebrow text-stone-500">05 · Our Reviews</p>
+            <p className="whitespace-nowrap font-mono text-[10px] tracking-[0.12em] text-stone-500 uppercase sm:text-xs">
+              {reviewStats.count} five-star reviews
+            </p>
+          </div>
+          <h2 className="heading-1 mt-3 md:mt-5">Five star reviews, ONLY.</h2>
         </Reveal>
-        <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3" stagger={0.1}>
+        <RevealGroup className="mt-8 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6" stagger={0.1}>
           {featured.map((review) => (
             <RevealItem key={review.id} className="flex">
               <a
@@ -235,7 +240,7 @@ export function ReviewsPreview() {
                 aria-label={`Read ${review.authorName}'s review on Booksy`}
                 className="group flex flex-1"
               >
-                <figure className="hairline-strong flex flex-1 flex-col bg-cream p-8 transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-bone group-hover:shadow-lg">
+                <figure className="hairline-strong flex flex-1 flex-col bg-cream p-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-bone group-hover:shadow-lg sm:p-8">
                   <div className="flex items-start justify-between gap-4">
                     <span aria-hidden className="font-display text-6xl leading-none text-forest">
                       &ldquo;
@@ -259,7 +264,7 @@ export function ReviewsPreview() {
                   <blockquote className="mt-2 flex-1 text-[15px] leading-relaxed text-stone-700">
                     {review.text}
                   </blockquote>
-                  <figcaption className="mono-micro mt-8 flex flex-wrap items-center gap-x-2.5 text-stone-500">
+                  <figcaption className="mono-micro mt-6 flex flex-wrap items-center gap-x-2.5 text-stone-500 sm:mt-8">
                     <span className="text-ink">{review.authorName}</span>
                     <span aria-hidden>·</span>
                     <span>
@@ -277,14 +282,8 @@ export function ReviewsPreview() {
           ))}
         </RevealGroup>
         <Reveal delay={0.2}>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:mt-14 sm:flex-row sm:flex-wrap sm:justify-between sm:gap-6">
-            <p className="font-mono text-sm tracking-widest">
-              <span className="text-neon">★★★★★</span>
-              <span className="ml-4 text-stone-500">
-                {reviewStats.count} five-star reviews
-              </span>
-            </p>
-            <div className="flex flex-row items-center gap-5 sm:ml-auto sm:gap-6">
+          <div className="mt-5 flex justify-start sm:mt-10 sm:justify-end">
+            <div className="flex flex-row items-center gap-5 sm:gap-6">
               <a
                 href={content.booking.googleReviewUrl}
                 target="_blank"
