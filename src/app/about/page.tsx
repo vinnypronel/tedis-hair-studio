@@ -17,15 +17,17 @@ export default function AboutPage() {
   return (
     <div className="pb-14 md:pb-20 lg:pb-36">
       {/* Intro + portrait */}
-      <div className="px-6 pt-24 md:px-12 lg:px-20 lg:pt-32">
-        <div className="mx-auto grid max-w-[1440px] gap-x-16 gap-y-10 lg:grid-cols-2 lg:items-start">
+      <div className="px-6 pt-24 md:px-12 lg:px-20 lg:pt-12">
+        <div className="mx-auto grid max-w-[1440px] gap-x-16 gap-y-10 lg:grid-cols-2 lg:items-start lg:gap-y-6">
           {/* Heading — left, top */}
           <div className="order-1 lg:col-start-1 lg:row-start-1">
             <Reveal>
               <p className="eyebrow text-stone-500">The Barber</p>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="display-xl mt-6 italic">Meet Tedi.</h1>
+              <h1 className="display-xl mt-6 italic lg:text-[clamp(72px,7vw,112px)]">
+                Meet Tedi.
+              </h1>
             </Reveal>
           </div>
 
@@ -34,7 +36,7 @@ export default function AboutPage() {
             delay={0.15}
             className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:h-full"
           >
-            <div className="hairline relative aspect-[3/4] overflow-hidden lg:aspect-auto lg:h-full lg:min-h-[560px]">
+            <div className="hairline relative aspect-[3/4] overflow-hidden lg:aspect-auto lg:h-[calc(100svh-14rem)] lg:min-h-[560px] lg:max-h-[720px]">
               <Image
                 src="/professional-images/tedi-door.jpg"
                 alt="Tedi standing outside the studio at Bellazio Collective"
@@ -51,7 +53,7 @@ export default function AboutPage() {
 
           {/* Bio + quote — left, right under the heading */}
           <Reveal delay={0.2} className="order-3 lg:col-start-1 lg:row-start-2">
-            <div className="flex flex-col gap-6 text-xl leading-[1.7] text-stone-700 lg:text-[22px]">
+            <div className="flex flex-col gap-6 text-xl leading-[1.7] text-stone-700 lg:gap-4 lg:text-lg lg:leading-[1.55]">
               {about.bio.map((para, i) => (
                 <p
                   key={i}
@@ -65,7 +67,7 @@ export default function AboutPage() {
                 </p>
               ))}
             </div>
-            <blockquote className="mt-10 border-l-2 border-forest pl-6 font-display text-2xl leading-snug tracking-tight italic">
+            <blockquote className="mt-10 border-l-2 border-forest pl-6 font-display text-2xl leading-snug tracking-tight italic lg:mt-6 lg:text-xl">
               &ldquo;{about.pullQuote}&rdquo;
               <footer className="eyebrow mt-4 text-stone-500 not-italic">- Tedi</footer>
             </blockquote>
