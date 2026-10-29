@@ -4,7 +4,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { BearLogo } from "@/components/site/bear-logo";
 import { BookLink } from "@/components/site/book-link";
 import { ArrowLink } from "@/components/ui/arrow-link";
-import { MapBadge } from "@/components/site/map-badge";
+import { MapEmbed } from "@/components/site/map-embed";
 import { services, formatPrice } from "@/lib/data/services";
 import { getFeaturedReviews, reviewStats } from "@/lib/data/reviews";
 import { getVisibleShirts } from "@/lib/data/shirts";
@@ -455,14 +455,9 @@ export function Visit() {
           </Reveal>
           <Reveal delay={0.2}>
             <div className="hairline-cream relative h-[260px] overflow-hidden md:h-[300px] lg:h-[340px]">
-              <iframe
-                src={content.contact.mapsEmbedUrl}
+              <MapEmbed
                 title={`Map to Tedi's Hair Studio, ${content.contact.addressLine1}, ${content.contact.addressLine2}`}
-                className="absolute inset-0 size-full border-0 grayscale-[35%]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
               />
-              <MapBadge />
             </div>
           </Reveal>
         </div>

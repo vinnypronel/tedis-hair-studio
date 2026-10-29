@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BearLogo } from "@/components/site/bear-logo";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { content } from "@/lib/data/content";
@@ -106,7 +107,12 @@ export default function AboutPage() {
       </div>
 
       {/* Credentials + CTA */}
-      <div className="px-6 pt-14 md:px-12 md:pt-20 lg:px-20 lg:pt-36">
+      <div className="relative px-6 pt-14 md:px-12 md:pt-20 lg:px-20 lg:pt-36">
+        <div className="pointer-events-none absolute top-7 left-1/2 hidden -translate-x-1/2 lg:block">
+          <Reveal>
+            <BearLogo size={96} className="text-forest" label="" />
+          </Reveal>
+        </div>
         <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
           <Reveal>
             <p className="eyebrow text-stone-500">Licensed &amp; Certified</p>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/site/page-header";
 import { Reveal } from "@/components/site/reveal";
-import { MapBadge } from "@/components/site/map-badge";
+import { MapEmbed } from "@/components/site/map-embed";
 import { BearLogo } from "@/components/site/bear-logo";
 import { weeklyHours, formatHour } from "@/lib/data/availability";
 import { content } from "@/lib/data/content";
@@ -84,14 +84,10 @@ export default function ContactPage() {
             {/* Map column: shifted over to the left */}
             <Reveal delay={0.15} className="min-w-0 xl:col-span-6 xl:-mt-52">
               <div className="hairline relative aspect-video w-full overflow-hidden xl:aspect-auto xl:h-[440px]">
-                <iframe
-                  src={content.contact.mapsEmbedUrl}
+                <MapEmbed
                   title="Map to Tedi's Hair Studio"
-                  className="absolute inset-0 size-full border-0 grayscale-[35%]"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  priority
                 />
-                <MapBadge />
               </div>
             </Reveal>
           </div>

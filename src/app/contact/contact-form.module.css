@@ -72,7 +72,7 @@
 }
 
 .callButton::before {
-  transform: skewX(10deg);
+  transform: skewX(-10deg);
 }
 
 .phoneIcon {
@@ -96,7 +96,7 @@
 
 .callButton:is(:hover, :focus-visible)::before {
   right: -24px;
-  transform: translate(3px, -3px) skewX(10deg);
+  transform: translate(3px, -3px) skewX(-10deg);
   background: var(--color-forest-deep);
 }
 
@@ -150,7 +150,7 @@
   }
 
   .callButton:is(:hover, :focus-visible)::before {
-    transform: skewX(10deg);
+    transform: skewX(-10deg);
   }
 
   .callButton:is(:hover, :focus-visible) .label {
