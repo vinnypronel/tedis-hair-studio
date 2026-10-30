@@ -18,7 +18,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const shirt = getShirtBySlug(slug);
   if (!shirt) return {};
-  return { title: shirt.name, description: shirt.description, alternates: { canonical: `/shop/${shirt.slug}` } };
+  return {
+    title: shirt.name,
+    // Keep the "not for sale" context in every shirt page's own description so
+    // search and AI results can never quote a shirt as a product for purchase.
+    description: `${shirt.description} Not for sale. Tedi's Hair Studio shirts are given out free with cuts, never sold.`,
+    alternates: { canonical: `/shop/${shirt.slug}` },
+  };
 }
 
 export default async function ProductPage({
