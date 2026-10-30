@@ -354,12 +354,20 @@ html.overlay-scrollbar::-webkit-scrollbar {
   pointer-events: none;
   touch-action: none;
   user-select: none;
-  transition: opacity 400ms ease;
+  transition:
+    opacity 400ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 .page-scrollbar[data-visible="true"],
 .page-scrollbar:focus-visible {
   opacity: 1;
   pointer-events: auto;
+}
+.page-scrollbar:hover,
+.page-scrollbar:focus-visible {
+  background: #3f6a4f;
+  box-shadow: 0 0 0 2px rgb(246 241 232 / 18%);
 }
 @media (prefers-reduced-motion: reduce) {
   .page-scrollbar {

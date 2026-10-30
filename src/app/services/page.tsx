@@ -56,11 +56,11 @@ export default function ServicesPage() {
                       <span className="font-mono text-xl font-medium">{formatPrice(svc.priceCents)}</span>
                     </div>
                     <div className="text-right md:col-span-2">
-                      <BookLink className="inline-flex items-center gap-1.5 text-sm font-medium whitespace-nowrap underline underline-offset-4 decoration-ink/40 transition-colors hover:decoration-ink">
+                      <BookLink className="group/book inline-flex items-center rounded-[2px] border border-transparent bg-forest px-5 py-2.5 text-sm font-medium whitespace-nowrap text-cream transition-all duration-300 hover:-translate-y-0.5 hover:translate-x-0.5 hover:border-forest hover:bg-cream hover:text-forest">
                         Book this
                         <span
                           aria-hidden
-                          className="inline-block translate-x-0 opacity-100 transition-all duration-300 sm:-translate-x-2 sm:opacity-0 sm:group-hover:translate-x-0 sm:group-hover:opacity-100"
+                          className="inline-block max-w-0 -translate-x-2 overflow-hidden opacity-0 transition-all duration-300 group-hover/book:ml-2.5 group-hover/book:max-w-5 group-hover/book:translate-x-0 group-hover/book:opacity-100"
                         >
                           →
                         </span>

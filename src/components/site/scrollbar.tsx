@@ -38,15 +38,24 @@ export function Scrollbar() {
       // Instant movement also works alongside the site's smooth wheel scrolling.
       window.scrollTo({ top, behavior: "instant" });
     };
+    const syncCursor = (event: PointerEvent) => {
+      const cursor = document.querySelector<HTMLElement>(".cursor-dot");
+      if (!cursor) return;
+      cursor.style.opacity = "1";
+      cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
+      cursor.classList.add("is-active");
+    };
     const down = (event: PointerEvent) => {
       if (event.button !== 0) return;
       drag = { y: event.clientY, scroll: window.scrollY };
       thumb.setPointerCapture(event.pointerId);
+      syncCursor(event);
       reveal();
       event.preventDefault();
     };
     const move = (event: PointerEvent) => {
       if (!drag) return;
+      syncCursor(event);
       const { travel, max } = metrics();
       if (travel > 0) scrollTo(drag.scroll + ((event.clientY - drag.y) / travel) * max);
     };

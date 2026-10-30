@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { RevealGroup, RevealItem } from "@/components/site/reveal";
 import type { Review } from "@/lib/data/reviews";
 import { content } from "@/lib/data/content";
 
@@ -47,7 +46,7 @@ export function ReviewsList({ reviews, platform }: ReviewsListProps) {
   const goToPage = (nextPage: number) => {
     setPage(nextPage);
     window.requestAnimationFrame(() => {
-      document.getElementById("review-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   };
 
@@ -75,12 +74,14 @@ export function ReviewsList({ reviews, platform }: ReviewsListProps) {
   return (
     <>
       <div id="review-list" className="scroll-mt-28">
-        <RevealGroup
-          className="mt-14 columns-1 gap-6 sm:columns-2 lg:columns-3 [&>div]:mb-6 [&>div]:break-inside-avoid"
-          stagger={0.035}
-        >
+        <div className="mt-10 flex justify-end">
+          <p className="mono-micro text-stone-500">
+            Page {safePage}/{pageCount}
+          </p>
+        </div>
+        <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 [&>div]:h-full [&_a]:h-full [&_figure]:h-full">
           {visibleReviews.map((review) => (
-          <RevealItem key={review.id}>
+          <div key={review.id}>
             <a
               href={content.booking.reviewsUrl}
               target="_blank"
@@ -110,9 +111,9 @@ export function ReviewsList({ reviews, platform }: ReviewsListProps) {
                 </figcaption>
               </figure>
             </a>
-          </RevealItem>
+          </div>
           ))}
-        </RevealGroup>
+        </div>
       </div>
 
       <nav className="hairline-t mt-10 flex items-center justify-center gap-1 pt-8 sm:gap-2" aria-label="Reviews pagination">

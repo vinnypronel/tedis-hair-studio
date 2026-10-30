@@ -22,13 +22,13 @@ export function Cursor() {
     let x = 0;
     let y = 0;
 
-    const move = (e: MouseEvent) => {
+    const move = (e: PointerEvent) => {
       x = e.clientX;
       y = e.clientY;
       el.style.opacity = "1";
       const target = e.target as HTMLElement;
       const interactive = target.closest(
-        "a, button, input, textarea, select, [role='button'], label"
+        "a, button, input, textarea, select, [role='button'], [role='scrollbar'], label"
       );
       el.classList.toggle("is-active", Boolean(interactive));
       cancelAnimationFrame(raf);
@@ -41,10 +41,10 @@ export function Cursor() {
       el.style.opacity = "0";
     };
 
-    window.addEventListener("mousemove", move, { passive: true });
+    document.addEventListener("pointermove", move, { capture: true, passive: true });
     document.documentElement.addEventListener("mouseleave", leave);
     return () => {
-      window.removeEventListener("mousemove", move);
+      document.removeEventListener("pointermove", move, { capture: true });
       document.documentElement.removeEventListener("mouseleave", leave);
       cancelAnimationFrame(raf);
     };

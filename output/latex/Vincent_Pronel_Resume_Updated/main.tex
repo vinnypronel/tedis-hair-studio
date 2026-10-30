@@ -1,0 +1,179 @@
+\documentclass[letterpaper,10.5pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{iftex}
+\ifPDFTeX
+  \input{glyphtounicode}
+\fi
+
+\definecolor{headingcolor}{RGB}{0, 0, 0}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.65in}
+\addtolength{\textheight}{1.6in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\color{headingcolor}
+}{}{0em}{}[\color{headingcolor}\titlerule \vspace{-5pt}]
+
+\ifPDFTeX
+  \pdfgentounicode=1
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LINK STYLE TOGGLE
+%   \digitaltrue   -> underlined, clickable links  (screen / email / ATS)
+%   \digitalfalse  -> plain text, no underlines    (printed copies)
+% Flip the line below and recompile to get the other version.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifdigital
+\digitaltrue
+
+\newcommand{\rlink}[2]{\ifdigital\href{#1}{\underline{#2}}\else#2\fi}
+
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2.5pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge \scshape \color{headingcolor} Vincent S. Pronel} \\ \vspace{1pt}
+    \small \rlink{tel:+17329799106}{732-979-9106} $|$
+    \rlink{mailto:vinnypronel050@gmail.com}{vinnypronel050@gmail.com} $|$
+    \rlink{https://www.linkedin.com/in/vincent-pronel-286599369}{linkedin.com/in/vincent-pronel} $|$
+    \rlink{https://github.com/vinnypronel}{github.com/vinnypronel}
+\end{center}
+\vspace{-14pt}
+\section{Education}
+  \resumeSubHeadingListStart
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{Bachelor of Science in Computer Science} & \textbf{Expected 2027} \\
+      Kean University & Union, NJ  \\
+    \end{tabular*}\vspace{-5pt}
+    \resumeItemListStart
+        \resumeItem{\textbf{Relevant Coursework}: Software Engineering*, Analysis of Algorithms*, Computer Architecture*, Object Oriented Analysis \& Design, Database Management Systems, Applied Statistics, Matrix \& Linear Algebra \hfill \textit{\footnotesize *in progress, Fall 2026}}
+        \resumeItem{\textbf{Leadership \& Honors}: Web Developer, WiCyS (Women in Cyber Security) Kean Chapter E-Board $|$ Presenter, 2026 CRA UR2PhD Research Showcase, New Orleans $|$ GMiS Research Posters Competition $|$ Dean's List, Spring 2024 and Fall 2025}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\vspace{-16pt}
+\section{Technical Skills}
+\vspace{2pt}
+\begin{itemize}[leftmargin=0.3in, label=\textendash, itemsep=1.5pt, topsep=2pt, parsep=0pt]
+  \small
+  \item \textbf{Languages}: TypeScript, JavaScript, Java, Python, SQL, PHP, HTML5, CSS3
+  \item \textbf{Frameworks \& Libraries}: React, Next.js, Node.js, REST APIs, Tailwind CSS, Framer Motion, GSAP
+  \item \textbf{AI, Data \& Analytics}: Generative AI, Machine Learning, LLM API Integrations, Prompt Engineering, Model Evaluation, Data Visualization, Statistical Analysis, Excel, Google Charts
+  \item \textbf{Cloud \& DevOps}: Cloudflare Workers, D1, R2, Pages, Vercel CI/CD, Supabase, PostgreSQL, MySQL, Railway
+  \item \textbf{Tools \& Workflow}: Git/GitHub, Linux, Agile Software Development, GitHub Copilot, Claude Code, Codex, MySQL Workbench, Figma
+  \item \textbf{Systems \& Hardware}: Windows Systems, Laptop and Desktop Hardware, Hardware Diagnostics, Device Drivers, Network Troubleshooting
+\end{itemize}
+
+\vspace{-16pt}
+\section{Professional Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Independent Web Developer}{Jan. 2026 -- Present}
+      {Freelance Full-Stack Web Development}{Sayreville, NJ}
+      \resumeItemListStart
+        \resumeItem{Founded and run a freelance practice shipping production applications for 4 business clients across 4 live sites; own the complete \textbf{software development lifecycle (SDLC)}, from requirements gathering with non-technical stakeholders through architecture, implementation, cloud deployment, troubleshooting, and ongoing maintenance.}
+        \resumeItem{Engineer each build on \textbf{Next.js}, \textbf{TypeScript}, and \textbf{React} with \textbf{PostgreSQL} and Supabase behind API routes; ship serverless backends on \textbf{Cloudflare Workers} with D1 and R2, integrate Stripe for payments, and deploy through Vercel CI/CD.}
+        \resumeItem{Live sites: \rlink{https://deafsharkcoffee.com}{deafsharkcoffee.com} (interactive menu, online ordering, staff CMS) $|$ \rlink{https://daysicecream.com}{daysicecream.com} (4,000+ monthly visitors) $|$ \rlink{https://trainingaio.com}{trainingaio.com} (booking platform, delivered in 2 weeks) $|$ \rlink{https://adzio.io}{adzio.io} (scroll animations and page transitions with Framer Motion and GSAP).}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\href{https://yoda.kean.edu/\%7Esamurai/}{Computer Science Tutor (Code Samurai)}}{Jan. 2026 -- Present}
+      {Kean University}{Union, NJ}
+      \resumeItemListStart
+        \resumeItem{Selected by CS faculty for twice-weekly one-on-one sessions with 50+ undergraduates across data structures and algorithms; primarily tutor Database Management Systems, coaching students through relational design and writing efficient \textbf{SQL} queries.}
+        \resumeItem{Debug students' own code and queries with them rather than supplying answers, tracing logic step by step so they can reproduce the reasoning independently on later assignments.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Data Visualization \& Analytics Intern}{July 2026}
+      {Group Summer Scholars Research Program, Kean University}{Union, NJ}
+      \resumeItemListStart
+        \resumeItem{Lectured daily and mentored 5 high school students under \textit{Dr. Ching-yu Huang}, teaching relational querying and interactive charting with SQL, PHP, MySQL, JavaScript, and Google Charts.}
+        \resumeItem{Authored the curriculum, lesson slides, and troubleshooting guides that took every student from zero experience to a published database-driven website and a research poster presented under my guidance.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+\vspace{-16pt}
+\section{Research Projects}
+  \resumeSubHeadingListStart
+    \vspace{-1pt}
+
+    \resumeSubheading
+      {\rlink{https://code-visualizer-alpha.vercel.app}{Java Execution Visualizer} \textnormal{$|$ \emph{CRA UR2PhD-REU Fellowship}}}{June 2026 -- Present}
+      {Undergraduate Research Fellow, Advisor: Dr. Yan Ma $|$ Competitively selected, \$8,000 funded, 400 hours}{Kean University}
+      \resumeItemListStart
+        \resumeItem{Developed a full-stack research prototype in Next.js that visualizes \textbf{Java} program execution, rendering variables, objects, the call stack, and the heap at every executed line; integrated a JDI-based tracer for JDK 21 and built the entire application layer on top of it.}
+        \resumeItem{Designed a JavaParser AST layer that collapses loops and method calls into single playback steps, integrated the Google Gemini API for step explanations, and built the participant harness now running an IRB-approved pilot study.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\rlink{https://obi.kean.edu/pronelv/public_html/all_charts.php?tab=scatter}{Jobs vs. Wages} \textnormal{$|$ \emph{NSF IUSE Scholars Academy}}}{May 2026 -- Present}
+      {NSF IUSE Research Scholar, Advisor: Dr. Pauline Wang $|$ Competitively selected, \$1,400 funded, 10 weeks}{Kean University}
+      \resumeItemListStart
+        \resumeItem{Developed an interactive analytics dashboard in PHP, JavaScript, and Google Charts over 33,000 ZIP-code records aggregated in MySQL into 52 U.S. states and territories; found unemployment explains only 14\% of variation in household income while college attainment ($r = 0.79$) is far more predictive.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\rlink{https://github.com/ponzek/DebateCoach}{AI Debate Coach Evaluation} \textnormal{$|$ \emph{CRA UR2PhD Research Program}}}{Feb. 2026 -- Apr. 2026}
+      {Undergraduate Researcher, Advisor: Dr. Yan Ma}{Kean University}
+      \resumeItemListStart
+        \resumeItem{Built the debate application and complete study pipeline for a 10-week evaluation of LLM sycophancy; developed prompt-engineering and fine-tuned model configurations evaluated through GPT-4-as-a-judge and a 12-participant human study.}
+        \resumeItem{Found that the fine-tuned model fabricated 100\% of its cited sources and only 1 of 12 participants challenged its credibility, demonstrating the need for retrieval-augmented generation (RAG) or another grounded retrieval method when presenting verifiable sources.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+\end{document}

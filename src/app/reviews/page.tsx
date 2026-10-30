@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/site/page-header";
 import { Reveal } from "@/components/site/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { RatingBreakdown } from "@/components/reviews/rating-breakdown";
@@ -19,33 +18,24 @@ export default function ReviewsPage() {
     .filter((r) => r.published)
     .sort(
       (a, b) =>
+        Number(!a.text.trim()) - Number(!b.text.trim()) ||
+        b.text.trim().length - a.text.trim().length ||
         a.sortOrder - b.sortOrder ||
         new Date(b.sourceDate).getTime() - new Date(a.sourceDate).getTime()
     );
 
   return (
     <div className="pb-24 lg:pb-36">
-      <PageHeader
-        compact
-        title={<em className="italic">Five stars, only.</em>}
-        sub={
-          <span className="mono-micro text-stone-500">
-            Last updated 10/27/26
-            <span
-              aria-hidden
-              className="caret-blink ml-1 inline-block h-[1em] w-[2px] translate-y-[2px] bg-stone-500 align-middle"
-            />
-          </span>
-        }
-      />
-
-      <div className="px-6 md:px-12 lg:px-20">
+      <div className="px-6 pt-24 md:px-12 lg:px-20 lg:pt-28">
         <div className="mx-auto max-w-[1440px]">
-          {/* Aggregate */}
+          {/* Reviews overview */}
           <Reveal>
-            <div className="hairline-t hairline-b grid gap-x-16 gap-y-10 py-12 lg:grid-cols-12 lg:items-center">
-              <div className="lg:col-span-4">
-                <div className="flex items-end gap-6">
+            <div className="hairline-b grid gap-x-16 gap-y-12 pb-12 lg:grid-cols-12 lg:items-center lg:pb-14">
+              <div className="lg:col-span-5">
+                <h1 className="display-lg">
+                  <em className="italic">Five stars, only.</em>
+                </h1>
+                <div className="mt-8 flex items-end gap-6">
                   <span className="font-display text-7xl leading-[0.85] tracking-tight">
                     {reviewStats.average.toFixed(1)}
                   </span>
@@ -64,9 +54,16 @@ export default function ReviewsPage() {
                     via {reviewStats.platform} ↗
                   </a>
                 </p>
+                <p className="mono-micro mt-5 text-stone-500">
+                  Last updated 10/27/26
+                  <span
+                    aria-hidden
+                    className="caret-blink ml-1 inline-block h-[1em] w-[2px] translate-y-[2px] bg-stone-500 align-middle"
+                  />
+                </p>
               </div>
 
-              <div className="lg:col-span-7 lg:col-start-6">
+              <div className="lg:col-span-7">
                 <RatingBreakdown
                   distribution={reviewStats.distribution}
                   total={reviewStats.count}
