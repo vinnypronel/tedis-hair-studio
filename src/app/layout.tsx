@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/footer";
 import { Grain } from "@/components/site/grain";
 import { Cursor } from "@/components/site/cursor";
 import { content } from "@/lib/data/content";
+import { services } from "@/lib/data/services";
 import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
 import { Scrollbar } from "@/components/site/scrollbar";
 import "./globals.css";
@@ -66,10 +67,46 @@ const localBusinessJsonLd = {
   description: content.meta.description,
   url: content.meta.siteUrl,
   telephone: content.contact.phoneHref.replace("tel:", ""),
+  email: content.contact.email,
   image: `${content.meta.siteUrl}/professional-images/chair-wash.jpg`,
   priceRange: "$$",
+  currenciesAccepted: "USD",
+  paymentAccepted: "Cash, Zelle",
+  areaServed: { "@type": "City", name: "Matawan", "@id": "https://en.wikipedia.org/wiki/Matawan,_New_Jersey" },
   sameAs: [content.social.instagram, content.booking.profileUrl],
   hasMap: content.contact.googleMapsUrl,
+  makesOffer: services
+    .filter((s) => s.active)
+    .map((s) => ({
+      "@type": "Offer",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: (s.priceCents / 100).toFixed(2),
+        priceCurrency: "USD",
+      },
+      itemOffered: {
+        "@type": "Service",
+        name: s.name,
+        description: s.description,
+        serviceType: "Barber",
+      },
+    })),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Barber services",
+    itemListElement: services
+      .filter((s) => s.active)
+      .map((s) => ({
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: (s.priceCents / 100).toFixed(2),
+        itemOffered: {
+          "@type": "Service",
+          name: s.name,
+          description: s.description,
+        },
+      })),
+  },
   potentialAction: {
     "@type": "ReserveAction",
     target: {
