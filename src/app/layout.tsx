@@ -6,6 +6,7 @@ import { Grain } from "@/components/site/grain";
 import { Cursor } from "@/components/site/cursor";
 import { content } from "@/lib/data/content";
 import { services } from "@/lib/data/services";
+import { weeklyHours } from "@/lib/data/availability";
 import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
 import { Scrollbar } from "@/components/site/scrollbar";
 import "./globals.css";
@@ -75,6 +76,14 @@ const localBusinessJsonLd = {
   areaServed: { "@type": "City", name: "Matawan", "@id": "https://en.wikipedia.org/wiki/Matawan,_New_Jersey" },
   sameAs: [content.social.instagram, content.booking.profileUrl],
   hasMap: content.contact.googleMapsUrl,
+  openingHoursSpecification: weeklyHours
+    .filter((d) => d.open && d.close)
+    .map((d) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: d.label,
+      opens: d.open,
+      closes: d.close,
+    })),
   makesOffer: services
     .filter((s) => s.active)
     .map((s) => ({
