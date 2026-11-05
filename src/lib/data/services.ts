@@ -28,7 +28,7 @@ export const services: Service[] = [
     name: "Shape Up",
     slug: "shape-up",
     description:
-      "Hairline, temples, and neckline brought back to crisp. The maintenance visit between full cuts.",
+      "The maintenance visit between full cuts.",
     durationMinutes: 30,
     priceCents: 2500,
     active: true,

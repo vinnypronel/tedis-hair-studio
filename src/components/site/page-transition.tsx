@@ -14,7 +14,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
   if (reduced) {
     return (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
+      <motion.div data-stack-root initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
         {children}
       </motion.div>
     );
@@ -23,6 +23,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
   return (
     <>
       <motion.div
+        data-stack-root
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}

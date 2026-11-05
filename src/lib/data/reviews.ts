@@ -13,7 +13,7 @@ export type Review = {
 };
 
 /**
- * All public reviews pulled from Tedi's Booksy profile on 2026-10-27.
+ * All public reviews pulled from Tedi's Booksy profile on 2026-11-04.
  * Text is verbatim. Names use Booksy's public format, including shortened
  * last initials when supplied by Booksy.
  *
@@ -21,6 +21,94 @@ export type Review = {
  * section of the profile: content.booking.reviewsUrl.
  */
 export const reviews: Review[] = [
+  {
+    "id": "rev-new-20261104-david",
+    "authorName": "David",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-11-04",
+    "featured": false,
+    "published": true,
+    "sortOrder": 1
+  },
+  {
+    "id": "rev-new-20261103-booksyclient",
+    "authorName": "Booksy Client",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-11-03",
+    "featured": false,
+    "published": true,
+    "sortOrder": 2
+  },
+  {
+    "id": "rev-new-20261103-anthony",
+    "authorName": "Anthony",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-11-03",
+    "featured": false,
+    "published": true,
+    "sortOrder": 3
+  },
+  {
+    "id": "rev-new-20261103-matt",
+    "authorName": "Matt",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-11-03",
+    "featured": false,
+    "published": true,
+    "sortOrder": 4
+  },
+  {
+    "id": "rev-new-20261030-stephanie",
+    "authorName": "Stephanie",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-10-30",
+    "featured": false,
+    "published": true,
+    "sortOrder": 5
+  },
+  {
+    "id": "rev-new-20261030-james",
+    "authorName": "James",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-10-30",
+    "featured": false,
+    "published": true,
+    "sortOrder": 6
+  },
+  {
+    "id": "rev-new-20261028-rachael",
+    "authorName": "Rachael",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-10-28",
+    "featured": false,
+    "published": true,
+    "sortOrder": 7
+  },
+  {
+    "id": "rev-new-20261028-dominick",
+    "authorName": "Dominick",
+    "rating": 5,
+    "text": "",
+    "source": "booksy",
+    "sourceDate": "2026-10-28",
+    "featured": false,
+    "published": true,
+    "sortOrder": 8
+  },
   {
     "id": "rev-11943784",
     "authorName": "Rachael M.",
@@ -30,7 +118,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-25",
     "featured": false,
     "published": true,
-    "sortOrder": 1
+    "sortOrder": 9
   },
   {
     "id": "rev-11879541",
@@ -41,7 +129,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-22",
     "featured": false,
     "published": true,
-    "sortOrder": 2
+    "sortOrder": 10
   },
   {
     "id": "rev-11875098",
@@ -52,7 +140,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-22",
     "featured": false,
     "published": true,
-    "sortOrder": 3
+    "sortOrder": 11
   },
   {
     "id": "rev-11855401",
@@ -63,7 +151,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-21",
     "featured": false,
     "published": true,
-    "sortOrder": 4
+    "sortOrder": 12
   },
   {
     "id": "rev-11815797",
@@ -74,7 +162,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-19",
     "featured": false,
     "published": true,
-    "sortOrder": 5
+    "sortOrder": 13
   },
   {
     "id": "rev-11814919",
@@ -85,7 +173,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-19",
     "featured": false,
     "published": true,
-    "sortOrder": 6
+    "sortOrder": 14
   },
   {
     "id": "rev-11787142",
@@ -96,7 +184,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-18",
     "featured": false,
     "published": true,
-    "sortOrder": 7
+    "sortOrder": 15
   },
   {
     "id": "rev-11785492",
@@ -107,7 +195,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-17",
     "featured": false,
     "published": true,
-    "sortOrder": 8
+    "sortOrder": 16
   },
   {
     "id": "rev-11753248",
@@ -118,7 +206,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-16",
     "featured": false,
     "published": true,
-    "sortOrder": 9
+    "sortOrder": 17
   },
   {
     "id": "rev-11731152",
@@ -129,7 +217,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-15",
     "featured": false,
     "published": true,
-    "sortOrder": 10
+    "sortOrder": 18
   },
   {
     "id": "rev-11715445",
@@ -140,7 +228,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-14",
     "featured": false,
     "published": true,
-    "sortOrder": 11
+    "sortOrder": 19
   },
   {
     "id": "rev-11707830",
@@ -151,7 +239,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-14",
     "featured": false,
     "published": true,
-    "sortOrder": 12
+    "sortOrder": 20
   },
   {
     "id": "rev-11688045",
@@ -162,7 +250,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-12",
     "featured": false,
     "published": true,
-    "sortOrder": 13
+    "sortOrder": 21
   },
   {
     "id": "rev-11686451",
@@ -173,7 +261,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-12",
     "featured": false,
     "published": true,
-    "sortOrder": 14
+    "sortOrder": 22
   },
   {
     "id": "rev-11629115",
@@ -184,7 +272,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-07",
     "featured": false,
     "published": true,
-    "sortOrder": 15
+    "sortOrder": 23
   },
   {
     "id": "rev-11627940",
@@ -195,7 +283,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-07",
     "featured": false,
     "published": true,
-    "sortOrder": 16
+    "sortOrder": 24
   },
   {
     "id": "rev-11624833",
@@ -206,7 +294,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-07",
     "featured": false,
     "published": true,
-    "sortOrder": 17
+    "sortOrder": 25
   },
   {
     "id": "rev-11620817",
@@ -217,7 +305,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-06",
     "featured": false,
     "published": true,
-    "sortOrder": 18
+    "sortOrder": 26
   },
   {
     "id": "rev-11618012",
@@ -228,7 +316,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-10-05",
     "featured": false,
     "published": true,
-    "sortOrder": 19
+    "sortOrder": 27
   },
   {
     "id": "rev-11543302",
@@ -239,7 +327,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-09-20",
     "featured": false,
     "published": true,
-    "sortOrder": 20
+    "sortOrder": 28
   },
   {
     "id": "rev-11479030",
@@ -250,7 +338,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-09-10",
     "featured": false,
     "published": true,
-    "sortOrder": 21
+    "sortOrder": 29
   },
   {
     "id": "rev-11470519",
@@ -261,7 +349,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-09-09",
     "featured": false,
     "published": true,
-    "sortOrder": 22
+    "sortOrder": 30
   },
   {
     "id": "rev-11394250",
@@ -272,7 +360,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-31",
     "featured": false,
     "published": true,
-    "sortOrder": 23
+    "sortOrder": 31
   },
   {
     "id": "rev-11392901",
@@ -283,7 +371,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-31",
     "featured": false,
     "published": true,
-    "sortOrder": 24
+    "sortOrder": 32
   },
   {
     "id": "rev-11391493",
@@ -294,7 +382,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-31",
     "featured": false,
     "published": true,
-    "sortOrder": 25
+    "sortOrder": 33
   },
   {
     "id": "rev-11363749",
@@ -305,7 +393,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-29",
     "featured": false,
     "published": true,
-    "sortOrder": 26
+    "sortOrder": 34
   },
   {
     "id": "rev-11356547",
@@ -316,7 +404,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-28",
     "featured": false,
     "published": true,
-    "sortOrder": 27
+    "sortOrder": 35
   },
   {
     "id": "rev-11354893",
@@ -327,7 +415,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-28",
     "featured": false,
     "published": true,
-    "sortOrder": 28
+    "sortOrder": 36
   },
   {
     "id": "rev-11334432",
@@ -338,7 +426,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-27",
     "featured": false,
     "published": true,
-    "sortOrder": 29
+    "sortOrder": 37
   },
   {
     "id": "rev-11288049",
@@ -349,7 +437,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-23",
     "featured": true,
     "published": true,
-    "sortOrder": 30
+    "sortOrder": 38
   },
   {
     "id": "rev-11263923",
@@ -360,7 +448,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-21",
     "featured": false,
     "published": true,
-    "sortOrder": 31
+    "sortOrder": 39
   },
   {
     "id": "rev-11196954",
@@ -371,7 +459,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-15",
     "featured": false,
     "published": true,
-    "sortOrder": 32
+    "sortOrder": 40
   },
   {
     "id": "rev-11170317",
@@ -382,7 +470,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-12",
     "featured": false,
     "published": true,
-    "sortOrder": 33
+    "sortOrder": 41
   },
   {
     "id": "rev-11168846",
@@ -393,7 +481,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-12",
     "featured": false,
     "published": true,
-    "sortOrder": 34
+    "sortOrder": 42
   },
   {
     "id": "rev-11125681",
@@ -404,7 +492,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-08-05",
     "featured": false,
     "published": true,
-    "sortOrder": 35
+    "sortOrder": 43
   },
   {
     "id": "rev-11097264",
@@ -415,7 +503,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-07-30",
     "featured": false,
     "published": true,
-    "sortOrder": 36
+    "sortOrder": 44
   },
   {
     "id": "rev-11063092",
@@ -426,7 +514,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-07-24",
     "featured": true,
     "published": true,
-    "sortOrder": 37
+    "sortOrder": 45
   },
   {
     "id": "rev-11058330",
@@ -437,7 +525,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-07-23",
     "featured": false,
     "published": true,
-    "sortOrder": 38
+    "sortOrder": 46
   },
   {
     "id": "rev-11056456",
@@ -448,7 +536,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-07-23",
     "featured": false,
     "published": true,
-    "sortOrder": 39
+    "sortOrder": 47
   },
   {
     "id": "rev-10977176",
@@ -459,7 +547,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-07-05",
     "featured": false,
     "published": true,
-    "sortOrder": 40
+    "sortOrder": 48
   },
   {
     "id": "rev-10974757",
@@ -470,7 +558,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-07-04",
     "featured": false,
     "published": true,
-    "sortOrder": 41
+    "sortOrder": 49
   },
   {
     "id": "rev-10972357",
@@ -481,7 +569,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-07-04",
     "featured": false,
     "published": true,
-    "sortOrder": 42
+    "sortOrder": 50
   },
   {
     "id": "rev-10902642",
@@ -492,7 +580,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-06-24",
     "featured": false,
     "published": true,
-    "sortOrder": 43
+    "sortOrder": 51
   },
   {
     "id": "rev-10827541",
@@ -503,7 +591,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-06-12",
     "featured": false,
     "published": true,
-    "sortOrder": 44
+    "sortOrder": 52
   },
   {
     "id": "rev-10743952",
@@ -514,7 +602,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-05-30",
     "featured": false,
     "published": true,
-    "sortOrder": 45
+    "sortOrder": 53
   },
   {
     "id": "rev-10716324",
@@ -525,7 +613,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-05-26",
     "featured": false,
     "published": true,
-    "sortOrder": 46
+    "sortOrder": 54
   },
   {
     "id": "rev-10711913",
@@ -536,7 +624,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-05-25",
     "featured": false,
     "published": true,
-    "sortOrder": 47
+    "sortOrder": 55
   },
   {
     "id": "rev-10677866",
@@ -547,7 +635,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-05-18",
     "featured": false,
     "published": true,
-    "sortOrder": 48
+    "sortOrder": 56
   },
   {
     "id": "rev-10581958",
@@ -558,7 +646,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-04-30",
     "featured": false,
     "published": true,
-    "sortOrder": 49
+    "sortOrder": 57
   },
   {
     "id": "rev-10504596",
@@ -569,7 +657,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-04-15",
     "featured": false,
     "published": true,
-    "sortOrder": 50
+    "sortOrder": 58
   },
   {
     "id": "rev-10487643",
@@ -580,7 +668,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-04-11",
     "featured": false,
     "published": true,
-    "sortOrder": 51
+    "sortOrder": 59
   },
   {
     "id": "rev-10370200",
@@ -591,7 +679,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-03-19",
     "featured": false,
     "published": true,
-    "sortOrder": 52
+    "sortOrder": 60
   },
   {
     "id": "rev-10345943",
@@ -602,7 +690,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-03-15",
     "featured": false,
     "published": true,
-    "sortOrder": 53
+    "sortOrder": 61
   },
   {
     "id": "rev-10326254",
@@ -613,7 +701,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-03-11",
     "featured": false,
     "published": true,
-    "sortOrder": 54
+    "sortOrder": 62
   },
   {
     "id": "rev-10198393",
@@ -624,7 +712,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-02-14",
     "featured": false,
     "published": true,
-    "sortOrder": 55
+    "sortOrder": 63
   },
   {
     "id": "rev-10187606",
@@ -635,7 +723,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-02-13",
     "featured": false,
     "published": true,
-    "sortOrder": 56
+    "sortOrder": 64
   },
   {
     "id": "rev-10156820",
@@ -646,7 +734,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-02-07",
     "featured": false,
     "published": true,
-    "sortOrder": 57
+    "sortOrder": 65
   },
   {
     "id": "rev-10142040",
@@ -657,7 +745,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-02-05",
     "featured": false,
     "published": true,
-    "sortOrder": 58
+    "sortOrder": 66
   },
   {
     "id": "rev-10102050",
@@ -668,7 +756,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-01-27",
     "featured": false,
     "published": true,
-    "sortOrder": 59
+    "sortOrder": 67
   },
   {
     "id": "rev-9983559",
@@ -679,7 +767,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-01-03",
     "featured": false,
     "published": true,
-    "sortOrder": 60
+    "sortOrder": 68
   },
   {
     "id": "rev-9982792",
@@ -690,7 +778,7 @@ export const reviews: Review[] = [
     "sourceDate": "2026-01-03",
     "featured": false,
     "published": true,
-    "sortOrder": 61
+    "sortOrder": 69
   },
   {
     "id": "rev-9959421",
@@ -701,7 +789,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-12-29",
     "featured": false,
     "published": true,
-    "sortOrder": 62
+    "sortOrder": 70
   },
   {
     "id": "rev-9930723",
@@ -712,7 +800,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-12-22",
     "featured": false,
     "published": true,
-    "sortOrder": 63
+    "sortOrder": 71
   },
   {
     "id": "rev-9874354",
@@ -723,7 +811,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-12-11",
     "featured": false,
     "published": true,
-    "sortOrder": 64
+    "sortOrder": 72
   },
   {
     "id": "rev-9831469",
@@ -734,7 +822,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-12-02",
     "featured": false,
     "published": true,
-    "sortOrder": 65
+    "sortOrder": 73
   },
   {
     "id": "rev-9791294",
@@ -745,7 +833,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-11-22",
     "featured": true,
     "published": true,
-    "sortOrder": 66
+    "sortOrder": 74
   },
   {
     "id": "rev-9778577",
@@ -756,7 +844,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-11-20",
     "featured": false,
     "published": true,
-    "sortOrder": 67
+    "sortOrder": 75
   },
   {
     "id": "rev-9756106",
@@ -767,7 +855,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-11-15",
     "featured": false,
     "published": true,
-    "sortOrder": 68
+    "sortOrder": 76
   },
   {
     "id": "rev-9736484",
@@ -778,7 +866,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-11-11",
     "featured": false,
     "published": true,
-    "sortOrder": 69
+    "sortOrder": 77
   },
   {
     "id": "rev-9689330",
@@ -789,7 +877,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-10-31",
     "featured": false,
     "published": true,
-    "sortOrder": 70
+    "sortOrder": 78
   },
   {
     "id": "rev-9623131",
@@ -800,7 +888,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-10-17",
     "featured": false,
     "published": true,
-    "sortOrder": 71
+    "sortOrder": 79
   },
   {
     "id": "rev-9623106",
@@ -811,7 +899,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-10-17",
     "featured": false,
     "published": true,
-    "sortOrder": 72
+    "sortOrder": 80
   },
   {
     "id": "rev-9622816",
@@ -822,7 +910,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-10-17",
     "featured": false,
     "published": true,
-    "sortOrder": 73
+    "sortOrder": 81
   },
   {
     "id": "rev-9590064",
@@ -833,7 +921,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-10-13",
     "featured": false,
     "published": true,
-    "sortOrder": 74
+    "sortOrder": 82
   },
   {
     "id": "rev-9553250",
@@ -844,7 +932,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-10-07",
     "featured": false,
     "published": true,
-    "sortOrder": 75
+    "sortOrder": 83
   },
   {
     "id": "rev-9516394",
@@ -855,7 +943,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-09-30",
     "featured": false,
     "published": true,
-    "sortOrder": 76
+    "sortOrder": 84
   },
   {
     "id": "rev-9495466",
@@ -866,7 +954,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-09-25",
     "featured": false,
     "published": true,
-    "sortOrder": 77
+    "sortOrder": 85
   },
   {
     "id": "rev-9417433",
@@ -877,7 +965,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-09-09",
     "featured": false,
     "published": true,
-    "sortOrder": 78
+    "sortOrder": 86
   },
   {
     "id": "rev-9406296",
@@ -888,7 +976,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-09-06",
     "featured": false,
     "published": true,
-    "sortOrder": 79
+    "sortOrder": 87
   },
   {
     "id": "rev-9403846",
@@ -899,7 +987,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-09-06",
     "featured": false,
     "published": true,
-    "sortOrder": 80
+    "sortOrder": 88
   },
   {
     "id": "rev-9393286",
@@ -910,7 +998,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-09-04",
     "featured": false,
     "published": true,
-    "sortOrder": 81
+    "sortOrder": 89
   },
   {
     "id": "rev-9385379",
@@ -921,7 +1009,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-09-02",
     "featured": false,
     "published": true,
-    "sortOrder": 82
+    "sortOrder": 90
   },
   {
     "id": "rev-9332987",
@@ -932,7 +1020,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-26",
     "featured": false,
     "published": true,
-    "sortOrder": 83
+    "sortOrder": 91
   },
   {
     "id": "rev-9331408",
@@ -943,7 +1031,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-26",
     "featured": false,
     "published": true,
-    "sortOrder": 84
+    "sortOrder": 92
   },
   {
     "id": "rev-9316546",
@@ -954,7 +1042,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-23",
     "featured": false,
     "published": true,
-    "sortOrder": 85
+    "sortOrder": 93
   },
   {
     "id": "rev-9289782",
@@ -965,7 +1053,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-20",
     "featured": false,
     "published": true,
-    "sortOrder": 86
+    "sortOrder": 94
   },
   {
     "id": "rev-9284742",
@@ -976,7 +1064,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-19",
     "featured": false,
     "published": true,
-    "sortOrder": 87
+    "sortOrder": 95
   },
   {
     "id": "rev-9283451",
@@ -987,7 +1075,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-19",
     "featured": false,
     "published": true,
-    "sortOrder": 88
+    "sortOrder": 96
   },
   {
     "id": "rev-9247351",
@@ -998,7 +1086,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-13",
     "featured": false,
     "published": true,
-    "sortOrder": 89
+    "sortOrder": 97
   },
   {
     "id": "rev-9218109",
@@ -1009,7 +1097,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-09",
     "featured": false,
     "published": true,
-    "sortOrder": 90
+    "sortOrder": 98
   },
   {
     "id": "rev-9215644",
@@ -1020,7 +1108,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-09",
     "featured": false,
     "published": true,
-    "sortOrder": 91
+    "sortOrder": 99
   },
   {
     "id": "rev-9184775",
@@ -1031,7 +1119,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-08-04",
     "featured": false,
     "published": true,
-    "sortOrder": 92
+    "sortOrder": 100
   },
   {
     "id": "rev-9126836",
@@ -1042,7 +1130,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-24",
     "featured": false,
     "published": true,
-    "sortOrder": 93
+    "sortOrder": 101
   },
   {
     "id": "rev-9107591",
@@ -1053,7 +1141,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-19",
     "featured": false,
     "published": true,
-    "sortOrder": 94
+    "sortOrder": 102
   },
   {
     "id": "rev-9099911",
@@ -1064,7 +1152,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-18",
     "featured": false,
     "published": true,
-    "sortOrder": 95
+    "sortOrder": 103
   },
   {
     "id": "rev-9088800",
@@ -1075,7 +1163,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-16",
     "featured": false,
     "published": true,
-    "sortOrder": 96
+    "sortOrder": 104
   },
   {
     "id": "rev-9085909",
@@ -1086,7 +1174,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-16",
     "featured": false,
     "published": true,
-    "sortOrder": 97
+    "sortOrder": 105
   },
   {
     "id": "rev-9052587",
@@ -1097,7 +1185,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-09",
     "featured": false,
     "published": true,
-    "sortOrder": 98
+    "sortOrder": 106
   },
   {
     "id": "rev-9041412",
@@ -1108,7 +1196,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-07",
     "featured": false,
     "published": true,
-    "sortOrder": 99
+    "sortOrder": 107
   },
   {
     "id": "rev-9037160",
@@ -1119,7 +1207,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-05",
     "featured": false,
     "published": true,
-    "sortOrder": 100
+    "sortOrder": 108
   },
   {
     "id": "rev-9024469",
@@ -1130,7 +1218,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-02",
     "featured": false,
     "published": true,
-    "sortOrder": 101
+    "sortOrder": 109
   },
   {
     "id": "rev-9023793",
@@ -1141,7 +1229,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-02",
     "featured": false,
     "published": true,
-    "sortOrder": 102
+    "sortOrder": 110
   },
   {
     "id": "rev-9023607",
@@ -1152,7 +1240,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-07-02",
     "featured": false,
     "published": true,
-    "sortOrder": 103
+    "sortOrder": 111
   },
   {
     "id": "rev-8991739",
@@ -1163,7 +1251,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-26",
     "featured": false,
     "published": true,
-    "sortOrder": 104
+    "sortOrder": 112
   },
   {
     "id": "rev-8989737",
@@ -1174,7 +1262,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-26",
     "featured": false,
     "published": true,
-    "sortOrder": 105
+    "sortOrder": 113
   },
   {
     "id": "rev-8986463",
@@ -1185,7 +1273,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-25",
     "featured": false,
     "published": true,
-    "sortOrder": 106
+    "sortOrder": 114
   },
   {
     "id": "rev-8986321",
@@ -1196,7 +1284,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-25",
     "featured": false,
     "published": true,
-    "sortOrder": 107
+    "sortOrder": 115
   },
   {
     "id": "rev-8959970",
@@ -1207,7 +1295,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-20",
     "featured": false,
     "published": true,
-    "sortOrder": 108
+    "sortOrder": 116
   },
   {
     "id": "rev-8958052",
@@ -1218,7 +1306,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-19",
     "featured": false,
     "published": true,
-    "sortOrder": 109
+    "sortOrder": 117
   },
   {
     "id": "rev-8957464",
@@ -1229,7 +1317,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-19",
     "featured": false,
     "published": true,
-    "sortOrder": 110
+    "sortOrder": 118
   },
   {
     "id": "rev-8956521",
@@ -1240,7 +1328,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-19",
     "featured": false,
     "published": true,
-    "sortOrder": 111
+    "sortOrder": 119
   },
   {
     "id": "rev-8956395",
@@ -1251,7 +1339,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-19",
     "featured": false,
     "published": true,
-    "sortOrder": 112
+    "sortOrder": 120
   },
   {
     "id": "rev-8951421",
@@ -1262,7 +1350,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-18",
     "featured": false,
     "published": true,
-    "sortOrder": 113
+    "sortOrder": 121
   },
   {
     "id": "rev-8945841",
@@ -1273,7 +1361,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-17",
     "featured": false,
     "published": true,
-    "sortOrder": 114
+    "sortOrder": 122
   },
   {
     "id": "rev-8924370",
@@ -1284,7 +1372,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-13",
     "featured": false,
     "published": true,
-    "sortOrder": 115
+    "sortOrder": 123
   },
   {
     "id": "rev-8923848",
@@ -1295,7 +1383,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-13",
     "featured": false,
     "published": true,
-    "sortOrder": 116
+    "sortOrder": 124
   },
   {
     "id": "rev-8873998",
@@ -1306,7 +1394,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-06-04",
     "featured": false,
     "published": true,
-    "sortOrder": 117
+    "sortOrder": 125
   },
   {
     "id": "rev-8852682",
@@ -1317,7 +1405,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-05-31",
     "featured": false,
     "published": true,
-    "sortOrder": 118
+    "sortOrder": 126
   },
   {
     "id": "rev-8822937",
@@ -1328,7 +1416,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-05-24",
     "featured": false,
     "published": true,
-    "sortOrder": 119
+    "sortOrder": 127
   },
   {
     "id": "rev-8782762",
@@ -1339,7 +1427,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-05-15",
     "featured": false,
     "published": true,
-    "sortOrder": 120
+    "sortOrder": 128
   },
   {
     "id": "rev-8769326",
@@ -1350,7 +1438,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-05-11",
     "featured": false,
     "published": true,
-    "sortOrder": 121
+    "sortOrder": 129
   },
   {
     "id": "rev-8764597",
@@ -1361,7 +1449,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-05-10",
     "featured": false,
     "published": true,
-    "sortOrder": 122
+    "sortOrder": 130
   },
   {
     "id": "rev-8725361",
@@ -1372,7 +1460,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-05-01",
     "featured": false,
     "published": true,
-    "sortOrder": 123
+    "sortOrder": 131
   },
   {
     "id": "rev-8661345",
@@ -1383,7 +1471,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-04-14",
     "featured": false,
     "published": true,
-    "sortOrder": 124
+    "sortOrder": 132
   },
   {
     "id": "rev-8596700",
@@ -1394,7 +1482,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-03-29",
     "featured": false,
     "published": true,
-    "sortOrder": 125
+    "sortOrder": 133
   },
   {
     "id": "rev-8534388",
@@ -1405,7 +1493,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-03-15",
     "featured": false,
     "published": true,
-    "sortOrder": 126
+    "sortOrder": 134
   },
   {
     "id": "rev-8532459",
@@ -1416,7 +1504,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-03-15",
     "featured": false,
     "published": true,
-    "sortOrder": 127
+    "sortOrder": 135
   },
   {
     "id": "rev-8529274",
@@ -1427,7 +1515,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-03-14",
     "featured": false,
     "published": true,
-    "sortOrder": 128
+    "sortOrder": 136
   },
   {
     "id": "rev-8522048",
@@ -1438,7 +1526,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-03-13",
     "featured": false,
     "published": true,
-    "sortOrder": 129
+    "sortOrder": 137
   },
   {
     "id": "rev-8510497",
@@ -1449,7 +1537,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-03-10",
     "featured": false,
     "published": true,
-    "sortOrder": 130
+    "sortOrder": 138
   },
   {
     "id": "rev-8446237",
@@ -1460,7 +1548,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-02-22",
     "featured": false,
     "published": true,
-    "sortOrder": 131
+    "sortOrder": 139
   },
   {
     "id": "rev-8443844",
@@ -1471,7 +1559,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-02-21",
     "featured": false,
     "published": true,
-    "sortOrder": 132
+    "sortOrder": 140
   },
   {
     "id": "rev-8430229",
@@ -1482,7 +1570,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-02-18",
     "featured": false,
     "published": true,
-    "sortOrder": 133
+    "sortOrder": 141
   },
   {
     "id": "rev-8377770",
@@ -1493,7 +1581,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-02-06",
     "featured": false,
     "published": true,
-    "sortOrder": 134
+    "sortOrder": 142
   },
   {
     "id": "rev-8345492",
@@ -1504,7 +1592,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-01-29",
     "featured": false,
     "published": true,
-    "sortOrder": 135
+    "sortOrder": 143
   },
   {
     "id": "rev-8330712",
@@ -1515,7 +1603,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-01-25",
     "featured": false,
     "published": true,
-    "sortOrder": 136
+    "sortOrder": 144
   },
   {
     "id": "rev-8292973",
@@ -1526,7 +1614,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-01-15",
     "featured": false,
     "published": true,
-    "sortOrder": 137
+    "sortOrder": 145
   },
   {
     "id": "rev-8291794",
@@ -1537,7 +1625,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-01-15",
     "featured": false,
     "published": true,
-    "sortOrder": 138
+    "sortOrder": 146
   },
   {
     "id": "rev-8280567",
@@ -1548,7 +1636,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-01-11",
     "featured": false,
     "published": true,
-    "sortOrder": 139
+    "sortOrder": 147
   },
   {
     "id": "rev-8280179",
@@ -1559,7 +1647,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-01-11",
     "featured": false,
     "published": true,
-    "sortOrder": 140
+    "sortOrder": 148
   },
   {
     "id": "rev-8275680",
@@ -1570,7 +1658,7 @@ export const reviews: Review[] = [
     "sourceDate": "2025-01-10",
     "featured": false,
     "published": true,
-    "sortOrder": 141
+    "sortOrder": 149
   },
   {
     "id": "rev-8228861",
@@ -1581,7 +1669,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-27",
     "featured": false,
     "published": true,
-    "sortOrder": 142
+    "sortOrder": 150
   },
   {
     "id": "rev-8223195",
@@ -1592,7 +1680,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-26",
     "featured": false,
     "published": true,
-    "sortOrder": 143
+    "sortOrder": 151
   },
   {
     "id": "rev-8215932",
@@ -1603,7 +1691,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-23",
     "featured": false,
     "published": true,
-    "sortOrder": 144
+    "sortOrder": 152
   },
   {
     "id": "rev-8206882",
@@ -1614,7 +1702,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-20",
     "featured": false,
     "published": true,
-    "sortOrder": 145
+    "sortOrder": 153
   },
   {
     "id": "rev-8194730",
@@ -1625,7 +1713,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-18",
     "featured": false,
     "published": true,
-    "sortOrder": 146
+    "sortOrder": 154
   },
   {
     "id": "rev-8191463",
@@ -1636,7 +1724,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-17",
     "featured": false,
     "published": true,
-    "sortOrder": 147
+    "sortOrder": 155
   },
   {
     "id": "rev-8178509",
@@ -1647,7 +1735,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-13",
     "featured": false,
     "published": true,
-    "sortOrder": 148
+    "sortOrder": 156
   },
   {
     "id": "rev-8150020",
@@ -1658,7 +1746,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-12-06",
     "featured": false,
     "published": true,
-    "sortOrder": 149
+    "sortOrder": 157
   },
   {
     "id": "rev-8115268",
@@ -1669,7 +1757,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-11-26",
     "featured": false,
     "published": true,
-    "sortOrder": 150
+    "sortOrder": 158
   },
   {
     "id": "rev-8114596",
@@ -1680,7 +1768,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-11-26",
     "featured": false,
     "published": true,
-    "sortOrder": 151
+    "sortOrder": 159
   },
   {
     "id": "rev-8111290",
@@ -1691,7 +1779,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-11-25",
     "featured": false,
     "published": true,
-    "sortOrder": 152
+    "sortOrder": 160
   },
   {
     "id": "rev-8063760",
@@ -1702,7 +1790,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-11-12",
     "featured": false,
     "published": true,
-    "sortOrder": 153
+    "sortOrder": 161
   },
   {
     "id": "rev-8049901",
@@ -1713,7 +1801,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-11-08",
     "featured": false,
     "published": true,
-    "sortOrder": 154
+    "sortOrder": 162
   },
   {
     "id": "rev-8042453",
@@ -1724,7 +1812,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-11-06",
     "featured": false,
     "published": true,
-    "sortOrder": 155
+    "sortOrder": 163
   },
   {
     "id": "rev-8024460",
@@ -1735,7 +1823,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-11-01",
     "featured": false,
     "published": true,
-    "sortOrder": 156
+    "sortOrder": 164
   },
   {
     "id": "rev-8014390",
@@ -1746,7 +1834,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-29",
     "featured": false,
     "published": true,
-    "sortOrder": 157
+    "sortOrder": 165
   },
   {
     "id": "rev-8003900",
@@ -1757,7 +1845,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-26",
     "featured": false,
     "published": true,
-    "sortOrder": 158
+    "sortOrder": 166
   },
   {
     "id": "rev-7991868",
@@ -1768,7 +1856,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-23",
     "featured": false,
     "published": true,
-    "sortOrder": 159
+    "sortOrder": 167
   },
   {
     "id": "rev-7991734",
@@ -1779,7 +1867,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-23",
     "featured": false,
     "published": true,
-    "sortOrder": 160
+    "sortOrder": 168
   },
   {
     "id": "rev-7989194",
@@ -1790,7 +1878,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-22",
     "featured": false,
     "published": true,
-    "sortOrder": 161
+    "sortOrder": 169
   },
   {
     "id": "rev-7982405",
@@ -1801,7 +1889,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-20",
     "featured": false,
     "published": true,
-    "sortOrder": 162
+    "sortOrder": 170
   },
   {
     "id": "rev-7978950",
@@ -1812,7 +1900,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-19",
     "featured": false,
     "published": true,
-    "sortOrder": 163
+    "sortOrder": 171
   },
   {
     "id": "rev-7953580",
@@ -1823,7 +1911,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-12",
     "featured": false,
     "published": true,
-    "sortOrder": 164
+    "sortOrder": 172
   },
   {
     "id": "rev-7947165",
@@ -1834,7 +1922,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-10",
     "featured": false,
     "published": true,
-    "sortOrder": 165
+    "sortOrder": 173
   },
   {
     "id": "rev-7947055",
@@ -1845,7 +1933,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-10",
     "featured": false,
     "published": true,
-    "sortOrder": 166
+    "sortOrder": 174
   },
   {
     "id": "rev-7946574",
@@ -1856,7 +1944,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-10",
     "featured": false,
     "published": true,
-    "sortOrder": 167
+    "sortOrder": 175
   },
   {
     "id": "rev-7945940",
@@ -1867,7 +1955,7 @@ export const reviews: Review[] = [
     "sourceDate": "2024-10-10",
     "featured": false,
     "published": true,
-    "sortOrder": 168
+    "sortOrder": 176
   }
 ];
 
@@ -1877,9 +1965,9 @@ export const reviews: Review[] = [
  */
 export const reviewStats = {
   average: 5.0,
-  count: 168,
+  count: 176,
   platform: "Booksy",
-  distribution: { 5: 168, 4: 0, 3: 0, 2: 0, 1: 0 } as Record<number, number>,
+  distribution: { 5: 176, 4: 0, 3: 0, 2: 0, 1: 0 } as Record<number, number>,
 };
 
 export function getFeaturedReviews(): Review[] {

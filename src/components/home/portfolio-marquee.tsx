@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Reveal } from "@/components/site/reveal";
 import { ArrowLink } from "@/components/ui/arrow-link";
 import { InViewVideo } from "@/components/site/in-view-video";
@@ -21,6 +22,11 @@ export function PortfolioMarquee() {
   const pausedRef = useRef(false);
   const suppressClickRef = useRef(false);
   const [active, setActive] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  // The lightbox renders into document.body (a portal) so it is never trapped
+  // inside a sticky stacked-scroll card's stacking context on mobile.
+  useEffect(() => setMounted(true), []);
 
   // Keep the animation loop aware of the lightbox without re-running the effect.
   useEffect(() => {
@@ -155,7 +161,7 @@ export function PortfolioMarquee() {
   const activeItem = active === null ? null : marqueeImages[active];
 
   return (
-    <section id="the-work" className="overflow-hidden pb-8 md:pb-24 lg:pb-36">
+    <section id="the-work" className="bg-bone overflow-hidden pb-8 md:pb-24 lg:pb-36">
       <Reveal className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
           <p className="eyebrow text-stone-500">02 · My Work</p>
@@ -213,14 +219,14 @@ export function PortfolioMarquee() {
         </div>
       </Reveal>
 
-      {/* Full-screen lightbox */}
-      {activeItem && (
+      {/* Full-screen lightbox — portaled to body so it sits above everything */}
+      {mounted && activeItem && createPortal(
         <div
           role="dialog"
           aria-modal="true"
           aria-label={activeItem.alt}
           onClick={() => setActive(null)}
-          className="fixed inset-0 z-[90] flex items-center justify-center bg-ink/95 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[9990] flex items-center justify-center bg-ink/95 p-4 backdrop-blur-sm"
         >
           <button
             type="button"
@@ -249,7 +255,8 @@ export function PortfolioMarquee() {
               />
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

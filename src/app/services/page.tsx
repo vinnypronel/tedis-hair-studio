@@ -38,7 +38,7 @@ export default function ServicesPage() {
             <RevealGroup stagger={0.04} className="flex flex-1 flex-col">
               {services.map((svc) => (
                 <RevealItem key={svc.id} className="flex flex-1">
-                  <div className="hairline-t group grid w-full flex-1 items-center gap-2 py-5 md:grid-cols-12 md:gap-6 md:py-4">
+                  <div className="hairline-t group grid w-full flex-1 items-center gap-1.5 py-4 md:grid-cols-12 md:gap-6 md:py-4">
                     <div className="md:col-span-4 flex flex-wrap items-center gap-3">
                       <h2 className="font-display text-[22px] tracking-tight underline-offset-4 group-hover:underline lg:text-[26px]">
                         {svc.name}
@@ -52,11 +52,9 @@ export default function ServicesPage() {
                     <p className="text-[14px] leading-relaxed text-stone-700 md:col-span-5">
                       {svc.description}
                     </p>
-                    <div className="flex items-baseline gap-4 md:col-span-1 md:justify-end">
+                    <div className="mt-1 flex items-center justify-between gap-4 md:col-span-3 md:mt-0 md:justify-end md:gap-5">
                       <span className="font-mono text-xl font-medium">{formatPrice(svc.priceCents)}</span>
-                    </div>
-                    <div className="text-right md:col-span-2">
-                      <BookLink className="group/book inline-flex items-center rounded-[2px] border border-transparent bg-forest px-5 py-2.5 text-sm font-medium whitespace-nowrap text-cream transition-all duration-300 hover:-translate-y-0.5 hover:translate-x-0.5 hover:border-forest hover:bg-cream hover:text-forest">
+                      <BookLink className="group/book inline-flex items-center rounded-[2px] border border-transparent bg-forest px-4 py-2 text-[13px] font-medium whitespace-nowrap text-cream transition-all duration-300 hover:-translate-y-0.5 hover:translate-x-0.5 hover:border-forest hover:bg-cream hover:text-forest md:px-5 md:py-2.5 md:text-sm">
                         Book this
                         <span
                           aria-hidden

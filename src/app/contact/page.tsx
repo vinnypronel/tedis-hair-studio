@@ -17,7 +17,18 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="pb-24 lg:pb-36">
-      <PageHeader title={<em className="italic">Get in touch</em>} />
+      <PageHeader
+        title={
+          <span className="flex items-center gap-4 sm:gap-7 lg:gap-12">
+            <em className="whitespace-nowrap italic">Get in touch</em>
+            <BearLogo
+              size={176}
+              className="!h-14 !w-14 shrink-0 rotate-[8deg] text-forest sm:!h-24 sm:!w-24 lg:!h-44 lg:!w-44"
+              label="Tedi's Hair Studio bear mark"
+            />
+          </span>
+        }
+      />
 
       <div className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">

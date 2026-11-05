@@ -57,7 +57,7 @@ export function Hero() {
       </div>
 
       {/* Headline block */}
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-28 md:px-12 lg:px-20 lg:pb-32">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-52 md:px-12 md:pb-28 lg:px-20 lg:pb-32">
         <motion.h1
           initial={reduced ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}

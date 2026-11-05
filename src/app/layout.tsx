@@ -7,6 +7,7 @@ import { Cursor } from "@/components/site/cursor";
 import { content } from "@/lib/data/content";
 import { SmoothScrollProvider } from "@/components/site/smooth-scroll-provider";
 import { Scrollbar } from "@/components/site/scrollbar";
+import { StackSections } from "@/components/site/stack-sections";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -119,6 +120,7 @@ export default function RootLayout({
         <Grain />
         <Cursor />
         <Scrollbar />
+        <StackSections />
       </body>
     </html>
   );

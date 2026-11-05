@@ -55,7 +55,7 @@ export default function ReviewsPage() {
                   </a>
                 </p>
                 <p className="mono-micro mt-5 text-stone-500">
-                  Last updated 10/27/26
+                  Last updated 11/04/26
                   <span
                     aria-hidden
                     className="caret-blink ml-1 inline-block h-[1em] w-[2px] translate-y-[2px] bg-stone-500 align-middle"

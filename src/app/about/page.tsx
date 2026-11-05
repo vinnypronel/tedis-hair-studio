@@ -18,8 +18,8 @@ export default function AboutPage() {
   return (
     <div className="pb-14 md:pb-20 lg:pb-0">
       {/* Intro + portrait */}
-      <div className="px-6 pt-24 md:px-12 lg:px-20 lg:pt-32">
-        <div className="mx-auto grid max-w-[1440px] gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-y-6">
+      <div className="px-6 pt-20 md:px-12 md:pt-24 lg:px-20 lg:pt-24">
+        <div className="mx-auto grid max-w-[1440px] gap-x-16 gap-y-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-y-6">
           {/* Heading — left, top */}
           <div className="order-1 lg:col-start-1 lg:row-start-1">
             <Reveal>
@@ -32,12 +32,12 @@ export default function AboutPage() {
           {/* Portrait — right, stretched down the full height */}
           <Reveal
             delay={0.15}
-            className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:-mt-4 lg:h-full"
+            className="order-2 flex flex-col lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:-mt-4 lg:h-full"
           >
-            <p className="mono-micro mb-3 text-stone-500">
+            <p className="mono-micro order-2 mt-3 whitespace-nowrap !text-[9px] !tracking-[0.1em] text-stone-500 lg:order-1 lg:relative lg:top-1 lg:mt-0 lg:mb-3 lg:!text-[10px] lg:!tracking-[0.14em]">
               Tedi, outside the studio @ Bellazio Collective
             </p>
-            <div className="hairline relative aspect-[3/4] overflow-hidden lg:aspect-auto lg:h-[calc(100svh-15rem)] lg:min-h-[560px] lg:max-h-[700px]">
+            <div className="hairline relative order-1 h-[52svh] max-h-[560px] overflow-hidden lg:order-2 lg:h-[calc(100svh-15rem)] lg:min-h-[560px] lg:max-h-[700px]">
               <Image
                 src="/professional-images/tedi-door.jpg"
                 alt="Tedi standing outside the studio at Bellazio Collective"
@@ -67,7 +67,7 @@ export default function AboutPage() {
             </div>
             <blockquote className="mt-10 border-l-2 border-forest pl-6 font-display text-2xl leading-snug tracking-tight italic lg:mt-6 lg:text-xl">
               &ldquo;{about.pullQuote}&rdquo;
-              <footer className="eyebrow mt-4 text-stone-500 not-italic">- Tedi</footer>
+              <footer className="eyebrow mt-4 text-right text-stone-500 not-italic">- Tedi</footer>
             </blockquote>
           </Reveal>
         </div>
@@ -79,7 +79,7 @@ export default function AboutPage() {
           <Reveal>
             <h2 className="heading-1">A look inside the studio.</h2>
           </Reveal>
-          <RevealGroup className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+          <RevealGroup className="mt-6 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3" stagger={0.08}>
             {about.objects.map((obj) => (
               <RevealItem key={obj.name}>
                 <figure>
@@ -94,7 +94,6 @@ export default function AboutPage() {
                   </div>
                   <figcaption className="mt-4">
                     <p className="font-display text-lg tracking-tight">{obj.name}</p>
-                    <p className="mt-1 text-sm text-cream/60">{obj.note}</p>
                   </figcaption>
                 </figure>
               </RevealItem>

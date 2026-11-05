@@ -54,18 +54,15 @@ export const content = {
     pullQuote: "Come as a client, leave as a regular.",
     objects: [
       {
-        name: "The collection",
-        note: "Collectibles, framed pieces, and studio milestones.",
+        name: "Collectibles and framed pieces",
         image: "/professional-images/pops.jpg",
       },
       {
-        name: "The studio wall",
-        note: "Ft. 2026 Finals MVP Jalen Brunson's signed jersey.",
+        name: "Autographed Jerseys",
         image: "/professional-images/gbjerseys.jpg",
       },
       {
         name: "The whole space",
-        note: "One chair, one room, and everything organized.",
         image: "/professional-images/chair-wash.jpg",
       },
     ],

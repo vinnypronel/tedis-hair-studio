@@ -53,7 +53,7 @@ export function IntroStrip() {
 export function ServicesTeaser() {
   const featured = services.slice(0, 3);
   return (
-    <section className="px-6 pt-8 pb-12 md:px-12 lg:py-24 lg:px-20">
+    <section className="bg-bone px-6 pt-8 pb-12 md:px-12 lg:py-24 lg:px-20">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4 lg:pt-16">
@@ -173,7 +173,7 @@ export function BrandStory() {
 
 export function SpaceStory() {
   return (
-    <section className="px-6 py-24 md:px-12 lg:px-20 lg:py-28">
+    <section className="bg-bone px-6 py-24 md:px-12 lg:px-20 lg:py-28">
       <div className="mx-auto grid max-w-[1440px] items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="lg:translate-x-[30px]">
           <Reveal>
@@ -325,7 +325,7 @@ export function ReviewsPreview() {
 export function ShopTeaser() {
   const featured = getVisibleShirts().slice(0, 3);
   return (
-    <section className="px-6 pt-3 pb-6 md:px-12 lg:px-20 lg:pt-4 lg:pb-8">
+    <section className="bg-bone px-6 pt-3 pb-6 md:px-12 lg:px-20 lg:pt-4 lg:pb-8">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Reveal className="translate-y-1">
@@ -363,7 +363,7 @@ export function ShopTeaser() {
 
 export function InstagramStrip() {
   return (
-    <section className="px-6 pt-16 pb-24 md:px-12 lg:px-20 lg:pt-28 lg:pb-36">
+    <section className="bg-bone px-6 pt-16 pb-24 md:px-12 lg:px-20 lg:pt-28 lg:pb-36">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4">
