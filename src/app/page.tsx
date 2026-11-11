@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 import { Hero } from "@/components/home/hero";
 import {
-  IntroStrip,
   ServicesTeaser,
   PortfolioMarquee,
   BrandStory,
@@ -17,7 +16,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <IntroStrip />
       <ServicesTeaser />
       <PortfolioMarquee />
       <BrandStory />

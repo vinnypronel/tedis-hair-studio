@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { Header } from "@/components/site/header";
-import { Footer } from "@/components/site/footer";
 import { Grain } from "@/components/site/grain";
 import { Cursor } from "@/components/site/cursor";
 import { content } from "@/lib/data/content";
@@ -115,7 +114,6 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <Header />
           <main id="main-content" tabIndex={-1}>{children}</main>
-          <Footer />
         </SmoothScrollProvider>
         <Grain />
         <Cursor />

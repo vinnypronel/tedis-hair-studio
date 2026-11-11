@@ -406,39 +406,46 @@ html.lenis body {
   pointer-events: none;
 }
 
-/* ---------- Mobile stacked section scroll ----------
-   Phone/tablet only. Each top-level section becomes a "card": it scrolls fully
+/* ---------- Stacked section scroll ----------
+   Every screen size. Each top-level section becomes a "card": it scrolls fully
    into view, pins, and the next section slides up over it with rounded top
-   corners and a soft shadow. Desktop is a normal page. The StackSections
-   component adds .stack-root/.stack-card classes and measures each card. */
-@media (max-width: 1023px) {
+   corners and a soft shadow. Breakpoints only adjust the corner radius and
+   shadow; they never turn the effect off. The StackSections component adds
+   .stack-root/.stack-card classes and measures each card. */
+.stack-root {
+  --stack-header-h: 80px;                         /* fixed header height (py-4 + 48px logo), constant across breakpoints */
+  --stack-radius: clamp(24px, 6vw, 40px);         /* card top corner rounding */
+  --stack-shadow: 0 -22px 60px rgba(11, 11, 11, 0.3);
+}
+
+/* Every card except the last pins once its bottom reaches the screen bottom. */
+.stack-root > .stack-card:not(.stack-card-last) {
+  position: sticky;
+  top: min(var(--stack-header-h), calc(100svh - var(--stack-card-h, 100svh)));
+}
+
+/* Every card except the first slides up over the one before it. */
+.stack-root > .stack-card:not(.stack-card-first) {
+  border-top-left-radius: var(--stack-radius);
+  border-top-right-radius: var(--stack-radius);
+  box-shadow: var(--stack-shadow);
+  overflow: clip;
+}
+
+/* The last card is not sticky, so it needs position to use its z-index. */
+.stack-root > .stack-card-last {
+  position: relative;
+}
+
+/* In-page links (#the-work, #contact) land below the header, not under it. */
+.stack-root > .stack-card {
+  scroll-margin-top: var(--stack-header-h);
+}
+
+/* Desktop keeps the effect; only its design tokens soften. */
+@media (min-width: 1024px) {
   .stack-root {
-    --stack-header-h: 80px;                       /* mobile fixed header height */
-    --stack-radius: clamp(24px, 6vw, 40px);       /* card top corner rounding */
-    --stack-shadow: 0 -22px 60px rgba(11, 11, 11, 0.3);
-  }
-
-  /* Every card except the last pins once its bottom reaches the screen bottom. */
-  .stack-root > .stack-card:not(.stack-card-last) {
-    position: sticky;
-    top: min(var(--stack-header-h), calc(100svh - var(--stack-card-h, 100svh)));
-  }
-
-  /* Every card except the first slides up over the one before it. */
-  .stack-root > .stack-card:not(.stack-card-first) {
-    border-top-left-radius: var(--stack-radius);
-    border-top-right-radius: var(--stack-radius);
-    box-shadow: var(--stack-shadow);
-    overflow: clip;
-  }
-
-  /* The last card is not sticky, so it needs position to use its z-index. */
-  .stack-root > .stack-card-last {
-    position: relative;
-  }
-
-  /* In-page links (#the-work, #contact) land below the header, not under it. */
-  .stack-root > .stack-card {
-    scroll-margin-top: var(--stack-header-h);
+    --stack-radius: clamp(32px, 3vw, 56px);
+    --stack-shadow: 0 -30px 90px rgba(11, 11, 11, 0.26);
   }
 }

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { BearLogo } from "@/components/site/bear-logo";
+import { Footer } from "@/components/site/footer";
 import type { ReactNode } from "react";
 
 /**
@@ -16,6 +17,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
     return (
       <motion.div data-stack-root initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
         {children}
+        <Footer />
       </motion.div>
     );
   }
@@ -29,6 +31,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
         transition={{ duration: 0.55, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
+        <Footer />
       </motion.div>
 
       {/* forest slab sweep */}

@@ -4,14 +4,13 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 /**
- * Mobile stacked section scroll.
- * Turns the direct children of <main> into cards that pin when their bottom
- * reaches the screen bottom while the next card slides over them. Phone/tablet
- * only; desktop is untouched. Pages whose sections are not direct children of
- * <main> (wrapped in a single div) simply have one card and stay unaffected.
+ * Stacked section scroll.
+ * Turns the direct children of the stack root into cards that pin when their
+ * bottom reaches the screen bottom while the next card slides over them. Runs
+ * at every screen size (the CSS only changes corner radius and shadow per
+ * breakpoint). Pages whose sections are not direct children of the root
+ * (wrapped in a single div) simply have one card and stay unaffected.
  */
-const MEDIA = "(max-width: 1023px)";
-
 function isCard(el: Element): el is HTMLElement {
   if (!(el instanceof HTMLElement) || el.hasAttribute("data-stack-skip")) return false;
   const style = getComputedStyle(el);
@@ -30,7 +29,6 @@ export function StackSections() {
       document.querySelector<HTMLElement>("[data-stack-root]") ??
       document.querySelector("main");
     if (!root) return;
-    const media = window.matchMedia(MEDIA);
     let cards: HTMLElement[] = [];
     let observer: ResizeObserver | null = null;
 
@@ -52,7 +50,7 @@ export function StackSections() {
     };
     const start = () => {
       stop();
-      if (!media.matches || root.getAttribute("data-stack") === "off") return;
+      if (root.getAttribute("data-stack") === "off") return;
       cards = Array.from(root.children).filter(isCard);
       if (cards.length < 2) {
         cards = [];
@@ -75,9 +73,21 @@ export function StackSections() {
     start();
     const sections = new MutationObserver(() => requestAnimationFrame(start));
     sections.observe(root, { childList: true });
-    media.addEventListener("change", start);
+
+    // Re-scan on resize/orientation change so card set and z-index stay correct
+    // across breakpoints (heights are kept live by the ResizeObserver above).
+    let queued = false;
+    const onResize = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        start();
+      });
+    };
+    window.addEventListener("resize", onResize);
     return () => {
-      media.removeEventListener("change", start);
+      window.removeEventListener("resize", onResize);
       sections.disconnect();
       stop();
     };

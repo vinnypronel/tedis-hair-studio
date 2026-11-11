@@ -96,18 +96,19 @@ export function ReviewsList({ reviews, platform }: ReviewsListProps) {
                 <blockquote className="mt-5 text-[15px] leading-relaxed text-stone-700">
                   {review.text || <span className="italic text-stone-500">5-star rating</span>}
                 </blockquote>
-                <figcaption className="mono-micro mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 text-stone-500">
-                  <span className="text-ink">{review.authorName}</span>
-                  <span aria-hidden>·</span>
-                  <span>
-                    {new Date(review.sourceDate + "T12:00:00").toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
+                <figcaption className="mono-micro mt-7 flex items-end justify-between gap-x-3 text-stone-500">
+                  <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                    <span className="text-ink">{review.authorName}</span>
+                    <span aria-hidden>·</span>
+                    <span>
+                      {new Date(review.sourceDate + "T12:00:00").toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
                   </span>
-                  <span aria-hidden>·</span>
-                  <span className="text-forest">via {platform} ↗</span>
+                  <span className="shrink-0 whitespace-nowrap text-forest">via {platform} ↗</span>
                 </figcaption>
               </figure>
             </a>

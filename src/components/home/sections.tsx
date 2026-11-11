@@ -124,7 +124,7 @@ export function BrandStory() {
   return (
     // overflow-hidden: the oversized bear mark sits at -right-1 and was adding
     // 4px of horizontal scroll to the page on desktop.
-    <section className="overflow-hidden bg-ink text-cream">
+    <section className="overflow-hidden bg-ink text-cream pb-20 lg:pb-0">
       <div className="grid lg:grid-cols-2">
         <div className="relative order-2 min-h-[420px] lg:order-1 lg:min-h-[640px]">
           <Image
@@ -218,7 +218,7 @@ export function SpaceStory() {
 export function ReviewsPreview() {
   const featured = getFeaturedReviews();
   return (
-    <section className="bg-stone-100 px-6 pt-10 pb-5 md:px-12 md:pt-16 md:pb-8 lg:px-20 lg:pt-36 lg:pb-16">
+    <section className="bg-stone-100 px-6 pt-10 pb-20 md:px-12 md:pt-16 md:pb-8 lg:px-20 lg:pt-36 lg:pb-16">
       <div className="mx-auto max-w-[1440px]">
         <Reveal>
           <div className="flex items-center justify-between gap-4">
@@ -281,7 +281,7 @@ export function ReviewsPreview() {
           ))}
         </RevealGroup>
         <Reveal delay={0.2}>
-          <div className="mt-5 flex justify-start sm:mt-10 sm:justify-end">
+          <div className="mt-9 flex justify-end sm:mt-10">
             <div className="flex flex-row items-center gap-5 sm:gap-6">
               <a
                 href={content.booking.googleReviewUrl}
@@ -325,7 +325,7 @@ export function ReviewsPreview() {
 export function ShopTeaser() {
   const featured = getVisibleShirts().slice(0, 3);
   return (
-    <section className="bg-bone px-6 pt-3 pb-6 md:px-12 lg:px-20 lg:pt-4 lg:pb-8">
+    <section className="bg-bone px-6 pt-3 pb-28 md:px-12 md:pb-6 lg:px-20 lg:pt-4 lg:pb-8">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Reveal className="translate-y-1">
@@ -337,21 +337,33 @@ export function ShopTeaser() {
           </Reveal>
         </div>
         <RevealGroup className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
-          {featured.map((shirt) => (
-            <RevealItem key={shirt.id}>
-              <Link href={`/shop/${shirt.slug}`} className="group block text-left">
-                <div className="hairline relative h-[390px] w-full overflow-hidden bg-stone-100 sm:h-[430px] lg:h-[465px]">
-                  <ShirtVisual shirt={shirt} fit="cover" />
+          {featured.map((shirt, i) => {
+            const isLast = i === featured.length - 1;
+            return (
+              <RevealItem key={shirt.id}>
+                <Link href={`/shop/${shirt.slug}`} className="group block text-left">
+                  <div className="hairline relative h-[390px] w-full overflow-hidden bg-stone-100 sm:h-[430px] lg:h-[465px]">
+                    <ShirtVisual shirt={shirt} fit="cover" />
+                  </div>
+                </Link>
+                {/* Name row; on mobile the last shirt (Yellow/Black Tee) carries the archive link beside it */}
+                <div className="mt-2.5 flex items-center justify-between gap-3">
+                  <Link
+                    href={`/shop/${shirt.slug}`}
+                    className="font-display text-lg tracking-tight transition-colors hover:text-forest md:text-xl"
+                  >
+                    {shirt.name}
+                  </Link>
+                  {isLast && (
+                    <ArrowLink href="/shop" className="shrink-0 sm:hidden">
+                      View the archive
+                    </ArrowLink>
+                  )}
                 </div>
-                <p className="mt-2.5 font-display text-lg tracking-tight md:text-xl">{shirt.name}</p>
-              </Link>
-            </RevealItem>
-          ))}
+              </RevealItem>
+            );
+          })}
         </RevealGroup>
-        {/* Mobile-only archive link under the last shirt, right-aligned */}
-        <div className="mt-6 flex justify-end sm:hidden">
-          <ArrowLink href="/shop">View the archive</ArrowLink>
-        </div>
       </div>
     </section>
   );

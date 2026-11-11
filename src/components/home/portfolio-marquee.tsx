@@ -39,9 +39,11 @@ export function PortfolioMarquee() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const SPEED = window.innerWidth < 640 ? 95 : 60; // px per second (faster on mobile)
+    const SWIPE_SETTLE_MS = 1400; // after a swipe/fling, wait for scroll to go idle before resuming
     let last = performance.now();
     let raf = 0;
     let inView = true;
+    let expectedLeft = -1; // the scrollLeft OUR loop last set, to tell our scroll from the user's
 
     const tick = (now: number) => {
       // Cap dt so a stall (background tab, long frame) can never produce a huge
@@ -53,6 +55,7 @@ export function PortfolioMarquee() {
         let next = el.scrollLeft + (SPEED * dt) / 1000;
         if (next >= half) next -= half; // seamless wrap
         el.scrollLeft = next;
+        expectedLeft = el.scrollLeft; // read back (browser may round/clamp)
       }
       raf = requestAnimationFrame(tick);
     };
@@ -67,9 +70,21 @@ export function PortfolioMarquee() {
     );
     io.observe(el);
 
-    // Mouse and wheel input still pause immediately. On touch screens, only a
-    // deliberate one-second press freezes the strip. Quick taps and swipes do
-    // not interrupt the auto-scroll.
+    // Any scroll the loop did NOT cause (a finger drag or its native momentum
+    // fling) defers auto-scroll. While the fling is still decelerating it keeps
+    // firing scroll events, so the strip keeps coasting and only eases back into
+    // the normal carousel speed once it has settled, never snapping to a stop.
+    const onScroll = () => {
+      // Our own auto-advance lands at expectedLeft; ignore those. A finger drag
+      // or its momentum moves the strip somewhere else, which defers auto-scroll.
+      if (expectedLeft >= 0 && Math.abs(el.scrollLeft - expectedLeft) < 2) return;
+      if (resumeAt.current !== Number.POSITIVE_INFINITY) {
+        resumeAt.current = performance.now() + SWIPE_SETTLE_MS;
+      }
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+
+    // Mouse and wheel input pause briefly.
     const hold = () => {
       resumeAt.current = performance.now() + 2500;
     };
@@ -109,6 +124,7 @@ export function PortfolioMarquee() {
           Math.abs(event.clientY - pressStartY) > 10)
       ) {
         clearLongPressTimer();
+        suppressClickRef.current = true; // a swipe, not a tap — don't open the lightbox
       }
     };
 
@@ -117,7 +133,11 @@ export function PortfolioMarquee() {
       clearLongPressTimer();
       if (longPressFrozen) {
         longPressFrozen = false;
-        resumeAt.current = performance.now() + 300;
+        resumeAt.current = performance.now() + 400;
+      } else {
+        // Let the fling's momentum run; onScroll keeps pushing this out while
+        // the strip is still coasting, so we only resume once it has settled.
+        resumeAt.current = performance.now() + SWIPE_SETTLE_MS;
       }
     };
 
@@ -136,6 +156,7 @@ export function PortfolioMarquee() {
       cancelAnimationFrame(raf);
       io.disconnect();
       clearLongPressTimer();
+      el.removeEventListener("scroll", onScroll);
       el.removeEventListener("pointerdown", onPointerDown);
       el.removeEventListener("pointermove", onPointerMove);
       el.removeEventListener("pointerup", finishTouchPress);
@@ -161,16 +182,16 @@ export function PortfolioMarquee() {
   const activeItem = active === null ? null : marqueeImages[active];
 
   return (
-    <section id="the-work" className="bg-bone overflow-hidden pb-8 md:pb-24 lg:pb-36">
+    <section id="the-work" className="bg-bone overflow-hidden pt-14 pb-8 md:pt-0 md:pb-24 lg:pb-36">
       <Reveal className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
-          <p className="eyebrow text-stone-500">02 · My Work</p>
+          <p className="eyebrow !text-[15px] !tracking-[0.2em] text-stone-500 sm:!text-[11px] sm:!tracking-[0.18em]">02 · My Work</p>
         </div>
       </Reveal>
 
       <div
         ref={scrollRef}
-        className="no-scrollbar mt-8 overflow-x-auto overscroll-x-contain [touch-action:pan-x]"
+        className="no-scrollbar mt-8 overflow-x-auto overscroll-x-contain [touch-action:pan-x_pan-y]"
       >
         <div className="flex w-max gap-4">
           {doubled.map((img, i) => {
