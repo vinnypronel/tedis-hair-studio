@@ -12,11 +12,23 @@ type MapEmbedProps = {
 
 export function MapEmbed({ title, priority = false }: MapEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(priority);
+  // Always mount the iframe on the client so onLoad is attached before it fires.
+  const [shouldLoad, setShouldLoad] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
+  // Cross-origin iframes can miss or delay onLoad; never leave the placeholder up.
   useEffect(() => {
-    if (priority || shouldLoad) return;
+    if (!shouldLoad || loaded) return;
+    const t = window.setTimeout(() => setLoaded(true), 3000);
+    return () => window.clearTimeout(t);
+  }, [shouldLoad, loaded]);
+
+  useEffect(() => {
+    if (shouldLoad) return;
+    if (priority) {
+      setShouldLoad(true);
+      return;
+    }
 
     const container = containerRef.current;
     if (!container || !("IntersectionObserver" in window)) {
@@ -46,7 +58,7 @@ export function MapEmbed({ title, priority = false }: MapEmbedProps) {
           className={`absolute inset-0 size-full border-0 grayscale-[35%] transition-opacity duration-500 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
-          loading="eager"
+          loading={priority ? "eager" : "lazy"}
           referrerPolicy="no-referrer-when-downgrade"
           onLoad={() => setLoaded(true)}
         />

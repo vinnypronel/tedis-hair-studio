@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/professional-images/backgroundmaybe.jpeg",
+        url: "/professional-images/studio-hero.jpeg",
         width: 2160,
         height: 1440,
         alt: "Inside Tedi's Hair Studio, Matawan NJ",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tedi's Hair Studio | Private Barber Studio in Matawan, NJ",
     description: content.meta.description,
-    images: ["/professional-images/backgroundmaybe.jpeg"],
+    images: ["/professional-images/studio-hero.jpeg"],
   },
 };
 

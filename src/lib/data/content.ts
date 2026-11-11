@@ -55,15 +55,15 @@ export const content = {
     objects: [
       {
         name: "Collectibles and framed pieces",
-        image: "/professional-images/pops.jpg",
+        image: "/professional-images/pops.webp",
       },
       {
         name: "Autographed Jerseys",
-        image: "/professional-images/gbjerseys.jpg",
+        image: "/professional-images/gbjerseys.webp",
       },
       {
         name: "The whole space",
-        image: "/professional-images/chair-wash.jpg",
+        image: "/professional-images/chair-wash.webp",
       },
     ],
   },

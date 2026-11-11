@@ -128,7 +128,7 @@ export function BrandStory() {
       <div className="grid lg:grid-cols-2">
         <div className="relative order-2 min-h-[420px] lg:order-1 lg:min-h-[640px]">
           <Image
-            src="/professional-images/chair-wash.jpg"
+            src="/professional-images/chair-wash.webp"
             alt="Inside the studio, the cape with the bear mark"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
@@ -198,7 +198,7 @@ export function SpaceStory() {
         <Reveal delay={0.15} className="lg:-translate-x-[30px]">
           <div className="hairline relative ml-auto aspect-[4/5] w-full max-w-md overflow-hidden">
             <Image
-              src="/professional-images/outsidedoor.jpg"
+              src="/professional-images/outsidedoor.webp"
               alt="The studio entrance at Bellazio Collective"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -350,7 +350,7 @@ export function ShopTeaser() {
                 <div className="mt-2.5 flex items-center justify-between gap-3">
                   <Link
                     href={`/shop/${shirt.slug}`}
-                    className="font-display text-lg tracking-tight transition-colors hover:text-forest md:text-xl"
+                    className="-my-2 inline-block py-2 font-display text-lg tracking-tight transition-colors hover:text-forest md:text-xl"
                   >
                     {shirt.name}
                   </Link>

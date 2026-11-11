@@ -21,7 +21,7 @@ export function Hero() {
       >
         {/* Mobile: chair.jpg (portrait) */}
         <Image
-          src="/professional-images/chair.jpg"
+          src="/professional-images/chair.webp"
           alt="The chair at Tedi's Hair Studio, draped in the green cape with the bear mark"
           fill
           priority
@@ -29,9 +29,9 @@ export function Hero() {
           sizes="100vw"
           className="object-cover lg:hidden"
         />
-        {/* Desktop: backgroundmaybe.jpg (landscape) */}
+        {/* Desktop: studio-hero.jpeg (landscape) */}
         <Image
-          src="/professional-images/backgroundmaybe.jpeg"
+          src="/professional-images/studio-hero.webp"
           alt="Tedi's Hair Studio, the full studio view"
           fill
           priority
@@ -81,7 +81,7 @@ export function Hero() {
           </BookLink>
           <Link
             href="/gallery"
-            className="group inline-flex origin-left items-center gap-1.5 text-sm text-cream/90 underline underline-offset-4 decoration-cream/50 transition-all duration-300 hover:scale-110 hover:decoration-cream"
+            className="group -my-3 inline-flex origin-left items-center gap-1.5 py-3 text-sm text-cream/90 underline underline-offset-4 decoration-cream/50 transition-all duration-300 hover:scale-110 hover:decoration-cream"
           >
             {content.hero.ctaSecondary}
             <span

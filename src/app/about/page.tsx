@@ -39,7 +39,7 @@ export default function AboutPage() {
             </p>
             <div className="hairline relative order-1 h-[52svh] max-h-[560px] overflow-hidden lg:order-2 lg:h-[calc(100svh-15rem)] lg:min-h-[560px] lg:max-h-[700px]">
               <Image
-                src="/professional-images/tedi-door.jpg"
+                src="/professional-images/tedi-door.webp"
                 alt="Tedi standing outside the studio at Bellazio Collective"
                 fill
                 priority

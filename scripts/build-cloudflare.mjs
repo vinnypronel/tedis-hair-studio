@@ -38,4 +38,15 @@ for (const file of [
 }
 
 writeFileSync(".open-next/assets/.assetsignore", "/*.html\n/styles.css\n/header.js\n/include.js\n/click-spark.js\n");
-writeFileSync(".open-next/assets/_headers", "/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n");
+// Hashed Next.js chunks never change. Files from /public keep their names when
+// replaced, so they get 7 days plus a background refresh instead of immutable.
+const mediaCache = "  Cache-Control: public, max-age=604800, stale-while-revalidate=86400\n";
+writeFileSync(
+  ".open-next/assets/_headers",
+  [
+    "/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable\n",
+    ...["/images/*", "/professional-images/*", "/brand/*", "/Cut%20Videos/*"].map(
+      (p) => `${p}\n${mediaCache}`,
+    ),
+  ].join(""),
+);

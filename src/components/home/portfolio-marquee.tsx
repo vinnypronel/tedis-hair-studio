@@ -216,6 +216,7 @@ export function PortfolioMarquee() {
                 {img.type === "video" ? (
                   <InViewVideo
                     src={img.url}
+                    poster={img.poster}
                     preload={isClone ? "none" : "metadata"}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
@@ -261,6 +262,7 @@ export function PortfolioMarquee() {
             {activeItem.type === "video" ? (
               <video
                 src={activeItem.url}
+                poster={activeItem.poster}
                 controls
                 autoPlay
                 loop

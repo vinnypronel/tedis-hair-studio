@@ -27,7 +27,7 @@ export const shirts: Shirt[] = [
     description:
       "Bold red bear mark and studio typography on a black body. Sleeve hit and full back print. Cut boxy, made to last.",
     images: [
-      { url: "/professional-images/redblackshirt.jpg", alt: "Red/Black Tee, black body with red bear mark" },
+      { url: "/professional-images/redblackshirt.webp", alt: "Red/Black Tee, black body with red bear mark" },
     ],
     status: "display_only",
     sortOrder: 1,
@@ -41,7 +41,7 @@ export const shirts: Shirt[] = [
     description:
       "Matched to the blue flame cape. Ink body with icy blue bear mark. Bold enough to turn heads, clean enough to wear daily.",
     images: [
-      { url: "/professional-images/blueshirt.jpg", alt: "Navy Blue Tee, ink body with blue bear mark" },
+      { url: "/professional-images/blueshirt.webp", alt: "Navy Blue Tee, ink body with blue bear mark" },
     ],
     status: "display_only",
     sortOrder: 2,
@@ -55,7 +55,7 @@ export const shirts: Shirt[] = [
     description:
       "The loud one. Yellow body, ink bear mark front and center. Matches the neon sign in the studio. You'll know it when you see it.",
     images: [
-      { url: "/professional-images/yellowshirt.jpg", alt: "Yellow/Black Tee,yellow body with ink bear mark", objectPosition: "right center" },
+      { url: "/professional-images/yellowshirt.webp", alt: "Yellow/Black Tee,yellow body with ink bear mark", objectPosition: "right center" },
     ],
     status: "display_only",
     sortOrder: 3,
@@ -69,7 +69,7 @@ export const shirts: Shirt[] = [
     description:
       "The studio staple. Olive green body, cream bear mark across the back, small left-chest hit on the front. Cut boxy, made to be kept.",
     images: [
-      { url: "/professional-images/greenshirt.jpg", alt: "Green Tee, olive green with cream bear print" },
+      { url: "/professional-images/greenshirt.webp", alt: "Green Tee, olive green with cream bear print" },
     ],
     status: "display_only",
     sortOrder: 4,
@@ -83,7 +83,7 @@ export const shirts: Shirt[] = [
     description:
       "Black body with high-visibility glow-in-the-dark bear mark and studio typography. Lights up under blacklight. Built boxy, made to last.",
     images: [
-      { url: "/professional-images/glowindarkshirt.jpg", alt: "Glow in the Dark Tee, black body with neon glow bear mark" },
+      { url: "/professional-images/glowindarkshirt.webp", alt: "Glow in the Dark Tee, black body with neon glow bear mark" },
     ],
     status: "display_only",
     sortOrder: 5,
@@ -97,7 +97,7 @@ export const shirts: Shirt[] = [
     description:
       "A December edition with a full back print. One of the rotating designs Tedi has given out with cuts.",
     images: [
-      { url: "/professional-images/christmashirt.jpg", alt: "Christmas Tee 2025, full back print" },
+      { url: "/professional-images/christmashirt.webp", alt: "Christmas Tee 2025, full back print" },
     ],
     status: "display_only",
     sortOrder: 6,
@@ -111,7 +111,7 @@ export const shirts: Shirt[] = [
     description:
       "An October edition with an orange flame cape print on a black body. Made for the season and kept here in the archive.",
     images: [
-      { url: "/professional-images/halloweenshirt.jpg", alt: "Halloween Tee 2025,orange flame cape print" },
+      { url: "/professional-images/halloweenshirt.webp", alt: "Halloween Tee 2025,orange flame cape print" },
     ],
     status: "display_only",
     sortOrder: 7,
@@ -125,7 +125,7 @@ export const shirts: Shirt[] = [
     description:
       "Matched to the brown cape. Earth-tone body, ink bear mark, and one of the studio's rotating shirt designs.",
     images: [
-      { url: "/professional-images/brownshirt.jpg", alt: "Brown Tee,earth-tone body with ink bear mark" },
+      { url: "/professional-images/brownshirt.webp", alt: "Brown Tee,earth-tone body with ink bear mark" },
     ],
     status: "display_only",
     sortOrder: 8,

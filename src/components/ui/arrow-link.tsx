@@ -19,7 +19,7 @@ export function ArrowLink({
   className?: string;
 }) {
   const classes = cn(
-    "group inline-flex origin-left items-center gap-1.5 text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-all duration-300 hover:scale-110 hover:decoration-ink",
+    "group -my-3 inline-flex origin-left items-center gap-1.5 py-3 text-sm font-medium underline underline-offset-4 decoration-ink/40 transition-all duration-300 hover:scale-110 hover:decoration-ink",
     className
   );
   const inner = (

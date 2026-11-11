@@ -91,6 +91,7 @@ function GalleryVideoTile({
       <video
         ref={videoRef}
         src={item.url}
+        poster={item.poster}
         autoPlay
         loop
         muted={isMuted}
@@ -291,6 +292,7 @@ function GalleryVideoLightbox({
       <video
         ref={videoRef}
         src={item.url}
+        poster={item.poster}
         autoPlay
         loop
         playsInline
