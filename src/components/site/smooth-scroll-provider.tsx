@@ -8,6 +8,26 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   const pathname = usePathname();
 
   useEffect(() => {
+    // Keep the browser from restoring a previous scroll position on refresh.
+    // The page should always open with the hero filling the viewport.
+    history.scrollRestoration = "manual";
+    const resetOnReload = () => {
+      const navigation = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+      if (navigation?.type !== "reload") return;
+      const html = document.documentElement;
+      const previous = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
+      const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+      if (lenis) lenis.scrollTo(0, { immediate: true });
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => { html.style.scrollBehavior = previous; });
+    };
+    resetOnReload();
+    window.addEventListener("pageshow", resetOnReload);
+    return () => window.removeEventListener("pageshow", resetOnReload);
+  }, []);
+
+  useEffect(() => {
     // Disable on prefers-reduced-motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -42,7 +62,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
   }, [pathname]);
 
