@@ -182,7 +182,7 @@ export function PortfolioMarquee() {
   const activeItem = active === null ? null : marqueeImages[active];
 
   return (
-    <section id="the-work" className="bg-bone overflow-hidden pt-14 pb-8 md:pt-0 md:pb-24 lg:pb-36">
+    <section id="the-work" className="bg-bone overflow-hidden pt-14 pb-8 md:pt-12 md:pb-24 lg:min-h-[85svh] lg:pt-24 lg:pb-36">
       <Reveal className="px-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1440px]">
           <p className="eyebrow !text-[15px] !tracking-[0.2em] text-stone-500 sm:!text-[11px] sm:!tracking-[0.18em]">02 · My Work</p>

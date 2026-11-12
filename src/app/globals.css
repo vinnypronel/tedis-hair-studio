@@ -442,11 +442,16 @@ html.lenis body {
   scroll-margin-top: var(--stack-header-h);
 }
 
-/* Desktop keeps the effect; only its design tokens soften. */
+/* Desktop cards round as they enter, then flatten against the fixed header. */
 @media (min-width: 1024px) {
   .stack-root {
     --stack-radius: clamp(32px, 3vw, 56px);
-    --stack-shadow: 0 -30px 90px rgba(11, 11, 11, 0.26);
+    --stack-shadow: 0 -16px 42px rgba(11, 11, 11, 0.2);
+  }
+
+  .stack-root > .stack-card:not(.stack-card-first) {
+    border-top-left-radius: calc(var(--stack-radius) * var(--stack-corner-progress, 1));
+    border-top-right-radius: calc(var(--stack-radius) * var(--stack-corner-progress, 1));
   }
 }
 

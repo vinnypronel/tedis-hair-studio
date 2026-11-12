@@ -53,8 +53,8 @@ export function IntroStrip() {
 export function ServicesTeaser() {
   const featured = services.slice(0, 3);
   return (
-    <section className="bg-bone px-6 pt-8 pb-12 md:px-12 lg:py-24 lg:px-20">
-      <div className="mx-auto max-w-[1440px]">
+    <section className="bg-bone px-6 pt-8 pb-12 md:px-12 lg:flex lg:min-h-[85svh] lg:items-center lg:py-32 lg:px-20">
+      <div className="mx-auto w-full max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4 lg:pt-16">
             <Reveal>
@@ -126,15 +126,17 @@ export function BrandStory() {
     // 4px of horizontal scroll to the page on desktop.
     <section className="overflow-hidden bg-ink text-cream pb-20 lg:pb-0">
       <div className="grid lg:grid-cols-2">
-        <div className="relative order-2 min-h-[420px] lg:order-1 lg:min-h-[640px]">
-          <Image
-            src="/professional-images/chair-wash.webp"
-            alt="Inside the studio, the cape with the bear mark"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-ink/20" />
+        <div className="relative order-2 min-h-[420px] bg-ink lg:order-1 lg:min-h-[640px]">
+          <div className="absolute inset-0 lg:inset-10">
+            <Image
+              src="/professional-images/chair-wash.webp"
+              alt="Inside the studio, the cape with the bear mark"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-ink/20" />
+          </div>
         </div>
         <div className="relative order-1 flex flex-col justify-center px-6 py-24 md:px-12 lg:order-2 lg:px-20 lg:py-32">
           <BearLogo
@@ -432,8 +434,8 @@ export function InstagramStrip() {
 
 export function Visit() {
   return (
-    <section className="bg-forest px-6 pt-8 pb-14 text-cream md:px-12 md:pt-8 md:pb-16 lg:px-20 lg:pt-10 lg:pb-20">
-      <div className="mx-auto max-w-[1440px]">
+    <section className="bg-forest px-6 pt-8 pb-14 text-cream md:px-12 md:pt-8 md:pb-16 lg:flex lg:min-h-[90svh] lg:items-center lg:px-20 lg:py-24">
+      <div className="mx-auto w-full max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
           <Reveal delay={0.1}>
             <p className="eyebrow text-cream/50">08 · Visit</p>

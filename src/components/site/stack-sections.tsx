@@ -31,6 +31,22 @@ export function StackSections() {
     if (!root) return;
     let cards: HTMLElement[] = [];
     let observer: ResizeObserver | null = null;
+    let frame = 0;
+
+    const updateCorners = () => {
+      frame = 0;
+      if (!window.matchMedia("(min-width: 1024px)").matches) return;
+      const header = parseFloat(getComputedStyle(root).getPropertyValue("--stack-header-h")) || 80;
+      for (let index = 1; index < cards.length; index++) {
+        const card = cards[index];
+        const distance = card.getBoundingClientRect().top - header;
+        const progress = Math.max(0, Math.min(1, distance / 96));
+        card.style.setProperty("--stack-corner-progress", String(progress));
+      }
+    };
+    const queueCorners = () => {
+      if (!frame) frame = requestAnimationFrame(updateCorners);
+    };
 
     const measure = (targets: HTMLElement[]) => {
       for (const card of targets) {
@@ -38,11 +54,14 @@ export function StackSections() {
       }
     };
     const stop = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
       observer?.disconnect();
       observer = null;
       for (const card of cards) {
         card.classList.remove("stack-card", "stack-card-first", "stack-card-last");
         card.style.removeProperty("--stack-card-h");
+        card.style.removeProperty("--stack-corner-progress");
         card.style.removeProperty("z-index");
       }
       cards = [];
@@ -64,10 +83,12 @@ export function StackSections() {
         card.style.zIndex = String(index + 1);
       });
       measure(cards);
-      observer = new ResizeObserver((entries) =>
-        measure(entries.map((entry) => entry.target as HTMLElement))
-      );
+      observer = new ResizeObserver((entries) => {
+        measure(entries.map((entry) => entry.target as HTMLElement));
+        queueCorners();
+      });
       cards.forEach((card) => observer?.observe(card));
+      queueCorners();
     };
 
     start();
@@ -86,8 +107,10 @@ export function StackSections() {
       });
     };
     window.addEventListener("resize", onResize);
+    window.addEventListener("scroll", queueCorners, { passive: true });
     return () => {
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", queueCorners);
       sections.disconnect();
       stop();
     };
